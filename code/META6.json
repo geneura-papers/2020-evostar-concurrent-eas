@@ -1,0 +1,22 @@
+{
+  "auth" : "github:JJ",
+  "authors" : [
+    "JJ Merelo"
+  ],
+  "build-depends" : [ ],
+  "depends" : [
+    "Algorithm::Evolutionary::Simple",
+    "JSON::Fast",
+    "Log::Async"
+  ],
+  "description" : "A concurrent evolutionary algorithm",
+  "license" : "Artistic-2.0",
+  "name" : "Example Algorithm::Evolutionary::Simple",
+  "perl" : "6.*",
+  "provides" : {},
+  "test-depends" : [
+    "Test",
+    "Test::META"
+  ],
+  "version" : "0.0.8"
+}
