@@ -5,7 +5,7 @@ use v6;
 use lib <../../lib>;
 
 use Algorithm::Evolutionary::Simple;
-use Log::Async;
+use Algorithm::Evolutionary::LogTimelineSchema;
 use JSON::Fast;
 
 sub json-formatter ( $m, :$fh ) {
@@ -14,7 +14,8 @@ sub json-formatter ( $m, :$fh ) {
 			time => $m<when>.Str });
 }
 
-logger.send-to("lo-pma-" ~ DateTime.now.Str ~ ".json", formatter => &json-formatter);
+logger.send-to("lo-pma-" ~ DateTime.now.Str ~ ".json", formatter =>
+		&json-formatter); # Needs to change
 
 sub MAIN( UInt :$length = 48,
 	  		UInt :$total-population = 2048,
@@ -70,10 +71,9 @@ sub MAIN( UInt :$length = 48,
 		        	$to-mix.send( frequencies-best($population, 8) );
 	            }
 	        };
-	        $population = generation( population => $population,
-				    			      fitness-of => %fitness-of,
+	        $population = generation( :$population, :%fitness-of,
 										evaluator => &leading-ones,
-				          				population-size => $population-size);
+				          				:$population-size);
 	        $evaluations += $population.elems;
             };
         };
