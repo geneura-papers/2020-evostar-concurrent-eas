@@ -235,6 +235,7 @@ TSWLatexianTemp*
 # expex forward references with \gathertags
 *-tags.tex
 
+
 # standalone packages
 *.sta
 
@@ -245,3 +246,6 @@ TSWLatexianTemp*
 
 *.pdf
 volunteer-wasm.tex
+
+codeStyles/
+workspace.xml
