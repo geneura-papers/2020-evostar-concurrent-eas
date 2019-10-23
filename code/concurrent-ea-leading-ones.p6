@@ -53,41 +53,45 @@ sub MAIN(
     my @promises;
     for ^$threads {
         my $promise = start react whenever $channel-one -> @crew {
-            my %fitness-of;
-		    my @unpacked-pop = generate-by-frequencies( $population-size, @crew );
-		    my $population = evaluate( population => @unpacked-pop,
+            Algorithm::Evolutionary::LogTimelineSchema::Evolutionary.log: {
+                my %fitness-of;
+		        my @unpacked-pop = generate-by-frequencies( $population-size, @crew );
+		        my $population = evaluate( population => @unpacked-pop,
                                        fitness-of => %fitness-of,
 								       evaluator => &leading-ones);
-	    	my $count = 0;
-	    	while $count++ < $generations && best-fitness($population) < $max-fitness {
-	        	LAST {
-		    	if best-fitness($population) >= $max-fitness {
-					Algorithm::Evolutionary::LogTimelineSchema::Events.log(
-							{
-								id => $*THREAD.id,
-			        	        best => best-fitness($population),
-			            	    found => True,
-			                	finishing-at => DateTime.now.Str
-							}
-							);
-                
-		        	say "Solution found" => $evaluations;
-					Algorithm::Evolutionary::LogTimelineSchema::Events.log( :$evaluations );
-					$channel-one.close;
-	            } else {
-		        	say "Emitting after $count generations in thread ", $*THREAD.id, " Best fitness ",best-fitness($population)  ;
-		        	Algorithm::Evolutionary::LogTimelineSchema::Events.log(
-							{
-								id => $*THREAD.id,
-								best => best-fitness($population)
-							});
-		        	$to-mix.send( frequencies-best($population, 8) );
-	            }
-	        };
-	        $population = generation( :$population, :%fitness-of,
-										evaluator => &leading-ones,
-				          				:$population-size);
-	        $evaluations += $population.elems;
+	    	    my $count = 0;
+	    	    while $count++ < $generations && best-fitness($population) < $max-fitness {
+                    LAST {
+                        if best-fitness($population) >= $max-fitness {
+                            Algorithm::Evolutionary::LogTimelineSchema::Events.log(
+                                    {
+                                        id => $*THREAD.id,
+                                        best => best-fitness($population),
+                                        found => True,
+                                        finishing-at => DateTime.now.Str
+                                    }
+                                    );
+
+                            say "Solution found" => $evaluations;
+                            Algorithm::Evolutionary::LogTimelineSchema::Events.log( :$evaluations );
+                            $channel-one.close;
+                        } else {
+                            say "Emitting after $count generations in thread ", $*THREAD.id, " Best fitness ",best-fitness($population);
+                            Algorithm::Evolutionary::LogTimelineSchema::Events.log(
+                                    {
+                                        id => $*THREAD.id,
+                                        best => best-fitness($population)
+                                    });
+                            $to-mix.send( frequencies-best($population, 8) );
+                        }
+                    };
+                    $population = generation(   :$population, :%fitness-of,
+                            evaluator => &leading-ones,
+                            :$population-size
+                            );
+                    $evaluations += $population.elems;
+                }
+                $evaluations;
             };
         };
         @promises.push: $promise;
