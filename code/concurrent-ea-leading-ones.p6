@@ -2,26 +2,30 @@
 
 use v6;
 
-use lib <../../lib>;
+use lib <../../lib lib>;
 
 use Algorithm::Evolutionary::Simple;
 use Algorithm::Evolutionary::LogTimelineSchema;
-use JSON::Fast;
+use Log::Timeline::Output::JSONLines;
 
-sub json-formatter ( $m, :$fh ) {
-    say $m;
-    $fh.say: to-json( { msg => from-json($m<msg>),
-			time => $m<when>.Str });
+constant \log-file = ("lo-pma-" ~ DateTime.now.Str ~ ".json").IO;
+BEGIN {
+    PROCESS::<$LOG-TIMELINE-OUTPUT>
+			= Log::Timeline::Output::JSONLines.new(
+            	path => log-file
+            )
 }
 
-logger.send-to("lo-pma-" ~ DateTime.now.Str ~ ".json", formatter =>
-		&json-formatter); # Needs to change
+use Log::Timeline;
 
-sub MAIN( UInt :$length = 48,
-	  		UInt :$total-population = 2048,
-	  		UInt :$generations = 16,
-	  		UInt :$threads = 2,
-			UInt :$time-limit = 1200
+use JSON::Fast;
+
+sub MAIN(
+		UInt :$length = 48,
+		UInt :$total-population = 256,
+		UInt :$generations = 16,
+		UInt :$threads = 2,
+		UInt :$time-limit = 1200
 	) {
 
     my $parameters = .Capture;
@@ -32,13 +36,14 @@ sub MAIN( UInt :$length = 48,
     my $evaluations = 0;
     my $max-fitness = $length;
 
+	Algorithm::Evolutionary::LogTimelineSchema::Events.log();
     my $initial-populations = $threads + 1;
-    info(to-json( { length => $length,
+   	Algorithm::Evolutionary::LogTimelineSchema::Events.log( { length => $length,
 				    population-size => $population-size,
                     initial-populations => $initial-populations,
 		    		generations => $generations,
 		    		threads => $threads,
-		    		start-at => DateTime.now.Str} ));
+		    		start-at => DateTime.now.Str} );
 
     # Initialize three populations for the mixer
     for ^$initial-populations {
@@ -57,17 +62,25 @@ sub MAIN( UInt :$length = 48,
 	    	while $count++ < $generations && best-fitness($population) < $max-fitness {
 	        	LAST {
 		    	if best-fitness($population) >= $max-fitness {
-		        	info(to-json( { id => $*THREAD.id,
+					Algorithm::Evolutionary::LogTimelineSchema::Events.log(
+							{
+								id => $*THREAD.id,
 			        	        best => best-fitness($population),
 			            	    found => True,
-			                	finishing-at => DateTime.now.Str} ));
+			                	finishing-at => DateTime.now.Str
+							}
+							);
                 
 		        	say "Solution found" => $evaluations;
-		        	$channel-one.close;
+					Algorithm::Evolutionary::LogTimelineSchema::Events.log( :$evaluations );
+					$channel-one.close;
 	            } else {
 		        	say "Emitting after $count generations in thread ", $*THREAD.id, " Best fitness ",best-fitness($population)  ;
-		        	info(to-json( { id => $*THREAD.id,
-			                best => best-fitness($population) }));
+		        	Algorithm::Evolutionary::LogTimelineSchema::Events.log(
+							{
+								id => $*THREAD.id,
+								best => best-fitness($population)
+							});
 		        	$to-mix.send( frequencies-best($population, 8) );
 	            }
 	        };
@@ -88,9 +101,11 @@ sub MAIN( UInt :$length = 48,
 		say "Mixing in ", $*THREAD.id;
     };
 
-    start { sleep $time-limit;
-            say "Reached time limit";
-            exit
+    start {
+		sleep $time-limit;
+        say "Reached time limit";
+		Algorithm::Evolutionary::LogTimelineSchema::Events.log( :not-found(True) );
+		exit
 	};   # Just in case it gets stuck
     await @promises;
     say "Parameters ==";
