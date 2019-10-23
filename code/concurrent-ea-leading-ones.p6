@@ -9,12 +9,12 @@ use Algorithm::Evolutionary::LogTimelineSchema;
 use Log::Timeline::Output::JSONLines;
 
 constant \log-file = ("lo-pma-" ~ DateTime.now.Str ~ ".json").IO;
-BEGIN {
-    PROCESS::<$LOG-TIMELINE-OUTPUT>
-			= Log::Timeline::Output::JSONLines.new(
-            	path => log-file
-            )
-}
+#BEGIN {
+#    PROCESS::<$LOG-TIMELINE-OUTPUT>
+#			= Log::Timeline::Output::JSONLines.new(
+#            	path => log-file
+#            )
+#}
 
 use Log::Timeline;
 
