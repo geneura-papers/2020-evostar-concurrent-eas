@@ -21,7 +21,7 @@ use Log::Timeline;
 use JSON::Fast;
 
 sub MAIN(
-		UInt :$length = 48,
+		UInt :$length = 50,
 		UInt :$total-population = 256,
 		UInt :$generations = 16,
 		UInt :$threads = 2,
