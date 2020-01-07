@@ -249,3 +249,6 @@ volunteer-wasm.tex
 
 codeStyles/
 workspace.xml
+
+.name
+.precomp
