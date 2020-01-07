@@ -24,7 +24,7 @@ sub MAIN(
 		UInt :$length = 50,
 		UInt :$total-population = 256,
 		UInt :$generations = 16,
-		UInt :$threads = 2,
+		UInt :$threads = 4,
 		UInt :$time-limit = 1200
 	) {
 
@@ -47,7 +47,7 @@ sub MAIN(
 
     # Initialize three populations for the mixer
     for ^$initial-populations {
-	$channel-one.send( 1.rand xx $length );
+	    $channel-one.send( 1.rand xx $length );
     }
 
     my @promises;
@@ -99,10 +99,13 @@ sub MAIN(
     }
 
     my $pairs = start react whenever $mixer -> @pair {
-        $to-mix.send( @pair.pick ); # To avoid getting it hanged up
-		my @new-population =  crossover-frequencies( @pair[0], @pair[1] );
-		$channel-one.send( @new-population);
-		say "Mixing in ", $*THREAD.id;
+        Algorithm::Evolutionary::LogTimelineSchema::Mixer.log: {
+            $to-mix.send( @pair.pick );
+            # To avoid getting it hanged up
+            my @new-population =  crossover-frequencies( @pair[0], @pair[1] );
+            $channel-one.send( @new-population);
+            say "Mixing in ", $*THREAD.id;
+        }
     };
 
     start {
