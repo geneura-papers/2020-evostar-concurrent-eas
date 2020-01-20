@@ -62,7 +62,8 @@ sub MAIN(
                         :%fitness-of,
                         evaluator => &leading-ones);
 	    	    my $count = 0;
-	    	    while $count++ < $generations && best-fitness($population) < $max-fitness {
+	    	    while ($count++ < $generations) &&
+                        (best-fitness($population) < $max-fitness) {
                     LAST {
                         if best-fitness($population) >= $max-fitness {
                             Algorithm::Evolutionary::LogTimelineSchema::SolutionFound
@@ -97,6 +98,7 @@ sub MAIN(
                 }
                 Algorithm::Evolutionary::LogTimelineSchema::Generations
                         .log( :$generations,
+                              :$count,
                               individuals => %fitness-of.keys.elems);
                 $evaluations;
             };
