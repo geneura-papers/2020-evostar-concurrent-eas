@@ -38,11 +38,11 @@ sub MAIN(
 
 	Algorithm::Evolutionary::LogTimelineSchema::Events.log();
     my $initial-populations = $threads + 1;
-   	Algorithm::Evolutionary::LogTimelineSchema::Events.log( { length => $length,
-				    population-size => $population-size,
-                    initial-populations => $initial-populations,
-		    		generations => $generations,
-		    		threads => $threads,
+   	Algorithm::Evolutionary::LogTimelineSchema::Events.log( { :$length,
+				    :$population-size,
+                    :$initial-populations,
+		    		:$generations,
+		    		:$threads,
 		    		start-at => DateTime.now.Str} );
 
     # Initialize three populations for the mixer
@@ -59,7 +59,7 @@ sub MAIN(
                         .log( :@crew );
 		        my @unpacked-pop = generate-by-frequencies( $population-size, @crew );
 		        my $population = evaluate( population => @unpacked-pop,
-                        fitness-of => %fitness-of,
+                        :%fitness-of,
                         evaluator => &leading-ones);
 	    	    my $count = 0;
 	    	    while $count++ < $generations && best-fitness($population) < $max-fitness {
