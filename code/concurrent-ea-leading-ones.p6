@@ -90,15 +90,14 @@ sub MAIN(
                             $to-mix.send( frequencies-best($population, 8) );
                         }
                     };
-                    $population = generation(   :$population, :%fitness-of,
+                    $population = generation( :$population, :%fitness-of,
                             evaluator => &leading-ones,
                             :$population-size
                             );
                     $evaluations += $population.elems;
                 }
                 Algorithm::Evolutionary::LogTimelineSchema::Generations
-                        .log( :$generations,
-                              :$count,
+                        .log( :$count,
                               individuals => %fitness-of.keys.elems);
                 $evaluations;
             };
