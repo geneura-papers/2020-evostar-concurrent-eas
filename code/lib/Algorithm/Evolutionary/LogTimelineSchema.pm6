@@ -4,6 +4,9 @@ use Log::Timeline;
 
 class Events does Log::Timeline::Event['ConcurrentEA', 'Events', 'EA'] { }
 
+class Generations
+        does Log::Timeline::Event['ConcurrentEA', 'Generations', 'EA'] { }
+
 class SolutionFound
         does Log::Timeline::Event['ConcurrentEA', 'SolutionFound','EA'] { }
 

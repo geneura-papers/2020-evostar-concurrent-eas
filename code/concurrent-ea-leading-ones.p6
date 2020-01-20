@@ -93,6 +93,8 @@ sub MAIN(
                             );
                     $evaluations += $population.elems;
                 }
+                Algorithm::Evolutionary::LogTimelineSchema::Generations
+                        .log( :$generations );
                 $evaluations;
             };
         };
