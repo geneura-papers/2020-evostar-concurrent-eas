@@ -55,6 +55,8 @@ sub MAIN(
         my $promise = start react whenever $channel-one -> @crew {
             Algorithm::Evolutionary::LogTimelineSchema::Evolutionary.log: {
                 my %fitness-of;
+                Algorithm::Evolutionary::LogTimelineSchema::Frequencies
+                        .log( :@crew );
 		        my @unpacked-pop = generate-by-frequencies( $population-size, @crew );
 		        my $population = evaluate( population => @unpacked-pop,
                         fitness-of => %fitness-of,

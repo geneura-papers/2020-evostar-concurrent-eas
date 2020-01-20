@@ -5,10 +5,13 @@ use Log::Timeline;
 class Events does Log::Timeline::Event['ConcurrentEA', 'Events', 'EA'] { }
 
 class Generations
-        does Log::Timeline::Event['ConcurrentEA', 'Generations', 'EA'] { }
+        does Log::Timeline::Event['ConcurrentEA', 'Events', 'Generations'] { }
 
 class SolutionFound
-        does Log::Timeline::Event['ConcurrentEA', 'SolutionFound','EA'] { }
+        does Log::Timeline::Event['ConcurrentEA', 'Events','SolutionFound']  { }
+
+class Frequencies
+        does Log::Timeline::Event['ConcurrentEA', 'Events','Frequencies'] { }
 
 class Evolutionary does Log::Timeline::Task['ConcurrentEA', 'Concurrent',
         'Evolutionary'] { }
