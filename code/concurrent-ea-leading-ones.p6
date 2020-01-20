@@ -63,7 +63,8 @@ sub MAIN(
 	    	    while $count++ < $generations && best-fitness($population) < $max-fitness {
                     LAST {
                         if best-fitness($population) >= $max-fitness {
-                            Algorithm::Evolutionary::LogTimelineSchema::Events.log(
+                            Algorithm::Evolutionary::LogTimelineSchema::SolutionFound
+                                    .log(
                                     {
                                         id => $*THREAD.id,
                                         best => best-fitness($population),
@@ -73,7 +74,8 @@ sub MAIN(
                                     );
 
                             say "Solution found" => $evaluations;
-                            Algorithm::Evolutionary::LogTimelineSchema::Events.log( :$evaluations );
+                            Algorithm::Evolutionary::LogTimelineSchema::SolutionFound
+                                    .log( :$evaluations );
                             $channel-one.close;
                         } else {
                             say "Emitting after $count generations in thread ", $*THREAD.id, " Best fitness ",best-fitness($population);
