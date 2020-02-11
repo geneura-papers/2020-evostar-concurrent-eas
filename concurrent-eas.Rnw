@@ -9,8 +9,6 @@
 
 
 \begin{document}
-\SweaveOpts{concordance=TRUE}
-%\SweaveOpts{concordance=TRUE}
 
 <<setup, cache=FALSE,echo=FALSE>>=
 library(ggplot2)
@@ -19,7 +17,7 @@ library(ggthemes)
 
 \title{}
 
- \author{A\inst{1}
+ \author{Juan-J. Merelo Guervós\inst{1}
  \and
  B\inst{1}
  \and
@@ -29,8 +27,8 @@ library(ggthemes)
 }
 
 \institute{%
-   University Z\\
-   \email{an@ema.il}
+   University of Granada (Spain)\\
+   \email{jmerelo@ugr.es}
 }
 
 %\authorrunning{Merelo et al.}
