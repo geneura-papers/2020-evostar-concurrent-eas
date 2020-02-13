@@ -59,9 +59,12 @@ sub MAIN(
                         .log( :@crew );
 		        my @unpacked-pop = generate-by-frequencies( $population-size, @crew );
 		        my $population = evaluate( population => @unpacked-pop,
-                        :%fitness-of,
-                        evaluator => &leading-ones);
-	    	    my $count = 0;
+                                            :%fitness-of,
+                                            evaluator => &leading-ones);
+                Algorithm::Evolutionary::LogTimelineSchema::GenerationsStart
+                        .log( :population-size(@unpacked-pop.elems),
+                              :distinct-elements( %fitness-of.keys.elems) );
+                my $count = 0;
 	    	    while ($count++ < $generations) &&
                         (best-fitness($population) < $max-fitness) {
                     LAST {
@@ -97,7 +100,7 @@ sub MAIN(
                     $evaluations += $population.elems;
                 }
                 Algorithm::Evolutionary::LogTimelineSchema::Generations
-                        .log( :$count,
+                        .log( :generations($count),
                               individuals => %fitness-of.keys.elems);
                 $evaluations;
             };
