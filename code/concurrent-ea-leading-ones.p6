@@ -84,12 +84,21 @@ sub MAIN(
                                     .log( :$evaluations );
                             $channel-one.close;
                         } else {
+                            if  $count < $generations {
+                                Algorithm::Evolutionary::LogTimelineSchema::Weird
+                                        .log(  id => $*THREAD.id,
+                                                best => best-fitness($population),
+                                                :$count,
+                                                :population-size(@unpacked-pop.elems),
+                                                :distinct-elements( %fitness-of.keys.elems)
+                                        );
+                            }
                             say "Emitting after $count generations in thread ", $*THREAD.id, " Best fitness ",best-fitness($population);
                             Algorithm::Evolutionary::LogTimelineSchema::Events.log(
-                                    {
                                         id => $*THREAD.id,
-                                        best => best-fitness($population)
-                                    });
+                                        best => best-fitness($population),
+                                        :$count
+                                    );
                             $to-mix.send( frequencies-best($population, 8) );
                         }
                     };

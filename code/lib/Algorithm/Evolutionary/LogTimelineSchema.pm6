@@ -2,8 +2,10 @@ unit module Algorithm::Evolutionary::LogTimelineSchema;
 
 use Log::Timeline;
 
-class Events does Log::Timeline::Event['ConcurrentEA', 'Events', 'EA'] { }
+class Events does Log::Timeline::Event['ConcurrentEA', 'Events', 'EndRun'] { }
 
+class Weird does Log::Timeline::Event['ConcurrentEA', 'Events', 'Weird']
+{ }
 class Generations
         does Log::Timeline::Event['ConcurrentEA', 'Events', 'Generations'] { }
 
