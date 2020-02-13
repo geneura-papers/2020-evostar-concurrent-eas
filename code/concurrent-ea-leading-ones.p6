@@ -84,6 +84,8 @@ sub MAIN(
                                     .log( :$evaluations );
                             $channel-one.close;
                         } else {
+                            say "Emitting after $count generations in thread ",
+                                    $*THREAD.id, " Best fitness ",best-fitness($population);
                             if  $count < $generations {
                                 Algorithm::Evolutionary::LogTimelineSchema::Weird
                                         .log(  id => $*THREAD.id,
@@ -92,13 +94,13 @@ sub MAIN(
                                                 :population-size(@unpacked-pop.elems),
                                                 :distinct-elements( %fitness-of.keys.elems)
                                         );
-                            }
-                            say "Emitting after $count generations in thread ", $*THREAD.id, " Best fitness ",best-fitness($population);
-                            Algorithm::Evolutionary::LogTimelineSchema::Events.log(
+                            } else {
+                                Algorithm::Evolutionary::LogTimelineSchema::Events.log(
                                         id => $*THREAD.id,
                                         best => best-fitness($population),
                                         :$count
-                                    );
+                                        );
+                            }
                             $to-mix.send( frequencies-best($population, 8) );
                         }
                     };
