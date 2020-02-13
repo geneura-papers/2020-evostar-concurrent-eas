@@ -64,8 +64,8 @@ sub MAIN(
                 Algorithm::Evolutionary::LogTimelineSchema::GenerationsStart
                         .log( :population-size(@unpacked-pop.elems),
                               :distinct-elements( %fitness-of.keys.elems) );
-                my $count = 0;
-	    	    while ($count++ < $generations) &&
+                my atomicint $count = 0;
+	    	    while ($count⚛++ < $generations) &&
                         (best-fitness($population) < $max-fitness) {
                     LAST {
                         if best-fitness($population) >= $max-fitness {
