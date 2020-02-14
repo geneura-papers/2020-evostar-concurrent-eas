@@ -27,7 +27,7 @@ sub MAIN(
     my Channel $channel-one .= new;
     my Channel $to-mix .= new;
     my Channel $mixer = $to-mix.Supply.batch( elems => 2).Channel;
-    my $evaluations = 0;
+    my atomicint $evaluations = 0;
     my $max-fitness = $length;
 
     Algorithm::Evolutionary::LogTimelineSchema::Events.log();
@@ -102,7 +102,7 @@ sub MAIN(
                             evaluator => &leading-ones,
                             :$population-size
                             );
-                    $evaluations += $population.elems;
+                    $evaluations ⚛+= $population.elems;
                 }
                 Algorithm::Evolutionary::LogTimelineSchema::Generations
                         .log( :generations($count),
