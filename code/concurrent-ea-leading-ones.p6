@@ -59,52 +59,43 @@ sub MAIN(
                         .log( :population-size(@unpacked-pop.elems),
                               :distinct-elements( %fitness-of.keys.elems) );
                 my atomicint $count = 0;
-                while ($count⚛++ < $generations) &&
-                        (best-fitness($population) < $max-fitness) {
-                    LAST {
-                        if best-fitness($population) >= $max-fitness {
-                            Algorithm::Evolutionary::LogTimelineSchema::SolutionFound
-                                    .log(
-                                    {
-                                        id => $*THREAD.id,
-                                        best => best-fitness($population),
-                                        found => True,
-                                        finishing-at => DateTime.now.Str
-                                    }
-                                    );
+                for 0..$generations {
+                    if best-fitness($population) >= $max-fitness {
+                        Algorithm::Evolutionary::LogTimelineSchema::SolutionFound
+                            .log( { id => $*THREAD.id,
+                                    best => best-fitness($population),
+                                    found => True,
+                                    finishing-at => DateTime.now.Str } );
+                        say "Solution found" => $evaluations;
+                        Algorithm::Evolutionary::LogTimelineSchema::SolutionFound
+                                .log( :$evaluations );
+                        $channel-one.close;
+                    }
 
-                            say "Solution found" => $evaluations;
-                            Algorithm::Evolutionary::LogTimelineSchema::SolutionFound
-                                    .log( :$evaluations );
-                            $channel-one.close;
-                        } else {
-                            say "Emitting after $count generations in thread ",
-                                    $*THREAD.id, " Best fitness ",best-fitness($population);
-                            if  $count < $generations {
-                                Algorithm::Evolutionary::LogTimelineSchema::Weird
-                                        .log(  id => $*THREAD.id,
-                                                best => best-fitness($population),
-                                                :$count,
-                                                :population-size(@unpacked-pop.elems),
-                                                :distinct-elements( %fitness-of.keys.elems)
-                                        );
-                            } else {
-                                Algorithm::Evolutionary::LogTimelineSchema::Events.log(
-                                        id => $*THREAD.id,
-                                        best => best-fitness($population),
-                                        :$count
-                                        );
-                            }
-                            $to-mix.send( frequencies-best($population, 8) );
-                        }
-                    };
                     $population = generation( :$population, :%fitness-of,
-                            evaluator => &leading-ones,
-                            :$population-size
-                            );
+                                                evaluator => &leading-ones,
+                                                :$population-size );
                     $evaluations ⚛+= $population.elems;
+                    $count⚛++;
                 }
-                Algorithm::Evolutionary::LogTimelineSchema::Generations
+                say "Emitting after $count generations in thread ",
+                    $*THREAD.id, " Best fitness ", best-fitness($population);
+                if  $count < $generations {
+                    Algorithm::Evolutionary::LogTimelineSchema::Weird
+                        .log(  id => $*THREAD.id,
+                        best => best-fitness($population),
+                        :$count,
+                        :population-size(@unpacked-pop.elems),
+                        :distinct-elements( %fitness-of.keys.elems)
+                    );
+                } else {
+                    Algorithm::Evolutionary::LogTimelineSchema::Events.log(
+                        id => $*THREAD.id,
+                        best => best-fitness($population),
+                        :$count                        );
+                }
+                $to-mix.send( frequencies-best($population, 8) );
+                    Algorithm::Evolutionary::LogTimelineSchema::Generations
                         .log( :generations($count),
                               individuals => %fitness-of.keys.elems);
                 $evaluations;
