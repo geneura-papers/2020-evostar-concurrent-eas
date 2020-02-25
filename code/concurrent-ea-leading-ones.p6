@@ -70,6 +70,7 @@ sub MAIN(
                         Algorithm::Evolutionary::LogTimelineSchema::SolutionFound
                                 .log( :$evaluations );
                         $channel-one.close;
+                        last;
                     }
 
                     $population = generation( :$population, :%fitness-of,
