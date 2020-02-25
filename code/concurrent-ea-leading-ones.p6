@@ -59,7 +59,7 @@ sub MAIN(
                         .log( :population-size(@unpacked-pop.elems),
                               :distinct-elements( %fitness-of.keys.elems) );
                 my atomicint $count = 0;
-                for 0..$generations {
+                for 0..$generations { # Run except if solution is found
                     if best-fitness($population) >= $max-fitness {
                         Algorithm::Evolutionary::LogTimelineSchema::SolutionFound
                             .log( { id => $*THREAD.id,
