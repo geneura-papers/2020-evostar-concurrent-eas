@@ -133,6 +133,193 @@ suppressPackageStartupMessages({
 \section{Methodology, experimental setup and results}
 \label{sec:met}
 
+\section{Design of a concurrent evolutionary algorithm in Perl6}
+\label{sec:design}
+
+Perl 6 is a concurrent, functional language
+\cite{DBLP:journals/corr/abs-1809-01427} which was conceived with the
+intention of providing a solid conceptual framework for multi-paradigm
+computing, including thread-based concurrency and asynchrony. It's got
+a heuristic layer that optimizes code during execution time. In the last few
+years, performance of programs written in Perl 6 has been sped-up by a 100x factor, 
+approaching the same scale of other interpreted
+languages, although still with some room for improvement.
+
+The {\tt Algorithm::Evolutionary::Simple} Perl 6 module was published
+in the ecosystem a year ago and got recently into version 0.0.7. It
+is a straightforward implementation of a canonical evolutionary
+algorithm with binary representation and includes building blocks for
+a generational genetic algorithm, as well as some fitness functions
+used generally as benchmarks.
+
+% Those evolutionary algorithm building blocks do not include concurrent
+% primitives; it's up to the developer to design a concurrent
+% evolutionary algorithm using it.
+
+The baseline we are building upon, is similar to the one used in previous experiments
+%\cite{Merelo:2018:MEA:3205651.3208317:anon}
+\cite{Merelo:2018:MEA:3205651.3208317}. Our intention was to
+create a system that was not functionally equivalent to a sequential
+evolutionary algorithms, that also follows the principle of
+CSP. We decided to allow the algorithm to implement several threads communicating state through
+channels. Every process itself will be stateless, reacting to the
+% Please consider for other papers: Every 'subroutine' itself will be stateless, reacting to the... - Mario
+presence of messages in the channels it is listening to and sending
+result back to them, without changing state.
+
+As in the previous papers, \cite{merelo:WEA},% \cite{merelo:WEA:anon}, 
+we will use two groups of threads and two channels. 
+The two groups of threads perform the following functions:\begin{itemize}
+\item The {\em evolutionary} threads will be the ones performing 
+the operations of the evolutionary algorithm.
+\item The {\em mixing} thread will take existing populations, to create
+  new ones as a mixture of them.
+\end{itemize}
+
+% \begin{figure}[h!tb]
+%   \centering
+\begin{wrapfigure}[16]{l}{0.35\columnwidth}
+  %\centering
+  \vspace{-.5\intextsep}
+\hspace*{-.8\columnsep}
+\includegraphics[width=0.35\columnwidth]{../figure/popmixer}
+\caption{General scheme of operation of channels and thread groups. }
+\label{fig:scheme}
+\end{wrapfigure}
+% \end{figure}
+
+
+Besides, the two channels carry messages consisting of populations,
+but they do so in a different way:\begin{itemize}
+  
+\item The {\em evolutionary} channel will be used for carrying
+  non-evolved, or generated, populations.
+\item The {\em mixer} channel will carry, {\em in pairs}, evolved
+  populations. 
+\end{itemize}
+
+These will be connected as shown in Figure \ref{fig:scheme}. The
+evolutionary thread group will read only from the evolutionary channel,
+evolve for a number of generations, and send the result to the mixer
+channel; the mixer group of threads will read only from the mixer
+channel, in pairs. From every pair, a random element is put back into
+the mixer channel, and a new population is generated and sent back to
+the evolutionary channel. 
+
+% \begin{figure}[h!tb]
+%   \centering
+\begin{wrapfigure}[29]{r}{0.55\columnwidth}
+  \centering
+  \vspace{-.5\intextsep}
+\hspace*{-.8\columnsep}
+\scalebox{.6}{
+\begin{sequencediagram}
+
+\newthread[red]{E}{Evolver} 
+
+\tikzstyle{inststyle}+=[rounded corners=3mm] 
+\newinst{C}{Channel}
+
+\tikzstyle{inststyle}+=[rounded corners=0]
+\newthread[blue]{M}{Mixer}
+
+\begin{call}{E}{evolve()}{E}{}\end{call}
+
+\setthreadbias{east}
+\begin{messcall}{E}{$pop_1$}{C} 
+\mess{C}{$pop_1$}{M}
+\end{messcall}
+
+\prelevel\prelevel
+\begin{call}{E}{evolve()}{E}{}\end{call}
+
+\setthreadbias{east}
+\begin{messcall}{E}{$pop_2$}{C}  
+\mess{C}{$pop_2$}{M}
+\end{messcall}
+
+\prelevel\prelevel
+\begin{call}{M}{mix()}{M}{}\end{call}
+
+\postlevel\postlevel
+\setthreadbias{west}
+\begin{messcall}{M}{\shortstack{ \{\ $mixpop_1$,\\ $mixpop_2$,\\ \vdots \\ $mixpop_k$ \} }}{C}
+
+\mess{C}{$mixpop_1$}{E} 
+\begin{call}{E}{evolve()}{E}{}\end{call}
+
+\setthreadbias{east}
+\begin{messcall}{E}{$pop_3$}{C} 
+\postlevel
+\mess{C}{$mixpop_2$}{E} 
+%\prelevel
+\mess{C}{$pop_3$}{M}
+\end{messcall}
+
+\prelevel\prelevel
+\begin{call}{E}{evolve()}{E}{}\end{call}
+
+\setthreadbias{east}
+\begin{messcall}{E}{$pop_4$}{C}
+\mess{C}{$pop_4$}{M}
+\end{messcall}
+
+\setthreadbias{west}
+\prelevel
+\mess{C}{$mixpop_k$}{E}%\end{messcall}
+
+\end{messcall}
+
+\prelevel\prelevel
+\begin{call}{M}{mix()}{M}{\vdots}\end{call}
+\prelevel
+\begin{call}{E}{evolve()}{E}{\vdots}\end{call}
+
+\end{sequencediagram}
+}
+
+\caption{Communication between threads and channels for
+  concurrent EAs. The two central bars represent the channel, and
+  color corresponds to their roles: blue for mixer, red for evolver. 
+  Notice how the evolver threads always read from the mixer channel, 
+  and always write to the evolver channel.}
+\label{fig:schematic}
+% \end{figure}
+\end{wrapfigure}
+
+The main objective of using two channels is
+to avoid deadlocks; the fact that one population is written always
+back to the mixer channel avoids starvation of the channel. 
+Figure \ref{fig:schematic} illustrates this operation, where the
+timeline of the interchange of messages between the evolver and mixer
+threads and evolver and mixer channels is clarified.
+
+The state of the algorithm will be transmitted via messages that
+contain data about one population. Since using the whole population
+will incur in a lot of overhead, we use a strategy that is inspired in {\em EDA}, 
+or Estimation of Distribution Algorithm: instead of 
+transmitting the entire population, the message sent to the channel 
+will consist of a prototype array containing the probability distribution 
+across each gene in the population. In this sense,
+this strategy is similar to the one presented by de la Ossa et
+al. in \cite{10.1007/978-3-540-30217-9_25}. 
+
+Nonetheless, our strategy differs from a pure EDA in that once the evolutionary
+thread have internally run a canonical genetic algorithm, it takes 
+only the top quartile of best individuals to compute an array with the 
+probability distribution of their genes (computed with frequentist rules) 
+and then compose the message that is sent to the {\em mixer} threads. 
+
+A {\em mixer} thread, in turn, 
+builds a new prototype array by choosing randomly at each gene location
+one probability parameter out of the  two {\em populations} (actually, distributions), 
+instead of working directly on individuals. While in the baseline strategy the
+selection took place in the mixer thread by eliminating half the
+population, in this new design the selection occurs in the evolutionary thread
+that selects the 25\% best individuals to compose the probability distribution
+message. When the evolver thread reads the message back, it generates a new population 
+using the mixed distribution obtained by the mixer.
+
 \section{Conclusions and discussion}
 \label{sec:conclusions}
 
