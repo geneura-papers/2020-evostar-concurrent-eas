@@ -8,11 +8,7 @@ use Algorithm::Evolutionary::Simple;
 use Algorithm::Evolutionary::LogTimelineSchema;
 use Log::Timeline::Output::JSONLines;
 
-constant \log-file = ("lo-pma-" ~ DateTime.now.Str ~ ".json").IO;
-
 use Log::Timeline;
-
-use JSON::Fast;
 
 sub MAIN(
         UInt :$length = 50,
@@ -59,7 +55,9 @@ sub MAIN(
                         .log( :population-size(@unpacked-pop.elems),
                               :distinct-elements( %fitness-of.keys.elems) );
                 my atomicint $count = 0;
-                for 0..$generations { # Run except if solution is found
+                # Using for instead of while eliminates "short periods"
+                for 0..$generations {
+                    # Exit if best solution is found
                     if best-fitness($population) >= $max-fitness {
                         Algorithm::Evolutionary::LogTimelineSchema::SolutionFound
                             .log( { id => $*THREAD.id,
