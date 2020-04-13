@@ -67,6 +67,7 @@ sub MAIN(
                 my atomicint $count = 0;
 	    	    while ($count⚛++ < $generations) &&
                         (best-fitness($population) < $max-fitness) {
+
                     LAST {
                         if best-fitness($population) >= $max-fitness {
                             Algorithm::Evolutionary::LogTimelineSchema::SolutionFound
