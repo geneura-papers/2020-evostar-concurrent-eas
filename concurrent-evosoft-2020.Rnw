@@ -49,7 +49,7 @@ suppressPackageStartupMessages({
 })
 @
 
-\title{}
+\title{Implementation matters in concurrent evolutionary algorithms}
 
 %%% The submitted version for review should be ANONYMOUS
 \author{Ben Trovato}
