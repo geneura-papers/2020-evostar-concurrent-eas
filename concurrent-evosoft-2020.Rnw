@@ -2,6 +2,10 @@
 \documentclass[sigconf]{acmart}
 \usepackage[utf8]{inputenc}
 \usepackage{booktabs} % For formal tables
+\usepackage{tikz}
+\usepackage{pgfbaselayers}
+\usepackage[underline=false]{pgf-umlsd} % for sequencediagram
+
 
 
 % Copyright
@@ -176,17 +180,14 @@ the operations of the evolutionary algorithm.
   new ones as a mixture of them.
 \end{itemize}
 
-% \begin{figure}[h!tb]
-%   \centering
-\begin{wrapfigure}[16]{l}{0.35\columnwidth}
+\begin{figure}[h!tb]
   %\centering
   \vspace{-.5\intextsep}
 \hspace*{-.8\columnsep}
-\includegraphics[width=0.35\columnwidth]{../figure/popmixer}
+\includegraphics[width=0.95\columnwidth]{imgs/popmixer}
 \caption{General scheme of operation of channels and thread groups. }
 \label{fig:scheme}
-\end{wrapfigure}
-% \end{figure}
+\end{figure}
 
 
 Besides, the two channels carry messages consisting of populations,
@@ -206,9 +207,7 @@ channel, in pairs. From every pair, a random element is put back into
 the mixer channel, and a new population is generated and sent back to
 the evolutionary channel. 
 
-% \begin{figure}[h!tb]
-%   \centering
-\begin{wrapfigure}[29]{r}{0.55\columnwidth}
+\begin{figure}[h!tb]
   \centering
   \vspace{-.5\intextsep}
 \hspace*{-.8\columnsep}
@@ -285,7 +284,7 @@ the evolutionary channel.
   and always write to the evolver channel.}
 \label{fig:schematic}
 % \end{figure}
-\end{wrapfigure}
+\end{figure}
 
 The main objective of using two channels is
 to avoid deadlocks; the fact that one population is written always
