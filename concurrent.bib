@@ -1253,3 +1253,18 @@ pages="569--576",
 abstract="Due to rapid advances in VLSI design technology during the last decade, the complexity and size of circuits have been rapidly increasing, placing a demand on industry for faster and more efficient CAD tools. Physical design is a process of converting the physical description into geometric description. Physical design process is subdivided into four problems: Partitioning, Floor planning, Placement and Routing. Placement phase determines the positions of the cells. Placement constrains are wire-length, area of the die, power minimization and delay. For the area and wire length optimization a modern placer need to handle the large--scale design with millions of object. This thesis work aims to develop an efficient and low time complexity algorithms for placement. This can be achieved by the use of a problem specific genotype encoding, and hybrid, knowledge based techniques, which support the algorithm during the creation of the initial individuals and the optimization process. In this paper a novel memetic algorithm, which is used to solve standard cell placement problem is presented. These techniques are applied to the multithread of the VLSI cell placement problem where the objectives are to reduce power dissipation and wire length while improving performance (delay).",
 isbn="978-3-642-27172-4"
 }
+
+@article{PEDROSO2017995,
+title = "Parallel evolutionary algorithm for single and multi-objective optimisation: Differential evolution and constraints handling",
+journal = "Applied Soft Computing",
+volume = "61",
+pages = "995 - 1012",
+year = "2017",
+issn = "1568-4946",
+doi = "https://doi.org/10.1016/j.asoc.2017.09.006",
+url = "http://www.sciencedirect.com/science/article/pii/S1568494617305458",
+author = "Dorival M. Pedroso and Mohammad Reza Bonyadi and Marcus Gallagher",
+keywords = "Differential evolution, Constraints handling, Many objectives, Truss optimisation, Economic dispatch, Parallel computing",
+abstract = "This paper presents an evolutionary algorithm employing differential evolution to solve nonlinear optimisation problems with (or without) constraints and multiple objectives. New decision strategies to compare candidate solutions are developed that take into account all constraints and objective functions. The new constraint handling strategy uses the concept of Pareto dominance to rank the candidate solutions based on their constraint violation value. In order to improve the performance of the algorithm, a set of genetic operators and differential evolution operators are combined. In addition, the paper proposes an algorithm to perform parallel evolution in a way that the diversity of the final population is preserved after migrations. Another goal of the algorithm is to handle problems with a mix of integers and real-valued variables. Numerical experiments investigate the robustness and the performance of the algorithm through multiple benchmark optimisation problems. Finally, two engineering applications are studied, namely: (1) the topology optimisation of trusses; and (2) the economical dispatch problem in power generation. Results show that the algorithm is capable of handling optimisation problems with a mix of integer and real-valued variables with constraints and multiple objectives.",
+notes='uses Go and communication via channels, but goroutines synchronize and there's a sequential part"
+}
