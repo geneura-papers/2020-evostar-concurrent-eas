@@ -1,4 +1,7 @@
-library(ggplot)
+library(ggplot2)
 library(ggthemes)
 
-data <- read.csv("code/lo-evosoft-results.csv")
+data <- read.csv("code/lo-evosoft-results-freija.csv")
+data$Population <- as.factor(data$Population)
+data$Threads <- as.factor(data$Threads)
+ggplot(data,aes(x=Threads,y=Evaluations,color=Population))+geom_tufteboxplot()+theme_tufte()
