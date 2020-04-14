@@ -28,12 +28,12 @@ sub MAIN(
 
     Algorithm::Evolutionary::LogTimelineSchema::Events.log();
     my $initial-populations = $threads + 1;
-    Algorithm::Evolutionary::LogTimelineSchema::Events.log( { :$length,
+    Algorithm::Evolutionary::LogTimelineSchema::Events.log(  :$length,
                     :$population-size,
                     :$initial-populations,
                     :$generations,
                     :$threads,
-                    start-at => DateTime.now.Str} );
+                    start-at => DateTime.now.Str );
 
     # Initialize three populations for the mixer
     for ^$initial-populations {
