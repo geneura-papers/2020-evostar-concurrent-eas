@@ -8,6 +8,7 @@ my $dir = @*ARGS[0] // "logs";
 
 say "Population, Threads, Time, Evaluations";
 for dir($dir, test => /'.' json $/) -> $f {
+    say $f;
     my $population = ($f ~~ /p\d+/)??512!!256;
     my $threads = ~($f ~~ /t(\d)/)[0];
     my @lines = $f.IO.lines.map: { from-json $_};
