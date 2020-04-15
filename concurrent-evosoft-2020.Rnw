@@ -133,7 +133,13 @@ suppressPackageStartupMessages({
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
 
+% What is concurrency - JJ
 
+Despite concurrency-capable architectures being the prevalent kind of computer systems nowadays, concurrent evolutionary algorithms have not enjoyed the same kind of popularity. A bibliography search of concurrent evolutionary (or genetic) algorithms returns just a few hits, and even if we use another, lower-level term for it, multi-threaded evolutionary algorithms, we will just find a few more, and in this case focused on the use of the multiple theads in a GPU \cite{kromer2011comparison}.
+
+There might be several reasons for that. The main one is that conceiving a concurrent algorithm is not straightforward. A strategy for dividing work among different threads (every one in a task) and communication between them must be established; for starters tasks can be homogeneous or heterogeneous, or some space in between (with some tasks identical and some others doing other, different kind of work, for instance); they can also be synchronous (all tasks doing roughly the same amount of work, or exactly the same, with checkpoints where the main process waits for all tasks to be completed), or asynchronous with tasks starting, ending and communicating out of any pre-established sync mechanism.
+
+A secondary reason, in the case of evolutionary algorithms, is that, being as they are population-based algorithms that must keep a strict exploration-exploitation balance anything afecting the population will tip the balance in one direction or another. Dividing the population will make the algorithm more exploitative, increasing the population more explorative; the more straighforward strategy of dividing population among threads will likely tip the balance in one direction or the other.
 
 \section{State of the art}
 \label{sec:soa}
