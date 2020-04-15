@@ -49,7 +49,7 @@ suppressPackageStartupMessages({
 })
 @
 
-\title{Implementation matters in concurrent evolutionary algorithms}
+\title{Implementation matters, also in concurrent evolutionary algorithms}
 
 %%% The submitted version for review should be ANONYMOUS
 \author{Ben Trovato}
@@ -91,6 +91,7 @@ suppressPackageStartupMessages({
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{abstract}
+  Concurrent evolutionary algorithms give researchers a chance to leverage the performance of powerful multi-core desktop architectures by parallelizing tasks using a high-level interface. However, this introduces additional complexity at the model and the implementation level. In this paper we describe how to use parallel execution monitoring tools to check the effective parallelism of the implementation, and show how implementation-level improvements can translate in improvements at the algorithmic level, from the very basic evaluations/seconds point of view, to the possible scaling that can be achieved, up to a superlinear scaling in an off-the-shelf platform. We will show how the implementation using communicating sequential processes implemented in the language Raku is the basis for these improvements.
 \end{abstract}
 
 \begin{CCSXML}
