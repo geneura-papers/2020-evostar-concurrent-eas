@@ -183,7 +183,7 @@ Raku is a concurrent, functional language
 intention of providing a solid conceptual framework for multi-paradigm
 computing, including thread-based concurrency and asynchrony. It's got
 a heuristic layer that optimizes code during execution time. In the last few
-years, performance of programs written in Raku has been sped-up by a 100x factor, 
+years, the performance of programs written in Raku has been sped-up by a 100x factor, 
 approaching the same scale of other interpreted
 languages, although still with some room for improvement.
 
@@ -199,18 +199,18 @@ used generally as benchmarks.
 % evolutionary algorithm using it.
 
 The baseline we are building upon, is similar to the one used in previous experiments
-\cite{Merelo:2018:MEA:3205651.3208317:anon}. Our intention was to
-create a system that was not functionally equivalent to a sequential
+\cite{Merelo:2018:MEA:3205651.3208317:anon}. We intended to
+create a system that was not functionally equivalent to sequential
 evolutionary algorithms, that also follows the principle of
 CSP. We decided to allow the algorithm to implement several threads communicating state through
-channels. Every process itself will be stateless, reacting to the
-% Please consider for other papers: Every 'subroutine' itself will be stateless, reacting to the... - Mario
-presence of messages in the channels it is listening to and sending
-result back to them, without changing state.
+channels. Every process itself will be stateless, reacting to messages arriving 
+in the channels it is listening to and sending 
+results back to them without changing state.
 
 As in the previous papers \cite{merelo:WEA:anon}, 
 we will use two groups of threads and two channels. 
-The two groups of threads perform the following functions:\begin{itemize}
+The two groups of threads perform the following functions:
+\begin{itemize}
 \item The {\em evolutionary} threads will be the ones performing 
 the operations of the evolutionary algorithm.
 \item The {\em mixing} thread will take existing populations, to create
@@ -231,7 +231,7 @@ Besides, the two channels carry messages consisting of populations,
 but they do so in a different way:\begin{itemize}
   
 \item The {\em evolutionary} channel will be used for carrying
-  non-evolved, or generated, populations.
+  non-evolved, or newly generated, populations.
 \item The {\em mixer} channel will carry, {\em in pairs}, evolved
   populations. 
 \end{itemize}
@@ -356,7 +356,9 @@ that selects the 25\% best individuals to compose the probability distribution
 message. When the evolver thread reads the message back, it generates a new population 
 using the mixed distribution obtained by the mixer.
 
-The introduction of the parallel execution monitor in Comma by Edument, the company that sells it, along with a module, Log::Timeline, that needs to be added to the program in order for it to be able to visualize the results, gives us the capability of seeing events as they are happening in an unified timeline, and also check the duration and simultaneity of the tasks occurring in different threads. Please refer to Figure \ref{fig:comma}, which is a capture of this tool running on the program presented in this paper.
+% Do we have some experimental results on the amount of overhead between transmitting  and generating? - Mario
+
+The introduction of the parallel execution monitor in Comma by Edument, the company that sells it, along with a module, Log::Timeline, that needs to be added to the program in order for it to be able to visualize the results, gives us the capability of seeing events as they are happening in a unified timeline, and also check the duration and simultaneity of the tasks occurring in different threads. Please refer to Figure \ref{fig:comma}, which is a capture of this tool running on the program presented in this paper.
 
 \begin{figure*}[h!tb]
   \centering
@@ -369,9 +371,9 @@ The introduction of the parallel execution monitor in Comma by Edument, the comp
 
     \section{Implementation matters: improving the implementation of a concurrent evolutionary algorithm}
 
-By using the log tool to register (and visualize) events in this case, we realized that the {\tt while} loop we were using for the evolutionary algorithm within every task sometimes finished before the condition was met, that is, before either the number of generations (16) had been reached or the solution had been found.
+By using the logging tool to register (and visualize) events, we realized that the {\tt while} loop we were using for the evolutionary algorithm within every task sometimes finished before the condition was met, that is, before either the number of generations (16) had been reached, or the solution had been found.
 
-This revealed one of the problems of concurrent implementations: using some shared information, in this case the number of generations that the evolutionary algorithm has run, can be tricky, and the optimizations that the language runs internally can somethimes throw loops off whack, as was the case. Besides, the register revealed an additional problem: not only the loops running the EA finished sometimes before they should, they generally finished much later than they should have. That meant that the EA was running many more generations, getting stuck in local optima, which was making the implementation {\em worse} than the algorithm should have been. This, again, proves that implementation matters and that best practices must be followed to find the best implementation match for the algorithm features.
+This revealed one of the problems of concurrent implementations: using some shared information, in this case, the number of generations that the evolutionary algorithm has run, can be tricky, and the optimizations that the language runs internally can sometimes throw loops off whack, as was the case. Besides, the register revealed an additional problem: not only the loops running the EA sometimes finished before they should, they generally finished much later than they should have. That meant that the EA was running many more generations, getting stuck in local optima, which was making the implementation {\em worse} than the algorithm should have been. This, again, proves that implementation matters and that best practices must be followed to find the best implementation match for the algorithm features.
 
 In this case, the improvement consisted in changing the {\tt while} loop to a {\tt for} loop. The loop variable was running over the required number of generations, and exceptionally it was getting out of the loop when the solution was found. After doing this, we used again the Comma monitor on the program, with a result similar to the one shown in Figure \ref{fig:comma2}. 
 %
@@ -382,9 +384,16 @@ In this case, the improvement consisted in changing the {\tt while} loop to a {\
     \label{fig:comma2}
   \end{figure}
   % 
-  One of the things that can be observed is that the whole run takes less, before it never finished before the 16 seconds that were shown in the default window, now it always takes shorter for the EA to find the solution to the Leading Ones problem. Before, the two threads were initiated at the same time and ended the 16 generation at the same time, which did not really make sense, since there's a small overhead involved in starting them. Now it's clear that the second thread starts a bit after the first, and that they drift away after that. The solution is found by one of them after 9 seconds, and communication to channels, shown by arrows, takes place asynchronously, as well as the (very short) execution of the mixer (barely seen in the lowest stripe). There are no gaps in the evolutionary stripes, so those threads are used to its full extent, all of the time.
+  One of the things that can be observed is that the whole run takes less time.   Before it never finished before the 16 seconds that were shown in the default window, now it always takes shorter for the EA to find the solution to the Leading Ones problem.
+  % Proposed change:
+  % One of the things that can be observed is that the whole run takes less time in 
+  % this new version. Before, it was never able to finish below the 16 seconds that 
+  % were shown in the default window, and now it always takes less time 
+  % for the EA to find the solution to the Leading Ones problem
 
-  This improvement in the execution drove us to try, now, measuring the scaling capabilities once the number of threads are increased. We'll see the results next.
+  Before, the two threads were initiated at the same time and ended the 16 generation at the same time, which did not really make sense, since there's a small overhead involved in starting them. Now it's clear that the second thread starts a bit after the first, and that they drift away after that. The solution is found by one of them after 9 seconds, and communication to channels, shown by arrows, takes place asynchronously, as well as the (very short) execution of the mixer (barely seen in the lowest stripe). There are no gaps in the evolutionary stripes, so those threads are used to its full extent, all the time.
+
+  This improvement in the execution drove us to try, now, measuring the scaling capabilities once we increase the number of threads. We'll see the results next.
 
   \section{Results}
     
