@@ -150,19 +150,19 @@ A secondary reason, in the case of evolutionary algorithms, is that, being as th
 \section{Methodology, experimental setup and results}
 \label{sec:met}
 
-\section{Design of a concurrent evolutionary algorithm in Perl6}
+\section{Design of a concurrent evolutionary algorithm in Raku}
 \label{sec:design}
 
-Perl 6 is a concurrent, functional language
-\cite{DBLP:journals/corr/abs-1809-01427} which was conceived with the
+Raku is a concurrent, functional language
+\cite{merelo2019running} (formerly known as Perl 6) which was conceived with the
 intention of providing a solid conceptual framework for multi-paradigm
 computing, including thread-based concurrency and asynchrony. It's got
 a heuristic layer that optimizes code during execution time. In the last few
-years, performance of programs written in Perl 6 has been sped-up by a 100x factor, 
+years, performance of programs written in Raku has been sped-up by a 100x factor, 
 approaching the same scale of other interpreted
 languages, although still with some room for improvement.
 
-The {\tt Algorithm::Evolutionary::Simple} Perl 6 module was published
+The {\tt Algorithm::Evolutionary::Simple} Raku module was published
 in the ecosystem a year ago and got recently into version 0.0.7. It
 is a straightforward implementation of a canonical evolutionary
 algorithm with binary representation and includes building blocks for
@@ -174,8 +174,7 @@ used generally as benchmarks.
 % evolutionary algorithm using it.
 
 The baseline we are building upon, is similar to the one used in previous experiments
-%\cite{Merelo:2018:MEA:3205651.3208317:anon}
-\cite{Merelo:2018:MEA:3205651.3208317}. Our intention was to
+\cite{Merelo:2018:MEA:3205651.3208317:anon}. Our intention was to
 create a system that was not functionally equivalent to a sequential
 evolutionary algorithms, that also follows the principle of
 CSP. We decided to allow the algorithm to implement several threads communicating state through
@@ -184,7 +183,7 @@ channels. Every process itself will be stateless, reacting to the
 presence of messages in the channels it is listening to and sending
 result back to them, without changing state.
 
-As in the previous papers, \cite{merelo:WEA},% \cite{merelo:WEA:anon}, 
+As in the previous papers \cite{merelo:WEA:anon}, 
 we will use two groups of threads and two channels. 
 The two groups of threads perform the following functions:\begin{itemize}
 \item The {\em evolutionary} threads will be the ones performing 
