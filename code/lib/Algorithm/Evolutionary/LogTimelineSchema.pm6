@@ -23,5 +23,8 @@ class Frequencies
 class Evolutionary does Log::Timeline::Task['ConcurrentEA', 'Concurrent',
         'Evolutionary'] { }
 
+class Disturbance does Log::Timeline::Task['ConcurrentEA', 'Concurrent',
+        'Disturbance'] { }
+
 class Mixer does Log::Timeline::Task['ConcurrentEA', 'Concurrent',
         'Mixer'] { }
