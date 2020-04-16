@@ -348,6 +348,20 @@ that selects the 25\% best individuals to compose the probability distribution
 message. When the evolver thread reads the message back, it generates a new population 
 using the mixed distribution obtained by the mixer.
 
+The introduction of the parallel execution monitor in Comma by Edument, the company that sells it, along with a module, Log::Timeline, that needs to be added to the program in order for it to be able to visualize the results, gives us the capability of seeing events as they are happening in an unified timeline, and also check the duration and simultaneity of the tasks occurring in different threads. Please refer to Figure \ref{fig:comma}, which is a capture of this tool running on the program presented in this paper.
+
+\begin{figure*}[h!tb]
+  \centering
+  \includegraphics{imgs/comma}
+  \caption{Comma monitor for parallel execution. The $x$ axis is the timeline in seconds, while several concurrent tasks and events are represented in the $y$ axis. The two stripes in different shades of green are the two threads that are running an evolutionary algorithm; the change of color indicates that the task has finished and started a new with new data from the communication channel that conveys populations.}
+    \label{fig:comma}
+    \end{figure}
+
+    This initial visualization already highlighted some problems: there were gaps where no thread was being executed, they run almost in parallel, and there were also some {\em short} runs for which we had no explanation. We'll interpret this and show how it was fixed right next.
+
+    \section{Implementation matters: improving the implementation of a concurrent evolutionary algorithm}
+
+    
 \section{Conclusions and discussion}
 \label{sec:conclusions}
 
