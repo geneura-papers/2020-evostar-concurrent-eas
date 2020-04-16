@@ -365,9 +365,21 @@ By using the log tool to register (and visualize) events in this case, we realiz
 
 This revealed one of the problems of concurrent implementations: using some shared information, in this case the number of generations that the evolutionary algorithm has run, can be tricky, and the optimizations that the language runs internally can somethimes throw loops off whack, as was the case. Besides, the register revealed an additional problem: not only the loops running the EA finished sometimes before they should, they generally finished much later than they should have. That meant that the EA was running many more generations, getting stuck in local optima, which was making the implementation {\em worse} than the algorithm should have been. This, again, proves that implementation matters and that best practices must be followed to find the best implementation match for the algorithm features.
 
-In this case, the improvement consisted in changing the {\tt while} loop to a {\tt for} loop. The loop variable was running over the required number of generations, and exceptionally it was getting out of the loop when the solution was found.
+In this case, the improvement consisted in changing the {\tt while} loop to a {\tt for} loop. The loop variable was running over the required number of generations, and exceptionally it was getting out of the loop when the solution was found. After doing this, we used again the Comma monitor on the program, with a result similar to the one shown in Figure \ref{fig:comma2}. 
+%
+\begin{figure}[h!tb]
+  \centering
+  \includegraphics[width=0.95\columnwidth]{imgs/comma}
+  \caption{Comma monitor for parallel execution after changing to a {\tt for} loop. It shows in the vertical axis the two threads running, as well as the third one, the mixer thread. The arrows represent events, with {\em Weird} indicating when the loop has exited before it should.}
+    \label{fig:comma2}
+  \end{figure}
+  % 
+  One of the things that can be observed is that the whole run takes less, before it never finished before the 16 seconds that were shown in the default window, now it always takes shorter for the EA to find the solution to the Leading Ones problem. Before, the two threads were initiated at the same time and ended the 16 generation at the same time, which did not really make sense, since there's a small overhead involved in starting them. Now it's clear that the second thread starts a bit after the first, and that they drift away after that. The solution is found by one of them after 9 seconds, and communication to channels, shown by arrows, takes place asynchronously, as well as the (very short) execution of the mixer (barely seen in the lowest stripe). There are no gaps in the evolutionary stripes, so those threads are used to its full extent, all of the time.
 
+  This improvement in the execution drove us to try, now, measuring the scaling capabilities once the number of threads are increased. We'll see the results next.
 
+  \section{Results}
+    
 \section{Conclusions and discussion}
 \label{sec:conclusions}
 
