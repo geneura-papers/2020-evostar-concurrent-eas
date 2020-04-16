@@ -133,7 +133,12 @@ suppressPackageStartupMessages({
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
 
-Concurrent computing gives us the capability to think about work done as a series of tasks whose life cycle overlap and are logically independent from each other. Concurrent languages and systems, besides, enables us to actually run those tasks in parallel, given the right combination of operating system and hardware. While not so long ago concurrent computing was the province of clusters or GPUs, current computing and operating systems, paired with concurrent languages such as Raku, Erlang, Scala, Rust or Go, provide any practitioner with entry-level concurrent computing capabilities.
+Concurrent computing gives us the capability to think about work done as a series of tasks whose life cycle overlap and are logically independent from each other. Concurrent languages and systems, besides, enables us to actually run those tasks in parallel, given the right combination of operating system and hardware. While not so long ago concurrent computing was the province of clusters or GPUs, current computing and operating systems, paired with concurrent languages such as Raku, Erlang, Scala, Rust or Go, provide any practitioner with entry-level concurrent computing capabilities. As Rob Pike states in \cite{pike2012concurrency},
+\begin{quote}
+  Concurrency is about structure, parallelism is about execution.
+\end{quote}
+
+While concurrency deals with tasks as high-level structures, and provides for ways in which these tasks can synchronize, it may or may not be executed at the same time using the facilities that the OS/system architecture provide.
 
 However, despite concurrency-capable architectures being the prevalent kind of computer systems nowadays, concurrent evolutionary algorithms have not enjoyed the same kind of popularity. A bibliography search of concurrent evolutionary (or genetic) algorithms returns just a few hits, and even if we use another, lower-level term for it, multi-threaded evolutionary algorithms, we will just find a few more, and in this case focused on the use of the multiple theads in a GPU \cite{kromer2011comparison}.
 
@@ -152,7 +157,10 @@ The rest of the paper is organized as follows: next we examine the state of the 
 \section{State of the art}
 \label{sec:soa}
 
+Concurrency gives practitioners a practical way to tackle parallelism, and parallelism has been used in the evolutionary algorithms since early on. One of the first papers was published by Cohoon et al. \cite{cohoon1987punctuated}, and it already acknowledged the problems of the exploitation/exploration balance by proposing an algorithm based on {\em punctuated equilibrium}, that is, a balance that is regularly kept, but tipped from time to time. In the distributed architecture they propose, they also consider that parallel evolutionary algorithms should not only aim at being faster by doing the same amount of things in parallel, but try to ``find better solutions with less total work'', that is, the distributed architecture itself will have an algorithmic role and influence positively the performance of the evolutionary algorithm. Ultimately, it's a synchronous island model with random migration between islands, but the underlying ideas seem surprisingly modern and relevant. 
 
+
+The lack of suitably systems impeded advancement on this subject, but the 90s saw the introduction of the Inmos Transputer, a processor architecture designed for parallelism and that was paired with a programming language called Occam that took advantage of that concurrency. It was used for evolutionary algorithms by East and McFarlane, \cite{east1993implementation}. They emphasize the importance of implementation, by stating that (inherent) parallelism in the algorithm must be considerated separately from its implementation. In the case of population-based algorithms like EA, the obvious approach seems to be to divide the population, or somehow evaluate it in parallel. That is not necessarily the most efficient way, and they mention the possibility of modifying the algorithm to ``render (the) implementation more efficient''. Interestingly, they introduce the so-called communicating process architecture, an implementation of Hoare's Communicating Sequential Processes model \cite{Hoare:1978:CSP:359576.359585} where tasks communicate only through {\em channels}
 
 \section{Design of a concurrent evolutionary algorithm in Raku}
 \label{sec:design}
