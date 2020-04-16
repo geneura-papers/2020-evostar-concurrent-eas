@@ -355,7 +355,7 @@ The introduction of the parallel execution monitor in Comma by Edument, the comp
   \includegraphics{imgs/comma}
   \caption{Comma monitor for parallel execution. The $x$ axis is the timeline in seconds, while several concurrent tasks and events are represented in the $y$ axis. The two stripes in different shades of green are the two threads that are running an evolutionary algorithm; the change of color indicates that the task has finished and started a new with new data from the communication channel that conveys populations.}
     \label{fig:comma}
-    \end{figure}
+    \end{figure*}
 
     This initial visualization already highlighted some problems: there were gaps where no thread was being executed, they run almost in parallel, and there were also some {\em short} runs for which we had no explanation. We'll interpret this and show how it was fixed right next.
 
