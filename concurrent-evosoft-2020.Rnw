@@ -133,22 +133,26 @@ suppressPackageStartupMessages({
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
 
-% What is concurrency - JJ
+Concurrent computing gives us the capability to think about work done as a series of tasks whose life cycle overlap and are logically independent from each other. Concurrent languages and systems, besides, enables us to actually run those tasks in parallel, given the right combination of operating system and hardware. While not so long ago concurrent computing was the province of clusters or GPUs, current computing and operating systems, paired with concurrent languages such as Raku, Erlang, Scala, Rust or Go, provide any practitioner with entry-level concurrent computing capabilities.
 
-Despite concurrency-capable architectures being the prevalent kind of computer systems nowadays, concurrent evolutionary algorithms have not enjoyed the same kind of popularity. A bibliography search of concurrent evolutionary (or genetic) algorithms returns just a few hits, and even if we use another, lower-level term for it, multi-threaded evolutionary algorithms, we will just find a few more, and in this case focused on the use of the multiple theads in a GPU \cite{kromer2011comparison}.
+However, despite concurrency-capable architectures being the prevalent kind of computer systems nowadays, concurrent evolutionary algorithms have not enjoyed the same kind of popularity. A bibliography search of concurrent evolutionary (or genetic) algorithms returns just a few hits, and even if we use another, lower-level term for it, multi-threaded evolutionary algorithms, we will just find a few more, and in this case focused on the use of the multiple theads in a GPU \cite{kromer2011comparison}.
 
 There might be several reasons for that. The main one is that conceiving a concurrent algorithm is not straightforward. A strategy for dividing work among different threads (every one in a task) and communication between them must be established; for starters tasks can be homogeneous or heterogeneous, or some space in between (with some tasks identical and some others doing other, different kind of work, for instance); they can also be synchronous (all tasks doing roughly the same amount of work, or exactly the same, with checkpoints where the main process waits for all tasks to be completed), or asynchronous with tasks starting, ending and communicating out of any pre-established sync mechanism.
 
 A secondary reason, in the case of evolutionary algorithms, is that, being as they are population-based algorithms that must keep a strict exploration-exploitation balance anything afecting the population will tip the balance in one direction or another. Dividing the population will make the algorithm more exploitative, increasing the population more explorative; the more straighforward strategy of dividing population among threads will likely tip the balance in one direction or the other.
 
+A third and probably more important reason, however, is the lack of tools to prove that the algorithm and its implementation is providing the kind of parallelism we really want, by keeping all cores busy running code, with no big gaps. This makes measurements or decisions such as the right number of cores purely heuristic, with nothing more than the result to support it.
+
+So far, this was the path we had been following \cite{merelo:WEA:anon,Merelo:2018:MEA:3205651.3208317:anon}, with diverse results. Those papers proposed a concurrent evolutionary algorithm in Raku that distributed short-burst evolutionary processes in threads, with an additional mixer thread used for combinating populations emanatining from different threads, and a communication system that sent a statistical representation of the population instead of the whole population. In particular, when scaling was apparently not happening, it was difficult to know if it was due to gaps in the use of processors, or to inherent problems with the algorithm itself.
+
+In this paper, after the release of a process logging and monitoring tool for Raku concurrent programs within the Comma integrated development environment, we will examine the correct working of the concurrent evolutionary algorithm; this had not been possible so far, due to the lack of appropriate tools. This will lead to a refactoring of the implementation, if needed, and a re-examination of the scaling capabilities of the system.
+
+The rest of the paper is organized as follows: next we examine the state of the art in the area of parallel and concurrent evolutionary algorithms, followed by a description of the methodology we have followed in the experiments and the experimental setup we have created for this in \ref{sec:design}. We will them present the results in the next section, to be followed by the conclusions.
+
 \section{State of the art}
 \label{sec:soa}
 
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Methodology, experimental setup and results}
-\label{sec:met}
 
 \section{Design of a concurrent evolutionary algorithm in Raku}
 \label{sec:design}
