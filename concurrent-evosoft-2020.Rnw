@@ -352,7 +352,7 @@ The introduction of the parallel execution monitor in Comma by Edument, the comp
 
 \begin{figure*}[h!tb]
   \centering
-  \includegraphics{imgs/comma}
+  \includegraphics[width=1.9\columnwidth]{imgs/comma}
   \caption{Comma monitor for parallel execution. The $x$ axis is the timeline in seconds, while several concurrent tasks and events are represented in the $y$ axis. The two stripes in different shades of green are the two threads that are running an evolutionary algorithm; the change of color indicates that the task has finished and started a new with new data from the communication channel that conveys populations.}
     \label{fig:comma}
     \end{figure*}
@@ -361,7 +361,13 @@ The introduction of the parallel execution monitor in Comma by Edument, the comp
 
     \section{Implementation matters: improving the implementation of a concurrent evolutionary algorithm}
 
-    
+By using the log tool to register (and visualize) events in this case, we realized that the {\tt while} loop we were using for the evolutionary algorithm within every task sometimes finished before the condition was met, that is, before either the number of generations (16) had been reached or the solution had been found.
+
+This revealed one of the problems of concurrent implementations: using some shared information, in this case the number of generations that the evolutionary algorithm has run, can be tricky, and the optimizations that the language runs internally can somethimes throw loops off whack, as was the case. Besides, the register revealed an additional problem: not only the loops running the EA finished sometimes before they should, they generally finished much later than they should have. That meant that the EA was running many more generations, getting stuck in local optima, which was making the implementation {\em worse} than the algorithm should have been. This, again, proves that implementation matters and that best practices must be followed to find the best implementation match for the algorithm features.
+
+In this case, the improvement consisted in changing the {\tt while} loop to a {\tt for} loop. The loop variable was running over the required number of generations, and exceptionally it was getting out of the loop when the solution was found.
+
+
 \section{Conclusions and discussion}
 \label{sec:conclusions}
 
