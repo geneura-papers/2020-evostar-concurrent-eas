@@ -438,8 +438,8 @@ ggplot(data,aes(x=Threads,y=Evaluation.rate,color=Population))+geom_tufteboxplot
 %
 The last figure of this series, Figure \ref{fig:eval3}, shows how the number of evaluations per second keeps increasing to around 4k per second, although once again the curve is not so steep from 4 to 6. It's {\em better} for population = 256, which probably indicates some overhead in communication due to the population size.
 
-This first result was promising, so we tried again using more powerful hardware, a system with 16 total cores and Ubuntu 18.04, using the same Raku version, 2020.02.
-
+This first result was promising, so we tried again using more powerful hardware, a system with 16 total cores and Ubuntu 18.04, using the same Raku version, 2020.02. The number of evaluations is shown in Figure \ref{fig:freija:1}. In this case we used up to 8 threads (+ 1 for the mixer). The length of the leading ones problem was increased up to 60, and we also increased the population up to 1024, once again divided evenly between all threads. This boxplot shows that the number of evaluations needed decreases with the number of threads, once again showing the algorihtmic value of dividing the population into several asynchronous threads; although, again, the gain from 6 to 8 threads is not too much. This is probably due to the fact that in this case population per thread is 128, which is a small population and might tend to get stuck more easily than for bigger ppulations.
+%
 \begin{figure}[h!tb]
 <<laptop4, cache=FALSE,echo=FALSE>>=
 data <- read.csv("code/lo-evosoft-results-l60.csv")
@@ -452,16 +452,17 @@ ggplot(data,aes(x=Threads,y=Evaluations))+geom_tufteboxplot()+theme_tufte()
   \label{fig:freija:1}
  \end{figure} 
  %
-
+However, this is overcome by the fact that evaluations are taking place in parallel, and thus the time needed to find the solution decreases steadily from 2 to 8 threads, as shown in Figure \ref{fig:freija:2}. Please note that in this case, the axis is logarithmic, which shows a superlinear decrease in time for 2 to 4, with median time taking almost an order of magnitude less in that case, and steep decreases in the others.
+%
 \begin{figure}[h!tb]
 <<laptop5, cache=FALSE,echo=FALSE>>= 
 ggplot(data,aes(x=Threads,y=Time))+geom_tufteboxplot()+theme_tufte()+scale_y_log10()
 @
-  \caption{Second experiment, boxplot of the time for the two population sizes and threads up to 8. }
+  \caption{Second experiment, boxplot of the time for the two population sizes and threads up to 8. The $y$ axis is logarighmic.}
   \label{fig:freija:2}
 \end{figure}
 %
-
+And this is due to what we show in Figure \ref{fig:freija:3}: a steady, linear, increase in the number of evaluations per second due to the concurrent implementation. The double treat of better algorithmic performance, with less evaluations needed to find the solution, and the fact that they are done in parallel, takes us up to almost 10k evaluations per second in the best case.
 %
 \begin{figure}[h!tb]
 <<laptop6, cache=FALSE,echo=FALSE>>= 
@@ -471,6 +472,8 @@ ggplot(data,aes(x=Threads,y=Evaluation.rate))+geom_tufteboxplot()+theme_tufte()
   \label{fig:freija:3}
 \end{figure}
 %
+
+Please note that raw performance is not (all) we were looking for, but for the combination of the two brought by an efficient concurrent implementation as well as an algorithmic model that favors diversity by not sending always the best individual (but a mathematical representation of the best, equivalent to an EDA), asynchronous execution and letting every thread run independently for a fixed amount of generations.
 
 \section{Conclusions and discussion}
 \label{sec:conclusions}
