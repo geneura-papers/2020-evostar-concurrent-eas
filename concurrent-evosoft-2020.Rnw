@@ -400,6 +400,37 @@ In this case, the improvement consisted in changing the {\tt while} loop to a {\
 
   \section{Results}
 
+  We will first apply the new version of the concurrent evolutionary algorithm to the leading ones problem, which previously had not reached a good solution. We will do so in laptop with 4 cores, a Lenovo X1, using Raku v2020.02 on Ubuntu 16.04. Code is available in GitHub under a free license. We tested two different (total) populations, 512 and 256; as indicated in the methodology, population will be divided evenly among the existing processors.
+  
+\begin{figure}[h!tb]
+<<laptop, cache=FALSE,echo=FALSE>>=
+data <- read.csv("code/lo-evosoft-results.csv")
+data$Population <- as.factor(data$Population)
+data$Threads <- as.factor(data$Threads)
+data$Evaluation.rate <- data$Evaluations/data$Time
+ggplot(data,aes(x=Threads,y=Evaluations,color=Population))+geom_tufteboxplot()+theme_tufte()
+@
+  \caption{Boxplot of the number of evaluations for the two population sizes and threads up to 8. }
+  \label{fig:eval1}
+ \end{figure} 
+%
+\begin{figure}[h!tb]
+<<laptop2, cache=FALSE,echo=FALSE>>= 
+ggplot(data,aes(x=Threads,y=Time,color=Population))+geom_tufteboxplot()+theme_tufte()+scale_y_log10()
+@
+  \caption{Boxplot of the time for the two population sizes and threads up to 8. }
+  \label{fig:eval2}
+\end{figure}
+%
+\begin{figure}[h!tb]
+<<laptop3, cache=FALSE,echo=FALSE>>= 
+ggplot(data,aes(x=Threads,y=Evaluation.rate,color=Population))+geom_tufteboxplot()+theme_tufte()
+@
+  \caption{Boxplot of evaluation rate for the two population sizes and threads up to 8.}
+  \label{fig:eval3}
+\end{figure}
+
+
 \section{Conclusions and discussion}
 \label{sec:conclusions}
 
