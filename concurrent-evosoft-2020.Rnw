@@ -142,19 +142,21 @@ While concurrency deals with tasks as high-level structures and provides for way
 
 However, despite concurrency-capable architectures being the prevalent kind of computer systems nowadays, concurrent evolutionary algorithms have not enjoyed the same kind of popularity. A bibliography search of concurrent evolutionary (or genetic) algorithms returns just a few hits, and even if we use another, lower-level term for it, multi-threaded evolutionary algorithms, we find just a few more, and in this case, focused on the use of the multiple threads in a GPU \cite{kromer2011comparison}.
 
-There might be several reasons for that. The main one is that conceiving a concurrent algorithm is not straightforward. A strategy for dividing work among different threads (every one in a task) and communication between them must be established; for starters tasks can be homogeneous or heterogeneous, or some space in between (with some tasks identical and some others doing other, different kind of work, for instance); they can also be synchronous (all tasks doing roughly the same amount of work, or exactly the same, with checkpoints where the main process waits for all tasks to be completed), or asynchronous with tasks starting, ending and communicating out of any pre-established sync mechanism.
+% There might be several reasons for that. The main one is that conceiving a concurrent algorithm is not straightforward. A strategy for dividing work among different threads (every one in a task) and communication between them must be established; for starters tasks can be homogeneous or heterogeneous, or some space in between (with some tasks identical and some others doing other, different kind of work, for instance); they can also be synchronous (all tasks doing roughly the same amount of work, or exactly the same, with checkpoints where the main process waits for all tasks to be completed), or asynchronous with tasks starting, ending and communicating out of any pre-established sync mechanism.
 
 % The above paragraph was difficult to read (a long sentence), here's an alternative:  
-%There might be several reasons for that. The main one is that conceiving a concurrent algorithm is not straightforward. We must define a strategy for dividing work among different threads (each one in a task), and the method of communication between them. A designer must consider the following. For starters, tasks can be homogeneous or heterogeneous, or something in between (with some tasks identical and others doing different kinds of work, for instance). Tasks can also be synchronous (all tasks doing roughly the same amount of work, or exactly the same, with checkpoints where the main process waits for all tasks to be completed), or asynchronous with tasks starting, ending and communicating out of any pre-established sync mechanism. - Mario
+There might be several reasons for that. The main one is that conceiving a concurrent algorithm is not straightforward. We must define a strategy for dividing work among different threads (each one in a task), and the method of communication between them. A designer must consider the following. For starters, tasks can be homogeneous or heterogeneous, or something in between (with some tasks identical and others doing different kinds of work, for instance). Tasks can also be synchronous (all tasks doing roughly the same amount of work, or exactly the same, with checkpoints where the main process waits for all tasks to be completed), or asynchronous with tasks starting, ending and communicating out of any pre-established sync mechanism. - Mario
 
 
 A secondary reason, in the case of evolutionary algorithms, is that, being as they are population-based algorithms that must keep a strict exploration-exploitation balance becuase anything affecting the population will tip the balance in one direction or another. Dividing the population will make the algorithm more exploitative, increasing the population more explorative; the more straightforward strategy of dividing population among threads will likely tip the balance in one direction or the other.
 % The above sentence is a bit hard to read, maybe adding more detail, like dividing the population in smaller subsets, or increasing
-% the population size - Mario 
+% the population size - Mario
+% Mario, do that directly, I guess it's better... - JJ
 
 
-A third and probably more important reason, however, is the lack of tools to prove that the algorithm and its implementation are providing the kind of parallelism we really want, by keeping all cores busy running code, with no significant gaps. This makes measurements or decisions such as the right number of cores purely heuristic, with nothing more than the result to support it. 
-% Is not clear what the antecedent is in "This makes measurments..." 
+A third and probably more important reason, however, is the lack of tools to prove that the algorithm and its implementation are providing the kind of parallelism we really want, by keeping all cores busy running code, with no significant gaps. This makes measurements on the quality of the algorithm or decisions such as the right number of cores purely heuristic, with nothing more than the result to support it. 
+% Is not clear what the antecedent is in "This makes measurments..."
+% I meant scaling and things like that - JJ
 
 So far, this was the path we had been following \cite{merelo:WEA:anon,Merelo:2018:MEA:3205651.3208317:anon}, with diverse results. Those papers proposed a concurrent evolutionary algorithm in Raku that distributed short-burst evolutionary processes in threads, with an additional mixer thread used for combining populations emanating from the different threads, and a communication system that sent a statistical representation of the population instead of the whole population. In particular, when scaling was apparently not happening, it was difficult to know if it was due to gaps in the use of processors, or to inherent problems with the algorithm itself.
 
@@ -357,6 +359,7 @@ message. When the evolver thread reads the message back, it generates a new popu
 using the mixed distribution obtained by the mixer.
 
 % Do we have some experimental results on the amount of overhead between transmitting  and generating? - Mario
+% Not really... But we really reduced it, and the monitor shows that there's very little time between mixer and the channels.
 
 The introduction of the parallel execution monitor in Comma by Edument, the company that sells it, along with a module, Log::Timeline, that needs to be added to the program in order for it to be able to visualize the results, gives us the capability of seeing events as they are happening in a unified timeline, and also check the duration and simultaneity of the tasks occurring in different threads. Please refer to Figure \ref{fig:comma}, which is a capture of this tool running on the program presented in this paper.
 
@@ -384,19 +387,19 @@ In this case, the improvement consisted in changing the {\tt while} loop to a {\
     \label{fig:comma2}
   \end{figure}
   % 
-  One of the things that can be observed is that the whole run takes less time.   Before it never finished before the 16 seconds that were shown in the default window, now it always takes shorter for the EA to find the solution to the Leading Ones problem.
-  % Proposed change:
-  % One of the things that can be observed is that the whole run takes less time in 
-  % this new version. Before, it was never able to finish below the 16 seconds that 
-  % were shown in the default window, and now it always takes less time 
-  % for the EA to find the solution to the Leading Ones problem
+  % One of the things that can be observed is that the whole run takes less time.   Before it never finished before the 16 seconds that were shown in the default window, now it always takes shorter for the EA to find the solution to the Leading Ones problem.
+  % % Proposed change:
+  One of the things that can be observed is that the whole run takes less time in 
+  this new version. Before, it was never able to finish below the 16 seconds that 
+  were shown in the default window, and now it always takes less time 
+  for the EA to find the solution to the Leading Ones problem
 
   Before, the two threads were initiated at the same time and ended the 16 generation at the same time, which did not really make sense, since there's a small overhead involved in starting them. Now it's clear that the second thread starts a bit after the first, and that they drift away after that. The solution is found by one of them after 9 seconds, and communication to channels, shown by arrows, takes place asynchronously, as well as the (very short) execution of the mixer (barely seen in the lowest stripe). There are no gaps in the evolutionary stripes, so those threads are used to its full extent, all the time.
 
   This improvement in the execution drove us to try, now, measuring the scaling capabilities once we increase the number of threads. We'll see the results next.
 
   \section{Results}
-    
+
 \section{Conclusions and discussion}
 \label{sec:conclusions}
 
