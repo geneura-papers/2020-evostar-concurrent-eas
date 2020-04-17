@@ -478,9 +478,26 @@ Please note that raw performance is not (all) we were looking for, but for the c
 \section{Conclusions and discussion}
 \label{sec:conclusions}
 
+In this paper we set out to prove how using the right tools to implement and analyze a concurrent evolutionary algorithm could help us to obtain an algorithm that is able to find the solution using less overall computational effort (less evaluations) as well as less time thanks to an efficient parallel implementation of the concurrent processes.
+
+We used Raku, a new-generation language that uses a custom virtual machine to implement concurrency, as well as other paradigms such as functional programming, also used heavily in concurrency; on top of that, we used the integrated development environment Comma, which provides a concurrency monitor, that we have used to hone in on the implementation to get the parallelism working correctly. This new implementation needs to be tested extensively, but seems to be not only faster, but also avoids errors that made the previous one slower (and less efficient) than it should be.
+
+The new experiments show that getting the right population not only at the top level, but also all the way down to the biggest number of threads, is essential for a good scaling in the number of evaluations that, in and by itself, would already provide a performance boost even if the concurrency is not equivalent to the actual number of physical parallel threads that are available. However, combined with the current implementation that actually leverages physical available threads, it can really bring, at least for part of the scale, superlinear speedups for concurrent evolutionary algorithms, at least for problems of this kind.
+
+This result could be generalized to other languages of the same kind, such as Go, Julia or Erlang, any language, in fact, which is able to use channels for communication between high-level threads represented as promises. Using languages that are faster (like Go, for instance) could probably bring much more performance if evaluation actually takes a lot of time. Since we are using a binary EDA-like {\em migration} operator, this can be extended also to other problems that can be represented using a binary string.
+
+This new research avenue opens many different lines of work, as many as the degrees of freedom there are in this new approach. One that we might find promising is to use dissimilar threads so that we test the {\em intermediate disturbance hypothesis}: more diversity arises if an evolutionary system is subjected to a disturbance that is big enough to be noticed, but not big enough to destroy it; dissimilar threads should follow this pattern.
+
+But there are many other possible extensions to this work: the migration algorithm could be extended to other data structures, or could be changed in many different ways, as long as it provides low overhead for communication between different threads. Using more threads would be possible in late-generation processors, and finding the right population for working with them would be a challenge, as well as simply avoiding that step and letting the system, somehow, self-organize and find the right population for every specific problem. All these research avenues are left as future work.
+
+
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Acknowledgements}
+
+We are grateful to Jonathan Worthington and the rest of the Edument team for their disposition to help with implementation problems and provide suggestions to make this work correctly. This is extended to the rest of the Raku development team, which is an excellent and technically knowledgeable community committed to creating a great language.
 
 Hidden for double-blind review
 % This paper has been supported in part by projects DeepBio (TIN2017-85727-C4-2-P).
