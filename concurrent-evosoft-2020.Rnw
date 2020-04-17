@@ -148,7 +148,7 @@ However, despite concurrency-capable architectures being the prevalent kind of c
 There might be several reasons for that. The main one is that conceiving a concurrent algorithm is not straightforward. We must define a strategy for dividing work among different threads (each one in a task), and the method of communication between them. A designer must consider the following. For starters, tasks can be homogeneous or heterogeneous, or something in between (with some tasks identical and others doing different kinds of work, for instance). Tasks can also be synchronous (all tasks doing roughly the same amount of work, or exactly the same, with checkpoints where the main process waits for all tasks to be completed), or asynchronous with tasks starting, ending and communicating out of any pre-established sync mechanism. - Mario
 
 
-A secondary reason, in the case of evolutionary algorithms, is that, being as they are population-based algorithms that must keep a strict exploration-exploitation balance becuase anything affecting the population will tip the balance in one direction or another. Dividing the population will make the algorithm more exploitative, increasing the population more explorative; the more straightforward strategy of dividing population among threads will likely tip the balance in one direction or the other.
+A secondary reason, in the case of evolutionary algorithms, is that, being as they are population-based algorithms that must keep a strict exploration-exploitation balance because anything affecting the population will tip the balance in one direction or another. Dividing the population will make the algorithm more exploitative, increasing the population more explorative; the more straightforward strategy of dividing population among threads will likely tip the balance in one direction or the other.
 % The above sentence is a bit hard to read, maybe adding more detail, like dividing the population in smaller subsets, or increasing
 % the population size - Mario
 % Mario, do that directly, I guess it's better... - JJ
@@ -438,7 +438,7 @@ ggplot(data,aes(x=Threads,y=Evaluation.rate,color=Population))+geom_tufteboxplot
 %
 The last figure of this series, Figure \ref{fig:eval3}, shows how the number of evaluations per second keeps increasing to around 4k per second, although once again the curve is not so steep from 4 to 6. It's {\em better} for population = 256, which probably indicates some overhead in communication due to the population size.
 
-This first result was promising, so we tried again using more powerful hardware, a system with 16 total cores and Ubuntu 18.04, using the same Raku version, 2020.02. The number of evaluations is shown in Figure \ref{fig:freija:1}. In this case we used up to 8 threads (+ 1 for the mixer). The length of the leading ones problem was increased up to 60, and we also increased the population up to 1024, once again divided evenly between all threads. This boxplot shows that the number of evaluations needed decreases with the number of threads, once again showing the algorihtmic value of dividing the population into several asynchronous threads; although, again, the gain from 6 to 8 threads is not too much. This is probably due to the fact that in this case population per thread is 128, which is a small population and might tend to get stuck more easily than for bigger ppulations.
+This first result was promising, so we tried again using more powerful hardware, a system with 16 total cores and Ubuntu 18.04, using the same Raku version, 2020.02. The number of evaluations is shown in Figure \ref{fig:freija:1}. In this case we used up to 8 threads (+ 1 for the mixer). The length of the leading ones problem was increased up to 60, and we also increased the population up to 1024, once again divided evenly between all threads. This boxplot shows that the number of evaluations needed decreases with the number of threads, once again showing the algorithmic value of dividing the population into several asynchronous threads; although, again, the gain from 6 to 8 threads is not too much. This is probably due to the fact that in this case population per thread is 128, which is a small population and might tend to get stuck more easily than for bigger populations.
 %
 \begin{figure}[h!tb]
 <<laptop4, cache=FALSE,echo=FALSE>>=
@@ -458,7 +458,7 @@ However, this is overcome by the fact that evaluations are taking place in paral
 <<laptop5, cache=FALSE,echo=FALSE>>= 
 ggplot(data,aes(x=Threads,y=Time))+geom_tufteboxplot()+theme_tufte()+scale_y_log10()
 @
-  \caption{Second experiment, boxplot of the time for the two population sizes and threads up to 8. The $y$ axis is logarighmic.}
+  \caption{Second experiment, boxplot of the time for the two population sizes and threads up to 8. The $y$ axis is logarithmic.}
   \label{fig:freija:2}
 \end{figure}
 %
