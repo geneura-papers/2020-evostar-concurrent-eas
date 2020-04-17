@@ -250,7 +250,7 @@ the evolutionary channel.
   \centering
   \vspace{-.5\intextsep}
 \hspace*{-.8\columnsep}
-\scalebox{.6}{
+\scalebox{.8}{
 \begin{sequencediagram}
 
 \newthread[red]{E}{Evolver} 
@@ -380,12 +380,12 @@ This revealed one of the problems of concurrent implementations: using some shar
 
 In this case, the improvement consisted in changing the {\tt while} loop to a {\tt for} loop. The loop variable was running over the required number of generations, and exceptionally it was getting out of the loop when the solution was found. After doing this, we used again the Comma monitor on the program, with a result similar to the one shown in Figure \ref{fig:comma2}. 
 %
-\begin{figure}[h!tb]
+\begin{figure*}[h!tb]
   \centering
-  \includegraphics[width=0.95\columnwidth]{imgs/comma}
+  \includegraphics[width=1.9\columnwidth]{imgs/comma}
   \caption{Comma monitor for parallel execution after changing to a {\tt for} loop. It shows in the vertical axis the two threads running, as well as the third one, the mixer thread. The arrows represent events, with {\em Weird} indicating when the loop has exited before it should.}
     \label{fig:comma2}
-  \end{figure}
+  \end{figure*}
   % 
   % One of the things that can be observed is that the whole run takes less time.   Before it never finished before the 16 seconds that were shown in the default window, now it always takes shorter for the EA to find the solution to the Leading Ones problem.
   % % Proposed change:
