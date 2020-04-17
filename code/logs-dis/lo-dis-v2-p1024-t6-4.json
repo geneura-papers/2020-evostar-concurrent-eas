@@ -1,0 +1,15 @@
+{"n":"Events","c":"Events","p":0,"k":0,"t":1587120154.879589,"d":{},"m":"ConcurrentEA"}
+{"t":1587120154.882466,"d":{"initial-populations":7,"threads":6,"population-size":170,"length":60,"start-at":"2020-04-17T12:41:57.881665+02:00","generations":16},"m":"ConcurrentEA","n":"Events","p":0,"c":"Events","k":0}
+{"t":1587120154.887606,"d":{},"m":"ConcurrentEA","i":1,"n":"Evolutionary","p":0,"k":1,"c":"Concurrent"}
+{"t":1587120154.898281,"d":{},"m":"ConcurrentEA","i":2,"n":"Evolutionary","p":0,"c":"Concurrent","k":1}
+{"m":"ConcurrentEA","t":1587120154.908579,"d":{},"c":"Concurrent","p":0,"k":1,"i":3,"n":"Evolutionary"}
+{"m":"ConcurrentEA","d":{},"t":1587120154.919884,"p":0,"k":1,"c":"Concurrent","n":"Evolutionary","i":4}
+{"m":"ConcurrentEA","d":{},"t":1587120154.93001,"p":0,"c":"Concurrent","k":1,"i":5,"n":"Evolutionary"}
+{"d":{},"t":1587120154.940355,"m":"ConcurrentEA","n":"Disturbance","i":6,"c":"Concurrent","p":0,"k":1}
+{"n":"GenerationsStart","c":"Events","p":1,"k":0,"d":{"distinct-elements":170,"population-size":170},"t":1587120154.965797,"m":"ConcurrentEA"}
+{"m":"ConcurrentEA","d":{"distinct-elements":170,"population-size":170},"t":1587120154.969061,"k":0,"p":2,"c":"Events","n":"GenerationsStart"}
+{"m":"ConcurrentEA","t":1587120154.969277,"d":{"distinct-elements":170,"population-size":170},"p":3,"k":0,"c":"Events","n":"GenerationsStart"}
+{"i":1,"n":"Evolutionary","k":2,"c":"Concurrent","t":1587120155.002003,"m":"ConcurrentEA"}
+{"d":{"distinct-elements":170,"population-size":170},"t":1587120155.009412,"m":"ConcurrentEA","n":"GenerationsStart","p":4,"c":"Events","k":0}
+{"p":5,"c":"Events","k":0,"n":"GenerationsStart","m":"ConcurrentEA","d":{"population-size":170,"distinct-elements":170},"t":1587120155.011798}
+{"m":"ConcurrentEA","t":1587120155.01291,"d":{"population-size":170,"distinct-elements":170},"p":6,"k":0,"c":"Events","n":"GenerationsStart"}
