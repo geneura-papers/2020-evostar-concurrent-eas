@@ -410,26 +410,67 @@ data$Threads <- as.factor(data$Threads)
 data$Evaluation.rate <- data$Evaluations/data$Time
 ggplot(data,aes(x=Threads,y=Evaluations,color=Population))+geom_tufteboxplot()+theme_tufte()
 @
-  \caption{Boxplot of the number of evaluations for the two population sizes and threads up to 8. }
+  \caption{Boxplot of the number of evaluations for the two population sizes and threads up to 6. }
   \label{fig:eval1}
  \end{figure} 
-%
+ %
+
+ The first chart (in Figure \ref{fig:eval1} shows one of the quantities we are interested in, number of evaluations; distributed algorithms, as indicated in the early works about them, should help improve the quality, not only the time. Population has definitely an influence on it, but the most interesting thing is that the number of evaluations actually {\em decreases} when the number of threads increases; in this case, we went up to 6, or a total or 7 for the program, since the physical hardware included only 8 cores. There's also a difference with population size: bigger population is more explorative, needs more evaluations, but additionally, it gets worse with the number of threads, implying that there's a right size for the total population, something that has been already observed in other works of this kind.
+ 
 \begin{figure}[h!tb]
 <<laptop2, cache=FALSE,echo=FALSE>>= 
 ggplot(data,aes(x=Threads,y=Time,color=Population))+geom_tufteboxplot()+theme_tufte()+scale_y_log10()
 @
-  \caption{Boxplot of the time for the two population sizes and threads up to 8. }
+  \caption{Boxplot of the time for the two population sizes and threads up to 6. }
   \label{fig:eval2}
 \end{figure}
+%
+
+Less evaluations should already mean less time needed to reach the solution, but we should get additional boost by the parallel execution, and this is plotted in Figure \ref{fig:eval2}. In this case there's a good scaling down of time not only from 2 to 4, but also from 4 to 6, when the number of evaluations is roughly the same, indicating that those evaluations are taking place in parallel, as indicated by the monitor. The curve is more steep than for the number of evaluations.
 %
 \begin{figure}[h!tb]
 <<laptop3, cache=FALSE,echo=FALSE>>= 
 ggplot(data,aes(x=Threads,y=Evaluation.rate,color=Population))+geom_tufteboxplot()+theme_tufte()
 @
-  \caption{Boxplot of evaluation rate for the two population sizes and threads up to 8.}
+  \caption{Boxplot of evaluation rate for the two population sizes and threads up to 6.}
   \label{fig:eval3}
 \end{figure}
+%
+The last figure of this series, Figure \ref{fig:eval3}, shows how the number of evaluations per second keeps increasing to around 4k per second, although once again the curve is not so steep from 4 to 6. It's {\em better} for population = 256, which probably indicates some overhead in communication due to the population size.
 
+This first result was promising, so we tried again using more powerful hardware, a system with 16 total cores and Ubuntu 18.04, using the same Raku version, 2020.02.
+
+\begin{figure}[h!tb]
+<<laptop4, cache=FALSE,echo=FALSE>>=
+data <- read.csv("code/lo-evosoft-results-l60.csv")
+data$Population <- as.factor(data$Population)
+data$Threads <- as.factor(data$Threads)
+data$Evaluation.rate <- data$Evaluations/data$Time
+ggplot(data,aes(x=Threads,y=Evaluations))+geom_tufteboxplot()+theme_tufte()
+@
+  \caption{Second experiment, leading ones with length 60, population 1024, boxplot of the number of evaluations for the two population sizes and threads up to 8. }
+  \label{fig:freija:1}
+ \end{figure} 
+ %
+
+\begin{figure}[h!tb]
+<<laptop5, cache=FALSE,echo=FALSE>>= 
+ggplot(data,aes(x=Threads,y=Time))+geom_tufteboxplot()+theme_tufte()+scale_y_log10()
+@
+  \caption{Second experiment, boxplot of the time for the two population sizes and threads up to 8. }
+  \label{fig:freija:2}
+\end{figure}
+%
+
+%
+\begin{figure}[h!tb]
+<<laptop6, cache=FALSE,echo=FALSE>>= 
+ggplot(data,aes(x=Threads,y=Evaluation.rate))+geom_tufteboxplot()+theme_tufte()
+@
+  \caption{Second experiment, boxplot of evaluation rate for the two population sizes and threads up to 8.}
+  \label{fig:freija:3}
+\end{figure}
+%
 
 \section{Conclusions and discussion}
 \label{sec:conclusions}
