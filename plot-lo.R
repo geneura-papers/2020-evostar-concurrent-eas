@@ -1,7 +1,7 @@
 library(ggplot2)
 library(ggthemes)
 
-data <- read.csv("lo-evosoft-results-l60.csv")
+data <- read.csv("lo-ppsn-dis-l60-p1024.csv")
 data$Population <- as.factor(data$Population)
 data$Threads <- as.factor(data$Threads)
 data$Evaluation.rate <- data$Evaluations/data$Time
