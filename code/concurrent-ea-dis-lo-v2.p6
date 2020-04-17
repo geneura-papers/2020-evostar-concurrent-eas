@@ -92,9 +92,10 @@ sub MAIN(
                         :$count                        );
                 }
                 $to-mix.send( frequencies-best($population, 8) );
-                    Algorithm::Evolutionary::LogTimelineSchema::Generations
-                        .log( :generations($count),
-                              individuals => %fitness-of.keys.elems);
+                Algorithm::Evolutionary::LogTimelineSchema::Generations.log(
+                        :generations($count),
+                        individuals => %fitness-of.keys.elems
+                        );
                 $evaluations;
             };
         };
