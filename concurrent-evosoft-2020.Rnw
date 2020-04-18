@@ -186,35 +186,34 @@ intention of providing a solid conceptual framework for multi-paradigm
 computing, including thread-based concurrency and asynchrony. It's got
 a heuristic layer that optimizes code during execution time. In the last few
 years, the performance of programs written in Raku has been sped-up by a 100x factor, 
-approaching the same scale of other interpreted
-languages, although still with some room for improvement.
+approaching the same scale of other interpreted languages, although there is still  some room for improvement.
 
 The {\tt Algorithm::Evolutionary::Simple} Raku module was published
-in the ecosystem a year ago and got recently into version 0.0.7. It
+in the ecosystem in 2018; in March 2019 version 0.0.8 was released. It
 is a straightforward implementation of a canonical evolutionary
 algorithm with binary representation and includes building blocks for
 a generational genetic algorithm, as well as some fitness functions
-used generally as benchmarks.
-
-% Those evolutionary algorithm building blocks do not include concurrent
-% primitives; it's up to the developer to design a concurrent
-% evolutionary algorithm using it.
+used generally as benchmarks. It uses best practices to obtain the maximum performance out of the genetic operators that are implemented.
 
 The baseline we are building upon, is similar to the one used in previous experiments
 \cite{Merelo:2018:MEA:3205651.3208317:anon}. We intended to
-create a system that was not functionally equivalent to sequential
-evolutionary algorithms, that also follows the principle of
-CSP. We decided to allow the algorithm to implement several threads communicating state through
+create a system that was a clean slate implementation of concurrent
+evolutionary algorithms, following the principles of CSP
+(communicating sequential processes) \cite{Hoare:1978:CSP:359576.359585}. We decided to allow the algorithm to implement several threads communicating state through
 channels. Every process itself will be stateless, reacting to messages arriving 
 in the channels it is listening to and sending 
-results back to them without changing state.
+results back to them without changing state; that way, they appear as
+sequential tasks, although as a matter of fact low-level threads are
+created and then ditched when the task is done.
 
 As in the previous papers \cite{merelo:WEA:anon}, 
-we will use two groups of threads and two channels. 
-The two groups of threads perform the following functions:
+we will use two kinds of threads and two channels:  
 \begin{itemize}
 \item The {\em evolutionary} threads will be the ones performing 
-the operations of the evolutionary algorithm.
+the operations of the evolutionary algorithm; they will run an
+evolutionary algorithm (based on the aforementioned library, {\tt
+  Algorithm::Evolutionary::Simple}) for 16 generations or until the
+solution is found.
 \item The {\em mixing} thread will take existing populations, to create
   new ones as a mixture of them.
 \end{itemize}
@@ -234,8 +233,7 @@ but they do so in a different way:\begin{itemize}
   
 \item The {\em evolutionary} channel will be used for carrying
   non-evolved, or newly generated, populations.
-\item The {\em mixer} channel will carry, {\em in pairs}, evolved
-  populations. 
+\item The {\em mixer} channel will carry {\em pairs} of populations.  
 \end{itemize}
 
 These will be connected as shown in Figure \ref{fig:scheme}. The
@@ -326,8 +324,8 @@ the evolutionary channel.
 \end{figure}
 
 The main objective of using two channels is
-to avoid deadlocks; the fact that one population is written always
-back to the mixer channel avoids starvation of the channel. 
+to avoid deadlocks; the fact that one population is always written
+back to the mixer channel makes it avoid starvation.
 Figure \ref{fig:schematic} illustrates this operation, where the
 timeline of the interchange of messages between the evolver and mixer
 threads and evolver and mixer channels is clarified.
@@ -337,31 +335,34 @@ contain data about one population. Since using the whole population
 will incur in a lot of overhead, we use a strategy that is inspired in {\em EDA}, 
 or Estimation of Distribution Algorithm: instead of 
 transmitting the entire population, the message sent to the channel 
-will consist of a prototype array containing the probability distribution 
-across each gene in the population. In this sense,
-this strategy is similar to the one presented by de la Ossa et
-al. in \cite{10.1007/978-3-540-30217-9_25}. 
-
-Nonetheless, our strategy differs from a pure EDA in that once the evolutionary
-thread have internally run a canonical genetic algorithm, it takes 
+will consist of an array that contains the probability distribution 
+across each gene in the population, a strategy used in Estimation of
+Distribution Algorithms \cite{larranaga2001estimation}; in this
+context, this strategy is similar to the one presented by de la Ossa et
+al. in \cite{10.1007/978-3-540-30217-9_25}; however, our strategy differs from a pure EDA in that once the evolutionary
+thread has internally run a canonical genetic algorithm, it takes 
 only the top quartile of best individuals to compute an array with the 
 probability distribution of their genes (computed with frequentist rules) 
 and then compose the message that is sent to the {\em mixer} threads. 
 
 A {\em mixer} thread, in turn, 
 builds a new prototype array by choosing randomly at each gene location
-one probability parameter out of the  two {\em populations} (actually, distributions), 
-instead of working directly on individuals. While in the baseline strategy the
-selection took place in the mixer thread by eliminating half the
-population, in this new design the selection occurs in the evolutionary thread
-that selects the 25\% best individuals to compose the probability distribution
-message. When the evolver thread reads the message back, it generates a new population 
-using the mixed distribution obtained by the mixer.
+one probability parameter out of the  two distributions, 
+instead of working directly on individuals. When one evolver thread
+reads the message with the population distribution, it generates a new population 
+using a distribution from the mixer channel; this can be either one
+mixed population, or simply a population that was sent back, as is, to
+the mixer channel and is evolved further. This strategy of sending a
+population distribution was used to avoid the overhead of sending
+several elements of the population; although the overhead increases
+with the population size, it is not much heavier than sending a single
+individual, and carries much more information. In previous papers,
+this was found to be the strategy with better scaling and overall results.
 
-% Do we have some experimental results on the amount of overhead between transmitting  and generating? - Mario
-% Not really... But we really reduced it, and the monitor shows that there's very little time between mixer and the channels.
-
-The introduction of the parallel execution monitor in Comma by Edument, the company that sells it, along with a module, Log::Timeline, that needs to be added to the program in order for it to be able to visualize the results, gives us the capability of seeing events as they are happening in a unified timeline, and also check the duration and simultaneity of the tasks occurring in different threads. Please refer to Figure \ref{fig:comma}, which is a capture of this tool running on the program presented in this paper.
+However, the main purpose of this paper was to assess hot parallel
+execution was actually taking place.
+The introduction of the parallel execution monitor in Comma by
+Edument, the company that sells it, along with a module, {\tt Log::Timeline}, that needs to be added to the program in order for it to be able to visualize the results, gives us the capability of seeing events as they are happening in a unified timeline, and also check the duration and simultaneity of the tasks occurring in different threads. Please refer to Figure \ref{fig:comma}, which is a capture of this tool running on the program presented in this paper.
 
 \begin{figure*}[h!tb]
   \centering
