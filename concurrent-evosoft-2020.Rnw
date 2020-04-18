@@ -91,21 +91,9 @@ suppressPackageStartupMessages({
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{abstract}
-  Concurrent evolutionary algorithms give researchers a chance to
-  leverage the performance of powerful multi-core desktop
-  architectures by parallelizing tasks using a high-level
-  interface. However, this introduces additional complexity at the
-  model and the implementation level. In this paper, we describe how
-  to use parallel execution monitoring tools to check the effective
-  parallelism of the implementation, and show how implementation-level
-  improvements can translate in improvements at the algorithmic level,
-  from the very basic evaluations/seconds point of view, to the
-  possible scaling that can be achieved, up to a superlinear scaling
-  in an off-the-shelf platform. We show how the design using
-  communicating sequential processes implemented in the Raku language
-  is the basis for these improvements.
+Concurrency in evolutionary algorithms allow researchers to leverage the performance of powerful multi-core desktop architectures by parallelizing tasks using a high-level interface. However, concurrency also introduces additional complexity at the model and the implementation level. In this paper we describe how using parallel execution monitoring tools to check the effective parallelism of the implementation, can help to work out some of said complexities at the implementation-level, which in turn, are translated into improvements at the algorithmic-level. The performance gain is noticeable from an evaluations/seconds point of view to the possible scaling that can be achieved in the running machine, up to a superlinear scaling in an off-the-shelf platform. We show that the design using communicating sequential processes implemented in the language Raku is the basis for these improvements.
 \end{abstract}
-
+% Changed implementation to design, check if this is true - Mario
 \begin{CCSXML}
   <ccs2012>
 <concept>
@@ -172,109 +160,24 @@ A third and probably more important reason, however, is the lack of tools to pro
 
 So far, this was the path we had been following \cite{merelo:WEA:anon,Merelo:2018:MEA:3205651.3208317:anon}, with diverse results. Those papers proposed a concurrent evolutionary algorithm in Raku that distributed short-burst evolutionary processes in threads, with an additional mixer thread used for combining populations emanating from the different threads, and a communication system that sent a statistical representation of the population instead of the whole population. In particular, when scaling was apparently not happening, it was difficult to know if it was due to gaps in the use of processors, or to inherent problems with the algorithm itself.
 
-In this paper, and after the release of a process logging and
-monitoring tool for Raku concurrent programs within the Comma
-integrated development environment, we analyze the correct working of
-the parallel threads in the concurrent evolutionary algorithm; this
-had not been possible so 
-far, due to the lack of appropriate tools. This will lead to a
-refactoring of the implementation, if needed, and a re-examination of
-the scaling capabilities of the system using some benchmark function.
+In this paper, after the release of a process logging and monitoring tool for Raku concurrent programs within the Comma integrated development environment, we examine the correct working of the concurrent evolutionary algorithm; this had not been possible so far, due to the lack of appropriate tools. This will lead to a refactoring of the implementation, if needed, and a re-examination of the scaling capabilities of the system.
 
-The rest of the paper is organized as follows: next, we examine the
-state of the art in the area of parallel and concurrent evolutionary
-algorithms, followed by a description of the methodology we have
-followed in the experiments and the experimental setup we have created
-for this in Section \ref{sec:design}. We will then present the results in the
-next Section (\ref{sec:res}), to be followed by the conclusions.
+The rest of the paper is organized as follows: next, we examine the state of the art in the area of parallel and concurrent evolutionary algorithms, followed by a description of the methodology we have followed in the experiments and the experimental setup we have created for this in \ref{sec:design}. We will then present the results in the next section, to be followed by the conclusions.
 
 \section{State of the art}
 \label{sec:soa}
 
-Concurrency gives practitioners a practical and high-level way to
-tackle parallelism, which has been used in the evolutionary algorithms
-since early on. One of the first papers was published by Cohoon et
-al. \cite{cohoon1987punctuated}, and it already acknowledged the
-problems of the exploitation/exploration balance by proposing an
-algorithm based on {\em punctuated equilibrium}, that is, a balance
-that is regularly kept, but tipped from time to time. In the
-distributed architecture they propose, they consider that a parallel
-evolutionary algorithm should not only aim at being faster by doing
-the same amount of things in parallel but try to ``find better
-solutions with less total work'', that is, the distributed
-architecture itself will have an algorithmic role and influence
-positively the performance of the evolutionary algorithm. Ultimately,
-what the author presents is a synchronous island model with random
-migration between islands, but the underlying ideas seem surprisingly
-modern and relevant.
+Concurrency gives practitioners a practical way to tackle parallelism, and parallelism has been used in the evolutionary algorithms since early on. One of the first papers was published by Cohoon et al. \cite{cohoon1987punctuated}, and it already acknowledged the problems of the exploitation/exploration balance by proposing an algorithm based on {\em punctuated equilibrium}, that is, a balance that is regularly kept, but tipped from time to time. In the distributed architecture they propose, they consider that a parallel evolutionary algorithm should not only aim at being faster by doing the same amount of things in parallel but try to ``find better solutions with less total work'', that is, the distributed architecture itself will have an algorithmic role and influence positively the performance of the evolutionary algorithm. Ultimately, it's a synchronous island model with random migration between islands, but the underlying ideas seem surprisingly modern and relevant. 
 
 
-The lack of suitable systems was a hurdle for the advancement on this subject, but
-the early 90s saw the popularization of the Inmos Transputer \cite{whitby1985transputer}, a processor
-architecture designed for parallelism, paired with a programming
-language called Occam that took advantage of that concurrency.  East
-and McFarlane used it for evolutionary algorithms,
-\cite{east1993implementation}. They emphasize the importance of
-implementation, by stating that (inherent) parallelism in the
-algorithm must be considered separately from its implementation. In
-the case of population-based algorithms like EA, the obvious approach
-seems to be to divide the population, or somehow evaluate it in
-parallel. That is not necessarily the most efficient way, and they
-mention the possibility of modifying the algorithm to ``render (the)
-implementation more efficient''. Interestingly, they introduce the
-so-called communicating process architecture, an implementation of
-Hoare's Communicating Sequential Processes model
-\cite{Hoare:1978:CSP:359576.359585} where tasks communicate only
-through {\em channels}. They do examine the efficiency of every one of
-the processing elements, realizing that when 8 processors are used, it
-goes down a bit to 95\%. But their striking result is that the right
-parallel implementation provides a boost to the performance of the
-algorithm itself. Implementation matters
-\cite{DBLP:conf/iwann/MereloRACML11}, and by leveraging its
-capabilities and using the right paradigm (as opposed to a direct
-reinterpretation of the original sequential algorithm, running in
-parallel), algorithmic gains can be readily obtained. 
+The lack of suitably systems impeded advancement on this subject, but the 90s saw the introduction of the Inmos Transputer, a processor architecture designed for parallelism, paired with a programming language called Occam that took advantage of that concurrency.  East and McFarlane used it for evolutionary algorithms, \cite{east1993implementation}. They emphasize the importance of implementation, by stating that (inherent) parallelism in the algorithm must be considered separately from its implementation. In the case of population-based algorithms like EA, the obvious approach seems to be to divide the population, or somehow evaluate it in parallel. That is not necessarily the most efficient way, and they mention the possibility of modifying the algorithm to ``render (the) implementation more efficient''. Interestingly, they introduce the so-called communicating process architecture, an implementation of Hoare's Communicating Sequential Processes model \cite{Hoare:1978:CSP:359576.359585} where tasks communicate only through {\em channels}. They do examine the efficiency of every one of the processing elements, realizing that when 8 processors are used, it goes down a bit to 95\%. But their striking result is that the right parallel implementation provides a boost to the performance of the algorithm itself. Implementation matters \cite{DBLP:conf/iwann/MereloRACML11}, and by leveraging its capabilities and using the right paradigm (as opposed to a direct reinterpretation of the original sequential algorithm, running in parallel), algorithmic gains can be readily obtained.
 
-It was not until the introduction of concurrent languages on commodity
-hardware that this paradigm really started to catch on, with EAs using
-channels implemented in Erlang
-\cite{AmandaBienz2011,kerdprasop2012concurrent,barwell2017using,DBLP:conf/gecco/CruzGGC13},
-Go \cite{PEDROSO2017995} or Raku (Perl 6)
-\cite{DBLP:conf/gecco/GuervosV18}. The different implementations
-reflect the facilities provided by the different languages, but also
-show how they try to measure the effectivity of the concurrency and
-parallelism on the algorithm. Bienz et al. \cite{AmandaBienz2011}
-first propose different algorithms, one of them works on a ``grid'',
-with processes only communicating with others in neighboring nodes of
-the grid; but they also test on different types of hardware, with 4
-and 16 core systems. They show, for instance, that including a {\em
-  master} task that distributes work blurs the distinction between the
-number of processors, hindering scaling; but due to a lack of tools,
-they can't really find out if it is due to tasks sitting idle waiting
-for others; in the same way, Kerdprasop et
-al. \cite{kerdprasop2012concurrent} test the limits of concurrency by
-showing that performance might suffer when the number of tasks goes
-over a certain limit (which might be related to the hardware
-used). Incidentally, the scaling shown by their application is rather
-poor, with the numbers of threads not decreasing significantly the
-wallclock time taken by the algorithm; this again shows the need to
-delve into the actual use by the implementation of the parallel
-facilities through the concurrent structures provided by the
-language. The solution proposed by Pedroso et al.,
-\cite{PEDROSO2017995}, uses parallel tasks that communicate via
-channels, which is a default feature in Go, but there are checkpoints
-where all tasks are awaited and the code runs sequentially. Even so,
-they report a good, even superlinear, speedup for up to roughly 15
-processors. This is a characteristic of many parallel implementations,
-something that was observed quite early on
-\cite{Alba02parallelevolutionary} and which is due to carefully
-keeping diversity high. In this case, however, there's no examination
-of the implementation beyond heuristic measurements. 
+It was not until the introduction of concurrent languages on commodity hardware that this paradigm really started to catch on, with EAs using channels implemented in Erlang \cite{AmandaBienz2011,kerdprasop2012concurrent,barwell2017using,DBLP:conf/gecco/CruzGGC13}, Go \cite{PEDROSO2017995} or Raku (Perl 6) \cite{DBLP:conf/gecco/GuervosV18}. The different implementations reflect the facilities provided by the different languages, but also show how they try to measure the effectivity of the concurrency and parallelism on the algorithm. Bienz et al. \cite{AmandaBienz2011} first propose different algorithms, one of them works on a ``grid'', with processes only communicating with others in neighboring nodes of the grid; but they also test on different types of hardware, with 4 and 16 core systems. They show, for instance, that including a {\em master} task that distributes work blurs the distinction between the number of processors, hindering scaling; but due to a lack of tools, they can't really find out if it is due to tasks sitting idle waiting for others; in the same way, Kerdprasop et al. \cite{kerdprasop2012concurrent} test the limits of concurrency by showing that performance might suffer when the number of tasks goes over a certain limit (which might be related to the hardware used). Incidentally, the scaling shown by their application is rather poor, with the numbers of threads not decreasing significantly the wallclock time taken by the algorithm; this again shows the need to delve into the actual use by the implementation of the parallel facilities through the concurrent structures provided by the language. The solution proposed by Pedroso et al., \cite{PEDROSO2017995}, uses parallel tasks that communicate via channels, which is a default feature in Go, but there are checkpoints where all tasks are awaited and the code runs sequentially. Even so, they report a good, even superlinear, speedup for up to roughly 15 processors. This is a characteristic of many parallel implementations, something that was observed quite early on \cite{Alba02parallelevolutionary} and which is due to carefully keeping diversity high. In this case, however, there's no examination of the implementation beyond heuristic measurements.
 
 In this paper, we will try to use that kind of tools to find out the source of the bottleneck in previous implementations of the concurrent evolutionary algorithm and, from that foundation, improve it to achieve superlinear scaling given the right hardware platform.
 
 
-\section{Design and implementation of a concurrent evolutionary algorithm in Raku}
+\section{Design of a concurrent evolutionary algorithm in Raku}
 \label{sec:design}
 
 Raku is a concurrent, functional language
@@ -283,34 +186,35 @@ intention of providing a solid conceptual framework for multi-paradigm
 computing, including thread-based concurrency and asynchrony. It's got
 a heuristic layer that optimizes code during execution time. In the last few
 years, the performance of programs written in Raku has been sped-up by a 100x factor, 
-approaching the same scale of other interpreted languages, although there is still  some room for improvement.
+approaching the same scale of other interpreted
+languages, although still with some room for improvement.
 
 The {\tt Algorithm::Evolutionary::Simple} Raku module was published
-in the ecosystem in 2018; in March 2019 version 0.0.8 was released. It
+in the ecosystem a year ago and got recently into version 0.0.7. It
 is a straightforward implementation of a canonical evolutionary
 algorithm with binary representation and includes building blocks for
 a generational genetic algorithm, as well as some fitness functions
-used generally as benchmarks. It uses best practices to obtain the maximum performance out of the genetic operators that are implemented.
+used generally as benchmarks.
+
+% Those evolutionary algorithm building blocks do not include concurrent
+% primitives; it's up to the developer to design a concurrent
+% evolutionary algorithm using it.
 
 The baseline we are building upon, is similar to the one used in previous experiments
 \cite{Merelo:2018:MEA:3205651.3208317:anon}. We intended to
-create a system that was a clean slate implementation of concurrent
-evolutionary algorithms, following the principles of CSP
-(communicating sequential processes) \cite{Hoare:1978:CSP:359576.359585}. We decided to allow the algorithm to implement several threads communicating state through
+create a system that was not functionally equivalent to sequential
+evolutionary algorithms, that also follows the principle of
+CSP. We decided to allow the algorithm to implement several threads communicating state through
 channels. Every process itself will be stateless, reacting to messages arriving 
 in the channels it is listening to and sending 
-results back to them without changing state; that way, they appear as
-sequential tasks, although as a matter of fact low-level threads are
-created and then ditched when the task is done.
+results back to them without changing state.
 
 As in the previous papers \cite{merelo:WEA:anon}, 
-we will use two kinds of threads and two channels:  
+we will use two groups of threads and two channels. 
+The two groups of threads perform the following functions:
 \begin{itemize}
 \item The {\em evolutionary} threads will be the ones performing 
-the operations of the evolutionary algorithm; they will run an
-evolutionary algorithm (based on the aforementioned library, {\tt
-  Algorithm::Evolutionary::Simple}) for 16 generations or until the
-solution is found.
+the operations of the evolutionary algorithm.
 \item The {\em mixing} thread will take existing populations, to create
   new ones as a mixture of them.
 \end{itemize}
@@ -330,7 +234,8 @@ but they do so in a different way:\begin{itemize}
   
 \item The {\em evolutionary} channel will be used for carrying
   non-evolved, or newly generated, populations.
-\item The {\em mixer} channel will carry {\em pairs} of populations.  
+\item The {\em mixer} channel will carry, {\em in pairs}, evolved
+  populations. 
 \end{itemize}
 
 These will be connected as shown in Figure \ref{fig:scheme}. The
@@ -421,8 +326,8 @@ the evolutionary channel.
 \end{figure}
 
 The main objective of using two channels is
-to avoid deadlocks; the fact that one population is always written
-back to the mixer channel makes it avoid starvation.
+to avoid deadlocks; the fact that one population is written always
+back to the mixer channel avoids starvation of the channel. 
 Figure \ref{fig:schematic} illustrates this operation, where the
 timeline of the interchange of messages between the evolver and mixer
 threads and evolver and mixer channels is clarified.
@@ -432,34 +337,31 @@ contain data about one population. Since using the whole population
 will incur in a lot of overhead, we use a strategy that is inspired in {\em EDA}, 
 or Estimation of Distribution Algorithm: instead of 
 transmitting the entire population, the message sent to the channel 
-will consist of an array that contains the probability distribution 
-across each gene in the population, a strategy used in Estimation of
-Distribution Algorithms \cite{larranaga2001estimation}; in this
-context, this strategy is similar to the one presented by de la Ossa et
-al. in \cite{10.1007/978-3-540-30217-9_25}; however, our strategy differs from a pure EDA in that once the evolutionary
-thread has internally run a canonical genetic algorithm, it takes 
+will consist of a prototype array containing the probability distribution 
+across each gene in the population. In this sense,
+this strategy is similar to the one presented by de la Ossa et
+al. in \cite{10.1007/978-3-540-30217-9_25}. 
+
+Nonetheless, our strategy differs from a pure EDA in that once the evolutionary
+thread have internally run a canonical genetic algorithm, it takes 
 only the top quartile of best individuals to compute an array with the 
 probability distribution of their genes (computed with frequentist rules) 
 and then compose the message that is sent to the {\em mixer} threads. 
 
 A {\em mixer} thread, in turn, 
 builds a new prototype array by choosing randomly at each gene location
-one probability parameter out of the  two distributions, 
-instead of working directly on individuals. When one evolver thread
-reads the message with the population distribution, it generates a new population 
-using a distribution from the mixer channel; this can be either one
-mixed population, or simply a population that was sent back, as is, to
-the mixer channel and is evolved further. This strategy of sending a
-population distribution was used to avoid the overhead of sending
-several elements of the population; although the overhead increases
-with the population size, it is not much heavier than sending a single
-individual, and carries much more information. In previous papers,
-this was found to be the strategy with better scaling and overall results.
+one probability parameter out of the  two {\em populations} (actually, distributions), 
+instead of working directly on individuals. While in the baseline strategy the
+selection took place in the mixer thread by eliminating half the
+population, in this new design the selection occurs in the evolutionary thread
+that selects the 25\% best individuals to compose the probability distribution
+message. When the evolver thread reads the message back, it generates a new population 
+using the mixed distribution obtained by the mixer.
 
-However, the main purpose of this paper was to assess hot parallel
-execution was actually taking place.
-The introduction of the parallel execution monitor in Comma by
-Edument, the company that sells it, along with a module, {\tt Log::Timeline}, that needs to be added to the program in order for it to be able to visualize the results, gives us the capability of seeing events as they are happening in a unified timeline, and also check the duration and simultaneity of the tasks occurring in different threads. Please refer to Figure \ref{fig:comma}, which is a capture of this tool running on the program presented in this paper.
+% Do we have some experimental results on the amount of overhead between transmitting  and generating? - Mario
+% Not really... But we really reduced it, and the monitor shows that there's very little time between mixer and the channels.
+
+The introduction of the parallel execution monitor in Comma by Edument, the company that sells it, along with a module, Log::Timeline, that needs to be added to the program in order for it to be able to visualize the results, gives us the capability of seeing events as they are happening in a unified timeline, and also check the duration and simultaneity of the tasks occurring in different threads. Please refer to Figure \ref{fig:comma}, which is a capture of this tool running on the program presented in this paper.
 
 \begin{figure*}[h!tb]
   \centering
@@ -468,11 +370,7 @@ Edument, the company that sells it, along with a module, {\tt Log::Timeline}, th
     \label{fig:comma}
     \end{figure*}
 
-    This initial visualization already highlighted some problems:
-    there were gaps where no thread was being executed, they run
-    almost in parallel, and there were also some {\em short} runs for
-    which we had no explanation. We'll interpret this and show how it
-    was fixed right next. 
+    This initial visualization already highlighted some problems: there were gaps where no thread was being executed, they run almost in parallel, and there were also some {\em short} runs for which we had no explanation. We'll interpret this and show how it was fixed right next.
 
     \section{Implementation matters: improving the implementation of a concurrent evolutionary algorithm}
 
@@ -501,8 +399,7 @@ In this case, the improvement consisted in changing the {\tt while} loop to a {\
   This improvement in the execution drove us to try, now, measuring the scaling capabilities once we increase the number of threads. We'll see the results next.
 
   \section{Results}
-  \label{sec:res}
-  
+
   We will first apply the new version of the concurrent evolutionary algorithm to the leading ones problem, which previously had not reached a good solution. We will do so in laptop with 4 cores, a Lenovo X1, using Raku v2020.02 on Ubuntu 16.04. Code is available in GitHub under a free license. We tested two different (total) populations, 512 and 256; as indicated in the methodology, population will be divided evenly among the existing processors.
   
 \begin{figure}[h!tb]
