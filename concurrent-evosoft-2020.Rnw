@@ -172,9 +172,21 @@ A third and probably more important reason, however, is the lack of tools to pro
 
 So far, this was the path we had been following \cite{merelo:WEA:anon,Merelo:2018:MEA:3205651.3208317:anon}, with diverse results. Those papers proposed a concurrent evolutionary algorithm in Raku that distributed short-burst evolutionary processes in threads, with an additional mixer thread used for combining populations emanating from the different threads, and a communication system that sent a statistical representation of the population instead of the whole population. In particular, when scaling was apparently not happening, it was difficult to know if it was due to gaps in the use of processors, or to inherent problems with the algorithm itself.
 
-In this paper, after the release of a process logging and monitoring tool for Raku concurrent programs within the Comma integrated development environment, we examine the correct working of the concurrent evolutionary algorithm; this had not been possible so far, due to the lack of appropriate tools. This will lead to a refactoring of the implementation, if needed, and a re-examination of the scaling capabilities of the system.
+In this paper, and after the release of a process logging and
+monitoring tool for Raku concurrent programs within the Comma
+integrated development environment, we analyze the correct working of
+the parallel threads in the concurrent evolutionary algorithm; this
+had not been possible so 
+far, due to the lack of appropriate tools. This will lead to a
+refactoring of the implementation, if needed, and a re-examination of
+the scaling capabilities of the system using some benchmark function.
 
-The rest of the paper is organized as follows: next, we examine the state of the art in the area of parallel and concurrent evolutionary algorithms, followed by a description of the methodology we have followed in the experiments and the experimental setup we have created for this in \ref{sec:design}. We will then present the results in the next section, to be followed by the conclusions.
+The rest of the paper is organized as follows: next, we examine the
+state of the art in the area of parallel and concurrent evolutionary
+algorithms, followed by a description of the methodology we have
+followed in the experiments and the experimental setup we have created
+for this in \ref{sec:design}. We will then present the results in the
+next section (\ref{sec:res}), to be followed by the conclusions.
 
 \section{State of the art}
 \label{sec:soa}
@@ -412,7 +424,8 @@ In this case, the improvement consisted in changing the {\tt while} loop to a {\
   This improvement in the execution drove us to try, now, measuring the scaling capabilities once we increase the number of threads. We'll see the results next.
 
   \section{Results}
-
+  \label{sec:res}
+  
   We will first apply the new version of the concurrent evolutionary algorithm to the leading ones problem, which previously had not reached a good solution. We will do so in laptop with 4 cores, a Lenovo X1, using Raku v2020.02 on Ubuntu 16.04. Code is available in GitHub under a free license. We tested two different (total) populations, 512 and 256; as indicated in the methodology, population will be divided evenly among the existing processors.
   
 \begin{figure}[h!tb]
