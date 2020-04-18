@@ -192,8 +192,8 @@ next Section (\ref{sec:res}), to be followed by the conclusions.
 \label{sec:soa}
 
 Concurrency gives practitioners a practical and high-level way to
-tackle parallelism, which has been used in the evolutionary algorithms since
-early on. One of the first papers was published by Cohoon et
+tackle parallelism, which has been used in the evolutionary algorithms
+since early on. One of the first papers was published by Cohoon et
 al. \cite{cohoon1987punctuated}, and it already acknowledged the
 problems of the exploitation/exploration balance by proposing an
 algorithm based on {\em punctuated equilibrium}, that is, a balance
@@ -204,11 +204,12 @@ the same amount of things in parallel but try to ``find better
 solutions with less total work'', that is, the distributed
 architecture itself will have an algorithmic role and influence
 positively the performance of the evolutionary algorithm. Ultimately,
-what the author presents is a synchronous island model with random migration between islands,
-but the underlying ideas seem surprisingly modern and relevant.  
+what the author presents is a synchronous island model with random
+migration between islands, but the underlying ideas seem surprisingly
+modern and relevant.
 
 
-The lack of suitably systems was a hurdle for the advancement on this subject, but
+The lack of suitable systems was a hurdle for the advancement on this subject, but
 the early 90s saw the popularization of the Inmos Transputer \cite{whitby1985transputer}, a processor
 architecture designed for parallelism, paired with a programming
 language called Occam that took advantage of that concurrency.  East
@@ -273,7 +274,7 @@ of the implementation beyond heuristic measurements.
 In this paper, we will try to use that kind of tools to find out the source of the bottleneck in previous implementations of the concurrent evolutionary algorithm and, from that foundation, improve it to achieve superlinear scaling given the right hardware platform.
 
 
-\section{Design of a concurrent evolutionary algorithm in Raku}
+\section{Design and implementation of a concurrent evolutionary algorithm in Raku}
 \label{sec:design}
 
 Raku is a concurrent, functional language
@@ -467,7 +468,11 @@ Edument, the company that sells it, along with a module, {\tt Log::Timeline}, th
     \label{fig:comma}
     \end{figure*}
 
-    This initial visualization already highlighted some problems: there were gaps where no thread was being executed, they run almost in parallel, and there were also some {\em short} runs for which we had no explanation. We'll interpret this and show how it was fixed right next.
+    This initial visualization already highlighted some problems:
+    there were gaps where no thread was being executed, they run
+    almost in parallel, and there were also some {\em short} runs for
+    which we had no explanation. We'll interpret this and show how it
+    was fixed right next. 
 
     \section{Implementation matters: improving the implementation of a concurrent evolutionary algorithm}
 
