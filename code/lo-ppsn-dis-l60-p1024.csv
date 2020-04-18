@@ -1,4 +1,4 @@
-Population, Threads, Time, Evaluations
+Type, Threads, Time, Evaluations
 dis-v2, 4, 78.811463, 387096
 vg, 4, 54.020301, 391540
 vg, 2, 64.573781, 231889
