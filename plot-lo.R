@@ -12,3 +12,5 @@ summaries <- data %>% group_by(Type,Threads) %>% summarise(medianE=median(Evalua
 ggplot(data,aes(x=Threads,y=Evaluations,color=Type))+geom_tufteboxplot()+theme_tufte()
 ggplot(data,aes(x=Threads,y=Time,color=Type))+geom_tufteboxplot()+theme_tufte()+scale_y_log10()
 ggplot(data,aes(x=Threads,y=Evaluation.rate,color=Type))+geom_tufteboxplot()+theme_tufte()
+data$type.threads <- paste0(data$Type,data$Threads)
+wilcox.test( data[data$type.threads=="vg8",]$Time, data[data$type.threads=="vp8",]$Time)
