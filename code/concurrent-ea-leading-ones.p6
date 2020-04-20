@@ -37,7 +37,7 @@ sub MAIN(
 
     # Initialize three populations for the mixer
     for ^$initial-populations {
-        $to-mix.send( 1.rand xx $length );
+        start $to-mix.send( 1.rand xx $length );
     }
 
     my @promises;
