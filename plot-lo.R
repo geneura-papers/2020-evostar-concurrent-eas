@@ -22,12 +22,12 @@ for (threads in c(2,4,6,8,10)) {
   wilcox.df.e <- rbind(wilcox.df.e,
                        data.frame(threads=threads,
                                   wilcoxon=this.w.e$p.value,
-                                  significant= (this.w.e$p.value < 0.05)))
+                                  significant= (this.w.e$p.value < 0.10)))
   this.w.t <- wilcox.test(data[data$type.threads==paste0("vg",threads),]$Time, data[data$type.threads==paste0("vp",threads),]$Time)
   wilcox.df.t <- rbind(wilcox.df.t,
                        data.frame(threads=threads,
                                   wilcoxon=this.w.t$p.value,
-                                  significant= (this.w.t$p.value < 0.05)))
+                                  significant= (this.w.t$p.value < 0.10)))
 }
 
 wilcox.df.n.e <- data.frame()
@@ -38,10 +38,10 @@ for (threads in c(2,4,6,8)) {
   wilcox.df.n.e <- rbind(wilcox.df.n.e,
                        data.frame(threads=threads,
                                   wilcoxon=this.w.e$p.value,
-                                  significant= (this.w.e$p.value < 0.05)))
+                                  significant= (this.w.e$p.value < 0.10)))
   this.w.t <- wilcox.test(data[data$type.threads==paste0("nodis",threads),]$Time, data[data$type.threads==paste0("vp",threads),]$Time)
   wilcox.df.n.t <- rbind(wilcox.df.n.t,
                        data.frame(threads=threads,
                                   wilcoxon=this.w.t$p.value,
-                                  significant= (this.w.t$p.value < 0.05)))
+                                  significant= (this.w.t$p.value < 0.10)))
 }
