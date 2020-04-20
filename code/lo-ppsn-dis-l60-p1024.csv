@@ -1,513 +1,257 @@
 Type, Threads, Time, Evaluations
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587119440.606011} {c => Events, d => {evaluations => 387096}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 203, t => 1587119440.606555}]
 dis-v2, 4, 78.810919, 387096
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587153587.421833} {c => Events, d => {evaluations => 391540}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 133, t => 1587153587.422365}]
 vg, 4, 54.019769, 391540
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587151045.385981} {c => Events, d => {evaluations => 231889}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 41, t => 1587151045.38653}]
 vg, 2, 64.573232, 231889
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587119866.83282} {c => Events, d => {evaluations => 229913}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 121, t => 1587119866.833331}]
 dis-v2, 4, 42.05824, 229913
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587144557.01241} {c => Events, d => {evaluations => 237436}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 201, t => 1587144557.013029}]
 dis, 8, 23.016339, 237436
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587290366.97497} {c => Events, d => {evaluations => 127243}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 114, t => 1587290366.975536}]
 vp, 8, 11.744853, 127243
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587119518.961735} {c => Events, d => {evaluations => 404210}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 211, t => 1587119518.962375}]
 dis-v2, 4, 76.529128, 404210
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587119933.125737} {c => Events, d => {evaluations => 326028}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 179, t => 1587119933.126231}]
 dis-v2, 4, 64.093204, 326028
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587290036.194219} {c => Events, d => {evaluations => 214629}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 148, t => 1587290036.194767} {c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587290036.437564} {c => Events, d => {evaluations => 216825}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 154, t => 1587290036.437893}]
 vp, 6, 22.924263, 216825
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587120621.076524} {c => Events, d => {evaluations => 142148}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 133, t => 1587120621.077121}]
 dis-v2, 8, 12.586182, 142148
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587142102.783074} {c => Events, d => {evaluations => 1699561}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 331, t => 1587142102.783546}]
 dis, 2, 530.274898, 1699561
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587139302.696629} {c => Events, d => {evaluations => 709645}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 135, t => 1587139302.697146}]
 dis, 2, 194.750222, 709645
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587289977.915308} {c => Events, d => {evaluations => 310489}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 144, t => 1587289977.915825}]
 vp, 4, 62.566627, 310489
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587150128.757282} {c => Events, d => {evaluations => 748856}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 139, t => 1587150128.757778}]
 vg, 2, 192.145864, 748856
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587154004.460614} {c => Events, d => {evaluations => 175573}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 55, t => 1587154004.461155}]
 vg, 4, 25.374014, 175573
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587289413.76734} {c => Events, d => {evaluations => 186900}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 88, t => 1587289413.767876}]
 vp, 4, 36.89278, 186900
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587290471.115839} {c => Events, d => {evaluations => 224832}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 212, t => 1587290471.116402}]
 vp, 8, 19.071292, 224832
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587154845.353836} {c => Events, d => {evaluations => 164730}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 139, t => 1587154845.354638}]
 vg, 10, 15.929608, 164730
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587284581.357097} {c => Events, d => {evaluations => 453259}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 106, t => 1587284581.357614}]
 vp, 2, 140.375535, 453259
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587290205.055714} {c => Events, d => {evaluations => 155250}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 110, t => 1587290205.056238} {c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587290205.998259} {c => Events, d => {evaluations => 160328}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 112, t => 1587290205.998569}]
 vp, 6, 17.326864, 160328
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587153351.334877} {c => Events, d => {evaluations => 381531}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 67, t => 1587153351.335391}]
 vg, 2, 107.265766, 381531
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587120286.981254} {c => Events, d => {evaluations => 142661}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 107, t => 1587120286.981785}]
 dis-v2, 6, 18.037949, 142661
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587114092.343756} {c => Events, d => {evaluations => 2918510}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 907, t => 1587114092.344272}]
 dis-v2, 2, 776.903621, 2918510
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587283348.520757} {c => Events, d => {evaluations => 1164689}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 272, t => 1587283348.521253}]
 vp, 2, 345.11702, 1164689
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587120565.056795} {c => Events, d => {evaluations => 156102}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 155, t => 1587120565.057301} {c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587120565.156589} {c => Events, d => {evaluations => 156615}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 149, t => 1587120565.156946}]
 dis-v2, 8, 16.912111, 156615
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587290062.06621} {c => Events, d => {evaluations => 234567}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 162, t => 1587290062.066737}]
 vp, 6, 24.285291, 234567
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587140109.893136} {c => Events, d => {evaluations => 1239394}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 239, t => 1587140109.897704}]
 dis, 2, 378.16825, 1239394
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587290186.640819} {c => Events, d => {evaluations => 286062}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 200, t => 1587290186.641388}]
 vp, 6, 32.155696, 286062
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587290381.974079} {c => Events, d => {evaluations => 157345}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 156, t => 1587290381.974627}]
 vp, 8, 13.190482, 157345
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587118085.790409} {c => Events, d => {evaluations => 1539061}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 477, t => 1587118085.790922}]
 dis-v2, 2, 455.513969, 1539061
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587143311.067992} {c => Events, d => {evaluations => 234996}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 43, t => 1587143311.068587}]
 dis, 2, 62.368541, 234996
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587290639.946693} {c => Events, d => {evaluations => 174034}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 190, t => 1587290639.955163} {c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587290640.052727} {c => Events, d => {evaluations => 174751}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 210, t => 1587290640.053019} {c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587290640.182214} {c => Events, d => {evaluations => 176282}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 200, t => 1587290640.182566} {c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587290640.591774} {c => Events, d => {evaluations => 179356}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 208, t => 1587290640.592122}]
 vp, 10, 14.24836, 179356
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587290305.955411} {c => Events, d => {evaluations => 139008}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 102, t => 1587290305.955921}]
 vp, 6, 18.652026, 139008
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587290721.008318} {c => Events, d => {evaluations => 141639}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 160, t => 1587290721.009103}]
 vp, 10, 11.406051, 141639
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587154480.458306} {c => Events, d => {evaluations => 149624}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 75, t => 1587154480.458853}]
 vg, 6, 15.565181, 149624
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587120498.184255} {c => Events, d => {evaluations => 122047}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 125, t => 1587120498.184805}]
 dis-v2, 8, 11.726305, 122047
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587114432.926641} {c => Events, d => {evaluations => 227041}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 69, t => 1587114432.927152}]
 dis-v2, 2, 63.033292, 227041
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587154526.56048} {c => Events, d => {evaluations => 168125}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 101, t => 1587154526.561107}]
 vg, 8, 16.221854, 168125
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587140540.037408} {c => Events, d => {evaluations => 1058443}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 203, t => 1587140540.037918}]
 dis, 2, 276.181996, 1058443
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587144497.212237} {c => Events, d => {evaluations => 175284}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 147, t => 1587144497.212812}]
 dis, 8, 17.115055, 175284
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587143245.812562} {c => Events, d => {evaluations => 719734}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 137, t => 1587143245.81305}]
 dis, 2, 184.238686, 719734
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587119321.257161} {c => Events, d => {evaluations => 129931}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 63, t => 1587119321.257695}]
 dis-v2, 4, 28.11681, 129931
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587119290.004634} {c => Events, d => {evaluations => 479286}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 255, t => 1587119290.010057}]
 dis-v2, 4, 88.315318, 479286
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587112720.581606} {c => Events, d => {evaluations => 581394}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 177, t => 1587112720.582133}]
 dis-v2, 2, 161.91039, 581394
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587290152.607075} {c => Events, d => {evaluations => 240058}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 168, t => 1587290152.607649} {c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587290152.76771} {c => Events, d => {evaluations => 241737}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 172, t => 1587290152.77394}]
 vp, 6, 26.76307, 241737
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587144354.926116} {c => Events, d => {evaluations => 198515}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 125, t => 1587144354.926675}]
 dis, 6, 25.371075, 198515
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587289348.422553} {c => Events, d => {evaluations => 157821}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 76, t => 1587289348.423096} {c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587289350.515091} {c => Events, d => {evaluations => 165943}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 80, t => 1587289350.515416}]
 vp, 4, 34.970432, 165943
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587154193.512615} {c => Events, d => {evaluations => 167221}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 93, t => 1587154193.513161}]
 vg, 6, 20.911044, 167221
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587139729.62201} {c => Events, d => {evaluations => 1591624}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 309, t => 1587139729.62252}]
 dis, 2, 422.784316, 1591624
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587153773.822511} {c => Events, d => {evaluations => 428510}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 155, t => 1587153773.823045}]
 vg, 4, 62.755272, 428510
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587144105.23768} {c => Events, d => {evaluations => 188881}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 111, t => 1587144105.238257}]
 dis, 6, 25.53598, 188881
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587153638.438298} {c => Events, d => {evaluations => 261383}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 99, t => 1587153638.438815}]
 vg, 4, 48.892947, 261383
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587139104.73904} {c => Events, d => {evaluations => 840756}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 161, t => 1587139104.73956}]
 dis, 2, 215.476376, 840756
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587120546.066477} {c => Events, d => {evaluations => 208203}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 207, t => 1587120546.066998} {c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587120546.769942} {c => Events, d => {evaluations => 213972}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 205, t => 1587120546.770299} {c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587120547.311842} {c => Events, d => {evaluations => 218054}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 201, t => 1587120547.312176}]
 dis-v2, 8, 21.559601, 218054
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587154566.344239} {c => Events, d => {evaluations => 195024}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 151, t => 1587154566.344768}]
 vg, 8, 20.371458, 195024
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587120099.94213} {c => Events, d => {evaluations => 280870}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 217, t => 1587120099.942685}]
 dis-v2, 6, 37.67449, 280870
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587290486.450378} {c => Events, d => {evaluations => 150382}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 144, t => 1587290486.450952}]
 vp, 8, 13.690426, 150382
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587144516.919065} {c => Events, d => {evaluations => 164156}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 133, t => 1587144516.919647}]
 dis, 8, 17.302264, 164156
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587143060.040478} {c => Events, d => {evaluations => 2219258}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 429, t => 1587143060.040994}]
 dis, 2, 567.024471, 2219258
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587143366.108538} {c => Events, d => {evaluations => 241389}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 95, t => 1587143366.109081}]
 dis, 4, 50.882785, 241389
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587144446.433551} {c => Events, d => {evaluations => 175749}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 151, t => 1587144446.434118}]
 dis, 8, 18.636495, 175749
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587290450.221116} {c => Events, d => {evaluations => 135807}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 124, t => 1587290450.221661}]
 vp, 8, 11.935514, 135807
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587143736.809952} {c => Events, d => {evaluations => 118664}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 43, t => 1587143736.810555}]
 dis, 4, 24.618158, 118664
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587144478.210402} {c => Events, d => {evaluations => 166487}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 139, t => 1587144478.210961}]
 dis, 8, 12.217862, 166487
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587154309.565074} {c => Events, d => {evaluations => 237471}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 115, t => 1587154309.565617}]
 vg, 6, 24.193487, 237471
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587154695.376342} {c => Events, d => {evaluations => 150921}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 111, t => 1587154695.37692}]
 vg, 8, 14.909109, 150921
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587120462.085127} {c => Events, d => {evaluations => 127637}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 127, t => 1587120462.085689}]
 dis-v2, 8, 10.625898, 127637
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587151269.945351} {c => Events, d => {evaluations => 769966}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 145, t => 1587151269.94586}]
 vg, 2, 222.033912, 769966
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587287380.649051} {c => Events, d => {evaluations => 234051}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 54, t => 1587287380.653853}]
 vp, 2, 68.589605, 234051
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587154655.700759} {c => Events, d => {evaluations => 144810}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 107, t => 1587154655.70134}]
 vg, 8, 14.244853, 144810
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587144532.013015} {c => Events, d => {evaluations => 139286}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 117, t => 1587144532.013559}]
 dis, 8, 13.314938, 139286
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587154169.738314} {c => Events, d => {evaluations => 250153}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 131, t => 1587154169.738895}]
 vg, 6, 30.453262, 250153
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587290740.637195} {c => Events, d => {evaluations => 184982}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 226, t => 1587290740.63775}]
 vp, 10, 18.179374, 184982
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587120152.390328} {c => Events, d => {evaluations => 189830}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 141, t => 1587120152.390877} {c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587120153.38242} {c => Events, d => {evaluations => 196080}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 147, t => 1587120153.382778}]
 dis-v2, 6, 26.086003, 196080
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587119160.50199} {c => Events, d => {evaluations => 172724}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 91, t => 1587119160.502554}]
 dis-v2, 4, 31.972534, 172724
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587154977.777354} {c => Events, d => {evaluations => 134940}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 121, t => 1587154977.777946}]
 vg, 10, 11.68428, 134940
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587288416.120466} {c => Events, d => {evaluations => 574197}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 134, t => 1587288416.120991}]
 vp, 2, 179.288621, 574197
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587154715.833379} {c => Events, d => {evaluations => 185864}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 135, t => 1587154715.83388}]
 vg, 8, 17.97011, 185864
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587153897.891388} {c => Events, d => {evaluations => 270017}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 77, t => 1587153897.891916}]
 vg, 4, 49.442513, 270017
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587290535.130146} {c => Events, d => {evaluations => 139224}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 132, t => 1587290535.130629}]
 vp, 8, 12.123828, 139224
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587149935.115942} {c => Events, d => {evaluations => 2471722}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 461, t => 1587149935.116468}]
 vg, 2, 684.004499, 2471722
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587289775.474367} {c => Events, d => {evaluations => 249385}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 114, t => 1587289775.474872}]
 vp, 4, 36.31734, 249385
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587290521.366154} {c => Events, d => {evaluations => 154448}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 142, t => 1587290521.366745}]
 vp, 8, 12.689737, 154448
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587290624.211903} {c => Events, d => {evaluations => 96360}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 122, t => 1587290624.212477}]
 vp, 10, 7.744234, 96360
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587289856.232479} {c => Events, d => {evaluations => 310341}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 144, t => 1587289856.233021}]
 vp, 4, 45.103067, 310341
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587150308.434196} {c => Events, d => {evaluations => 688857}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 127, t => 1587150308.434703}]
 vg, 2, 176.512327, 688857
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587143709.57339} {c => Events, d => {evaluations => 138078}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 57, t => 1587143709.573887}]
 dis, 4, 29.499742, 138078
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587290284.89403} {c => Events, d => {evaluations => 258110}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 180, t => 1587290284.894606} {c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587290286.208587} {c => Events, d => {evaluations => 265887}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 184, t => 1587290286.208929}]
 vp, 6, 34.295601, 265887
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587120230.766904} {c => Events, d => {evaluations => 170770}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 123, t => 1587120230.767465}]
 dis-v2, 6, 22.519761, 170770
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587154963.771678} {c => Events, d => {evaluations => 116294}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 103, t => 1587154963.772475}]
 vg, 10, 11.291458, 116294
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587154900.95509} {c => Events, d => {evaluations => 173202}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 151, t => 1587154900.955628} {c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587154901.926999} {c => Events, d => {evaluations => 181406}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 161, t => 1587154901.927332}]
 vg, 10, 16.644169, 181406
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587290615.253991} {c => Events, d => {evaluations => 131263}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 142, t => 1587290615.262695} {c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587290615.877193} {c => Events, d => {evaluations => 137724}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 160, t => 1587290615.877517}]
 vp, 10, 11.551821, 137724
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587141570.106495} {c => Events, d => {evaluations => 200723}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 39, t => 1587141570.10702}]
 dis, 2, 62.129015, 200723
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587290412.540637} {c => Events, d => {evaluations => 130585}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 114, t => 1587290412.541237} {c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587290412.628102} {c => Events, d => {evaluations => 131728}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 128, t => 1587290412.628478}]
 vp, 8, 10.756049, 131728
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587112944.28949} {c => Events, d => {evaluations => 213910}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 63, t => 1587112944.289991}]
 dis-v2, 2, 62.066104, 213910
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587120431.042} {c => Events, d => {evaluations => 178937}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 131, t => 1587120431.042551}]
 dis-v2, 6, 22.847638, 178937
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587290400.032503} {c => Events, d => {evaluations => 172421}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 156, t => 1587290400.033126}]
 vp, 8, 16.530995, 172421
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587154826.722451} {c => Events, d => {evaluations => 145791}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 115, t => 1587154826.723031} {c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587154827.198575} {c => Events, d => {evaluations => 150693}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 127, t => 1587154827.198856} {c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587154828.124444} {c => Events, d => {evaluations => 155911}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 125, t => 1587154828.12478}]
 vg, 10, 12.997907, 155911
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587289661.997418} {c => Events, d => {evaluations => 372701}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 172, t => 1587289661.998064} {c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587289662.429612} {c => Events, d => {evaluations => 374732}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 170, t => 1587289662.429938}]
 vp, 4, 57.481632, 374732
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587154115.726729} {c => Events, d => {evaluations => 245278}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 139, t => 1587154115.727236}]
 vg, 6, 25.620872, 245278
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587120607.37507} {c => Events, d => {evaluations => 149979}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 143, t => 1587120607.375645}]
 dis-v2, 8, 14.609068, 149979
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587120179.484756} {c => Events, d => {evaluations => 171393}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 133, t => 1587120179.485238}]
 dis-v2, 6, 24.029513, 171393
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587119127.477537} {c => Events, d => {evaluations => 185481}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 91, t => 1587119127.478095}]
 dis-v2, 4, 38.926665, 185481
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587154543.192164} {c => Events, d => {evaluations => 150910}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 111, t => 1587154543.192748}]
 vg, 8, 14.123368, 150910
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587120590.878481} {c => Events, d => {evaluations => 227356}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 231, t => 1587120590.878985} {c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587120592.163055} {c => Events, d => {evaluations => 238329}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 223, t => 1587120592.163435}]
 dis-v2, 8, 23.665116, 238329
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587290337.857683} {c => Events, d => {evaluations => 224849}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 164, t => 1587290337.858191}]
 vp, 6, 29.3483, 224849
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587154255.054035} {c => Events, d => {evaluations => 284102}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 163, t => 1587154255.054569} {c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587154255.634294} {c => Events, d => {evaluations => 288325}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 157, t => 1587154255.634678}]
 vg, 6, 35.176174, 288325
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587144142.714286} {c => Events, d => {evaluations => 238430}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 153, t => 1587144142.714846}]
 dis, 6, 32.277319, 238430
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587290662.480814} {c => Events, d => {evaluations => 132517}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 166, t => 1587290662.481559} {c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587290662.567219} {c => Events, d => {evaluations => 133843}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 156, t => 1587290662.567574} {c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587290662.860057} {c => Events, d => {evaluations => 137326}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 160, t => 1587290662.860386}]
 vp, 10, 10.688049, 137326
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587143961.464503} {c => Events, d => {evaluations => 135374}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 49, t => 1587143961.465121}]
 dis, 4, 27.223497, 135374
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587154639.324709} {c => Events, d => {evaluations => 159391}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 117, t => 1587154639.325231} {c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587154639.854429} {c => Events, d => {evaluations => 165021}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 113, t => 1587154639.854801} {c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587154640.823009} {c => Events, d => {evaluations => 170895}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 111, t => 1587154640.823341}]
 vg, 8, 14.008991, 170895
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587144425.870147} {c => Events, d => {evaluations => 245082}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 217, t => 1587144425.870674} {c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587144426.63828} {c => Events, d => {evaluations => 251227}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 215, t => 1587144426.63877}]
 dis, 8, 23.670882, 251227
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587144188.465127} {c => Events, d => {evaluations => 334152}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 215, t => 1587144188.465712}]
 dis, 6, 44.317283, 334152
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587290650.365248} {c => Events, d => {evaluations => 111166}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 128, t => 1587290650.365843}]
 vp, 10, 9.071045, 111166
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587143789.197272} {c => Events, d => {evaluations => 247986}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 95, t => 1587143789.197813} {c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587143790.062353} {c => Events, d => {evaluations => 251782}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 101, t => 1587143790.062668}]
 dis, 4, 48.869027, 251782
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587120353.414003} {c => Events, d => {evaluations => 274643}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 209, t => 1587120353.41455}]
 dis-v2, 6, 40.820484, 274643
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587154776.978151} {c => Events, d => {evaluations => 172473}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 115, t => 1587154776.978689} {c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587154777.121685} {c => Events, d => {evaluations => 173369}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 121, t => 1587154777.121984} {c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587154777.383145} {c => Events, d => {evaluations => 174781}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 123, t => 1587154777.383494} {c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587154778.046824} {c => Events, d => {evaluations => 176060}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 119, t => 1587154778.047138}]
 vg, 8, 17.150487, 176060
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587153975.086677} {c => Events, d => {evaluations => 223785}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 75, t => 1587153975.087201}]
 vg, 4, 34.067446, 223785
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587290225.494354} {c => Events, d => {evaluations => 176259}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 122, t => 1587290225.494891}]
 vp, 6, 18.406832, 176259
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587115717.687156} {c => Events, d => {evaluations => 1617824}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 503, t => 1587115717.687661}]
 dis-v2, 2, 451.806469, 1617824
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587152607.691123} {c => Events, d => {evaluations => 633296}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 107, t => 1587152607.691627}]
 vg, 2, 163.412847, 633296
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587144399.400791} {c => Events, d => {evaluations => 178501}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 111, t => 1587144399.401333}]
 dis, 6, 23.697123, 178501
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587120309.988399} {c => Events, d => {evaluations => 154936}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 121, t => 1587120309.988916}]
 dis-v2, 6, 21.253345, 154936
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587290426.691347} {c => Events, d => {evaluations => 138130}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 128, t => 1587290426.691909}]
 vp, 8, 13.053553, 138130
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587120484.284454} {c => Events, d => {evaluations => 190623}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 189, t => 1587120484.285005} {c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587120485.134993} {c => Events, d => {evaluations => 196878}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 193, t => 1587120485.135329} {c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587120485.51371} {c => Events, d => {evaluations => 198928}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 185, t => 1587120485.514059}]
 dis-v2, 8, 20.930596, 198928
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587154935.713404} {c => Events, d => {evaluations => 188317}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 185, t => 1587154935.714267} {c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587154936.289477} {c => Events, d => {evaluations => 195081}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 167, t => 1587154936.289827} {c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587154936.822339} {c => Events, d => {evaluations => 200406}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 189, t => 1587154936.822664}]
 vg, 10, 15.347936, 200406
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587153463.646018} {c => Events, d => {evaluations => 219023}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 87, t => 1587153463.646535}]
 vg, 4, 46.741063, 219023
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587289484.841446} {c => Events, d => {evaluations => 172930}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 84, t => 1587289484.841945}]
 vp, 4, 34.319244, 172930
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587154918.647485} {c => Events, d => {evaluations => 186459}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 151, t => 1587154918.648897}]
 vg, 10, 15.698404, 186459
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587144274.684803} {c => Events, d => {evaluations => 199326}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 123, t => 1587144274.685338} {c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587144274.79457} {c => Events, d => {evaluations => 200676}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 127, t => 1587144274.79491} {c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587144275.10533} {c => Events, d => {evaluations => 203216}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 129, t => 1587144275.10565}]
 dis, 6, 18.946954, 203216
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587154507.236166} {c => Events, d => {evaluations => 174968}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 101, t => 1587154507.236739}]
 vg, 6, 24.144808, 174968
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587152434.928109} {c => Events, d => {evaluations => 1471886}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 269, t => 1587152434.928632}]
 vg, 2, 450.007916, 1471886
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587289738.001883} {c => Events, d => {evaluations => 481275}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 226, t => 1587289738.002385}]
 vp, 4, 74.106416, 481275
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587119359.669189} {c => Events, d => {evaluations => 166990}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 81, t => 1587119359.669729}]
 dis-v2, 4, 36.374204, 166990
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587120124.633323} {c => Events, d => {evaluations => 168344}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 121, t => 1587120124.633891}]
 dis-v2, 6, 22.952166, 168344
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587120449.729288} {c => Events, d => {evaluations => 176284}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 177, t => 1587120449.729886}]
 dis-v2, 8, 16.944289, 176284
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587287557.97093} {c => Events, d => {evaluations => 600782}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 140, t => 1587287557.971403}]
 vp, 2, 174.45546, 600782
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587154600.159832} {c => Events, d => {evaluations => 101774}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 59, t => 1587154600.160425}]
 vg, 8, 9.807572, 101774
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587290353.494078} {c => Events, d => {evaluations => 157800}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 148, t => 1587290353.494647}]
 vp, 8, 13.198175, 157800
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587144298.184555} {c => Events, d => {evaluations => 163599}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 103, t => 1587144298.185171}]
 dis, 6, 21.284066, 163599
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587120060.833945} {c => Events, d => {evaluations => 287173}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 145, t => 1587120060.834452}]
 dis-v2, 4, 40.326512, 287173
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587286107.488895} {c => Events, d => {evaluations => 273946}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 64, t => 1587286107.489396}]
 vp, 2, 75.368859, 273946
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587143930.247373} {c => Events, d => {evaluations => 141831}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 57, t => 1587143930.247906}]
 dis, 4, 28.650048, 141831
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587119550.013501} {c => Events, d => {evaluations => 199193}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 103, t => 1587119550.013993}]
 dis-v2, 4, 29.675222, 199193
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587144373.506684} {c => Events, d => {evaluations => 120095}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 73, t => 1587144373.507223}]
 dis, 6, 15.440582, 120095
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587143439.901381} {c => Events, d => {evaluations => 221755}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 89, t => 1587143439.901907}]
 dis, 4, 40.860028, 221755
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587289993.845886} {c => Events, d => {evaluations => 114071}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 82, t => 1587289993.846455}]
 vp, 6, 12.470619, 114071
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587290568.480885} {c => Events, d => {evaluations => 195191}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 186, t => 1587290568.481461} {c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587290569.144213} {c => Events, d => {evaluations => 203124}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 188, t => 1587290569.144603}]
 vp, 8, 16.246948, 203124
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587154084.449529} {c => Events, d => {evaluations => 423534}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 159, t => 1587154084.450043}]
 vg, 4, 78.781255, 423534
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587154793.411305} {c => Events, d => {evaluations => 167706}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 117, t => 1587154793.411862} {c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587154794.18616} {c => Events, d => {evaluations => 173590}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 119, t => 1587154794.186504}]
 vg, 8, 14.971055, 173590
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587154137.049587} {c => Events, d => {evaluations => 153040}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 69, t => 1587154137.050094}]
 vg, 6, 18.793905, 153040
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587144076.710434} {c => Events, d => {evaluations => 250358}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 155, t => 1587144076.710984}]
 dis, 6, 33.470955, 250358
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587120205.807125} {c => Events, d => {evaluations => 170708}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 121, t => 1587120205.807695}]
 dis-v2, 6, 23.646819, 170708
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587289912.907683} {c => Events, d => {evaluations => 341274}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 160, t => 1587289912.908206}]
 vp, 4, 53.852702, 341274
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587153818.663635} {c => Events, d => {evaluations => 220749}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 79, t => 1587153818.664147}]
 vg, 4, 40.366154, 220749
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587153415.141175} {c => Events, d => {evaluations => 308838}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 113, t => 1587153415.141661}]
 vg, 4, 57.514468, 308838
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587289311.310709} {c => Events, d => {evaluations => 285463}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 134, t => 1587289311.311258}]
 vp, 4, 57.49431, 285463
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587284828.625843} {c => Events, d => {evaluations => 845244}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 200, t => 1587284828.626337}]
 vp, 2, 243.887914, 845244
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587119086.209845} {c => Events, d => {evaluations => 1516214}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 471, t => 1587119086.21037}]
 dis-v2, 2, 426.744322, 1516214
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587154622.402675} {c => Events, d => {evaluations => 185656}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 133, t => 1587154622.403206}]
 vg, 8, 19.603588, 185656
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587143394.589136} {c => Events, d => {evaluations => 126657}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 49, t => 1587143394.589674}]
 dis, 4, 24.79517, 126657
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587144252.654247} {c => Events, d => {evaluations => 225970}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 153, t => 1587144252.654776}]
 dis, 6, 30.569142, 225970
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587120523.332263} {c => Events, d => {evaluations => 201687}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 183, t => 1587120523.332853}]
 dis-v2, 8, 23.185027, 201687
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587154811.883504} {c => Events, d => {evaluations => 172552}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 163, t => 1587154811.884085} {c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587154812.090753} {c => Events, d => {evaluations => 174807}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 171, t => 1587154812.091076}]
 vg, 10, 15.816644, 174807
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587144327.957473} {c => Events, d => {evaluations => 216640}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 131, t => 1587144327.958017}]
 dis, 6, 27.867312, 216640
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587143582.830612} {c => Events, d => {evaluations => 265763}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 109, t => 1587143582.83115}]
 dis, 4, 35.224424, 265763
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587290602.105208} {c => Events, d => {evaluations => 197875}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 232, t => 1587290602.105759} {c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587290602.659856} {c => Events, d => {evaluations => 204007}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 236, t => 1587290602.660205}]
 vp, 10, 17.149359, 204007
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587153708.953332} {c => Events, d => {evaluations => 188232}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 65, t => 1587153708.953871}]
 vg, 4, 26.72541, 188232
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587290673.888417} {c => Events, d => {evaluations => 113783}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 132, t => 1587290673.889406}]
 vp, 10, 10.131362, 113783
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587154217.709468} {c => Events, d => {evaluations => 200608}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 113, t => 1587154217.710102}]
 vg, 6, 21.136251, 200608
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587154865.503053} {c => Events, d => {evaluations => 203766}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 187, t => 1587154865.503623}]
 vg, 10, 17.20313, 203766
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587119821.922997} {c => Events, d => {evaluations => 942007}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 511, t => 1587119821.923464} {c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587119823.604905} {c => Events, d => {evaluations => 947335}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 507, t => 1587119823.605266}]
 dis-v2, 4, 203.592926, 947335
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587144599.050234} {c => Events, d => {evaluations => 163206}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 135, t => 1587144599.050813}]
 dis, 8, 17.360801, 163206
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587143851.606293} {c => Events, d => {evaluations => 326330}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 133, t => 1587143851.606836} {c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587143854.38242} {c => Events, d => {evaluations => 332654}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 137, t => 1587143854.382759}]
 dis, 4, 59.386486, 332654
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587119199.269912} {c => Events, d => {evaluations => 167216}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 83, t => 1587119199.270471}]
 dis-v2, 4, 35.707027, 167216
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587120266.591372} {c => Events, d => {evaluations => 228709}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 181, t => 1587120266.591984}]
 dis-v2, 6, 32.733534, 228709
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587154336.834899} {c => Events, d => {evaluations => 163879}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 81, t => 1587154336.83544} {c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587154339.238901} {c => Events, d => {evaluations => 174491}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 93, t => 1587154339.239229}]
 vg, 6, 24.151586, 174491
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587153679.439444} {c => Events, d => {evaluations => 259119}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 95, t => 1587153679.439991}]
 vg, 4, 36.601721, 259119
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587144580.317481} {c => Events, d => {evaluations => 166375}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 143, t => 1587144580.31804}]
 dis, 8, 17.923863, 166375
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587151322.029872} {c => Events, d => {evaluations => 203698}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 33, t => 1587151322.030404}]
 vg, 2, 51.091617, 203698
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587143898.293724} {c => Events, d => {evaluations => 301670}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 123, t => 1587143898.294243}]
 dis, 4, 43.460553, 301670
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587153240.054584} {c => Events, d => {evaluations => 1596726}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 293, t => 1587153240.05508}]
 vg, 2, 416.752438, 1596726
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587290124.326427} {c => Events, d => {evaluations => 161343}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 120, t => 1587290124.326937}]
 vp, 6, 17.921983, 161343
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587290754.642581} {c => Events, d => {evaluations => 154584}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 188, t => 1587290754.650645}]
 vp, 10, 12.446936, 154584
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587153846.331211} {c => Events, d => {evaluations => 161356}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 57, t => 1587153846.331713}]
 vg, 4, 22.898372, 161356
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587115264.917483} {c => Events, d => {evaluations => 3080765}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 957, t => 1587115264.923345}]
 dis-v2, 2, 828.953417, 3080765
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587154462.220705} {c => Events, d => {evaluations => 140902}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 71, t => 1587154462.22126} {c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587154462.937313} {c => Events, d => {evaluations => 146317}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 69, t => 1587154462.937634}]
 vg, 6, 14.715492, 146317
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587117483.942724} {c => Events, d => {evaluations => 3939336}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 1229, t => 1587117483.943243}]
 dis-v2, 2, 1113.791572, 3939336
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587154992.005008} {c => Events, d => {evaluations => 145405}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 117, t => 1587154992.005764} {c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587154992.052104} {c => Events, d => {evaluations => 145919}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 131, t => 1587154992.052474} {c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587154992.88872} {c => Events, d => {evaluations => 154708}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 127, t => 1587154992.889047}]
 vg, 10, 12.357111, 154708
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587150976.258925} {c => Events, d => {evaluations => 888068}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 165, t => 1587150976.259448}]
 vg, 2, 256.021767, 888068
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587151984.356495} {c => Events, d => {evaluations => 1919261}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 353, t => 1587151984.357009}]
 vg, 2, 570.677111, 1919261
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587288233.24116} {c => Events, d => {evaluations => 159692}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 38, t => 1587288233.245436}]
 vp, 2, 45.057198, 159692
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587120019.198046} {c => Events, d => {evaluations => 371792}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 193, t => 1587120019.198571}]
 dis-v2, 4, 82.637591, 371792
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587144464.067358} {c => Events, d => {evaluations => 155746}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 129, t => 1587144464.068071} {c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587144465.232762} {c => Events, d => {evaluations => 161481}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 131, t => 1587144465.233096}]
 dis, 8, 14.93749, 161481
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587120382.308065} {c => Events, d => {evaluations => 193406}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 151, t => 1587120382.308746}]
 dis-v2, 6, 26.209328, 193406
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587120665.42812} {c => Events, d => {evaluations => 171273}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 157, t => 1587120665.428775}]
 dis-v2, 8, 18.923211, 171273
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587140257.306326} {c => Events, d => {evaluations => 526025}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 101, t => 1587140257.306848}]
 dis, 2, 144.287548, 526025
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587143677.205125} {c => Events, d => {evaluations => 440547}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 181, t => 1587143677.20565}]
 dis, 4, 92.227872, 440547
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587141378.722481} {c => Events, d => {evaluations => 3079413}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 599, t => 1587141378.723}]
 dis, 2, 834.54715, 3079413
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587120698.505875} {c => Events, d => {evaluations => 124220}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 115, t => 1587120698.506456}]
 dis-v2, 8, 13.432303, 124220
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587151411.278434} {c => Events, d => {evaluations => 325450}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 53, t => 1587151411.278959}]
 vg, 2, 87.530382, 325450
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587290767.216301} {c => Events, d => {evaluations => 139154}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 162, t => 1587290767.217125}]
 vp, 10, 11.278232, 139154
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587150714.316495} {c => Events, d => {evaluations => 1551372}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 285, t => 1587150714.317033}]
 vg, 2, 402.872377, 1551372
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587142492.403901} {c => Events, d => {evaluations => 1461687}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 283, t => 1587142492.404422}]
 dis, 2, 388.54026, 1461687
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587143546.134911} {c => Events, d => {evaluations => 221508}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 85, t => 1587143546.135444}]
 dis, 4, 46.268518, 221508
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587120684.196193} {c => Events, d => {evaluations => 169292}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 149, t => 1587120684.196788}]
 dis-v2, 8, 17.659697, 169292
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587154374.684486} {c => Events, d => {evaluations => 253520}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 131, t => 1587154374.685068} {c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587154375.668486} {c => Events, d => {evaluations => 258934}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 129, t => 1587154375.668831}]
 vg, 6, 34.509646, 258934
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587284437.133838} {c => Events, d => {evaluations => 3684594}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 858, t => 1587284437.134331}]
 vp, 2, 1087.912619, 3684594
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587154757.673846} {c => Events, d => {evaluations => 144590}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 105, t => 1587154757.674354}]
 vg, 8, 16.418577, 144590
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587138886.51} {c => Events, d => {evaluations => 389086}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 75, t => 1587138886.510535}]
 dis, 2, 104.818402, 389086
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587114367.077228} {c => Events, d => {evaluations => 986603}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 303, t => 1587114367.077714}]
 dis-v2, 2, 271.931605, 986603
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587290506.935454} {c => Events, d => {evaluations => 205166}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 188, t => 1587290506.93599}]
 vp, 8, 19.422314, 205166
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587120406.073494} {c => Events, d => {evaluations => 158731}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 115, t => 1587120406.074051}]
 dis-v2, 6, 21.589031, 158731
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587289602.292517} {c => Events, d => {evaluations => 455255}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 210, t => 1587289602.293063}]
 vp, 4, 66.115894, 455255
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587290708.032235} {c => Events, d => {evaluations => 127242}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 142, t => 1587290708.03305} {c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587290708.109432} {c => Events, d => {evaluations => 128673}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 154, t => 1587290708.109772}]
 vp, 10, 10.072306, 128673
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587118655.35363} {c => Events, d => {evaluations => 2045155}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 639, t => 1587118655.354115}]
 dis-v2, 2, 568.032626, 2045155
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587144041.043386} {c => Events, d => {evaluations => 311309}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 201, t => 1587144041.043933}]
 dis, 6, 39.882577, 311309
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587153528.377169} {c => Events, d => {evaluations => 281534}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 103, t => 1587153528.377709}]
 vg, 4, 60.823184, 281534
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587290436.666902} {c => Events, d => {evaluations => 103207}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 98, t => 1587290436.667389}]
 vp, 8, 8.666171, 103207
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587289249.94993} {c => Events, d => {evaluations => 2853300}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 664, t => 1587289249.950434}]
 vp, 2, 829.997696, 2853300
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587154420.774272} {c => Events, d => {evaluations => 319599}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 181, t => 1587154420.774772}]
 vg, 6, 43.38896, 319599
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587154588.556444} {c => Events, d => {evaluations => 180563}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 119, t => 1587154588.557016}]
 vg, 8, 20.16801, 180563
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587290011.040396} {c => Events, d => {evaluations => 124358}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 90, t => 1587290011.040959}]
 vp, 6, 16.017044, 124358
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587117629.353353} {c => Events, d => {evaluations => 517082}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 159, t => 1587117629.353896}]
 dis-v2, 2, 142.331792, 517082
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587290104.208589} {c => Events, d => {evaluations => 151055}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 104, t => 1587290104.209139}]
 vp, 6, 17.204205, 151055
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587290696.635511} {c => Events, d => {evaluations => 123506}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 152, t => 1587290696.636086} {c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587290697.483504} {c => Events, d => {evaluations => 131490}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 154, t => 1587290697.483835}]
 vp, 10, 9.655152, 131490
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587154950.13477} {c => Events, d => {evaluations => 141393}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 115, t => 1587154950.143299}]
 vg, 10, 12.603861, 141393
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587112880.136538} {c => Events, d => {evaluations => 563740}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 175, t => 1587112880.137056}]
 dis-v2, 2, 156.467932, 563740
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587143495.96125} {c => Events, d => {evaluations => 258986}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 107, t => 1587143495.961778}]
 dis, 4, 54.91827, 258986
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587120714.453196} {c => Events, d => {evaluations => 127010}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 129, t => 1587120714.453742}]
 dis-v2, 8, 14.076419, 127010
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587290583.434389} {c => Events, d => {evaluations => 153838}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 174, t => 1587290583.434985}]
 vp, 10, 13.333835, 153838
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587141506.896735} {c => Events, d => {evaluations => 466452}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 87, t => 1587141506.897264}]
 dis, 2, 124.530511, 466452
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587289532.871304} {c => Events, d => {evaluations => 222203}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 100, t => 1587289532.871847}]
 vp, 4, 44.337381, 222203
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587116369.074419} {c => Events, d => {evaluations => 2172126}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 677, t => 1587116369.075168}]
 dis-v2, 2, 648.594781, 2172126
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587288184.403873} {c => Events, d => {evaluations => 2098545}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 492, t => 1587288184.404374}]
 vp, 2, 621.981317, 2098545
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587154882.396308} {c => Events, d => {evaluations => 185619}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 159, t => 1587154882.396947}]
 vg, 10, 15.590029, 185619
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587289809.520247} {c => Events, d => {evaluations => 213607}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 100, t => 1587289809.520799}]
 vp, 4, 32.013567, 213607
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587144218.80878} {c => Events, d => {evaluations => 201294}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 123, t => 1587144218.809319}]
 dis, 6, 28.010639, 201294
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587153939.249924} {c => Events, d => {evaluations => 266487}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 89, t => 1587153939.250435}]
 vg, 4, 36.756411, 266487
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587290249.485762} {c => Events, d => {evaluations => 219855}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 158, t => 1587290249.486287}]
 vp, 6, 22.157881, 219855
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587290551.133427} {c => Events, d => {evaluations => 168052}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 146, t => 1587290551.133978}]
 vp, 8, 14.161696, 168052
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587119615.200598} {c => Events, d => {evaluations => 342875}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 183, t => 1587119615.201125}]
 dis-v2, 4, 63.347391, 342875
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587154677.927622} {c => Events, d => {evaluations => 188453}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 137, t => 1587154677.928196} {c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587154679.474271} {c => Events, d => {evaluations => 198561}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 133, t => 1587154679.474606}]
 vg, 8, 19.595799, 198561
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587113313.698063} {c => Events, d => {evaluations => 1319759}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 411, t => 1587113313.698578}]
 dis-v2, 2, 368.149754, 1319759
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587289376.109924} {c => Events, d => {evaluations => 169721}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 80, t => 1587289376.110451}]
 vp, 4, 24.552088, 169721
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587154443.887881} {c => Events, d => {evaluations => 154289}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 75, t => 1587154443.888424}]
 vg, 6, 20.457546, 154289
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587282691.443839} {c => Events, d => {evaluations => 3161572}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 738, t => 1587282691.444346}]
 vp, 2, 926.53385, 3161572
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587289448.503335} {c => Events, d => {evaluations => 213182}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 104, t => 1587289448.503859}]
 vp, 4, 33.872774, 213182
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587143999.534132} {c => Events, d => {evaluations => 318321}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 203, t => 1587143999.53966}]
 dis, 6, 35.105512, 318321
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587290085.984378} {c => Events, d => {evaluations => 201976}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 140, t => 1587290085.984936}]
 vp, 6, 22.295306, 201976
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587154283.963806} {c => Events, d => {evaluations => 238099}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 143, t => 1587154283.964289}]
 vg, 6, 25.573056, 238099
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587290685.378547} {c => Events, d => {evaluations => 111789}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 138, t => 1587290685.386598} {c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587290686.442356} {c => Events, d => {evaluations => 121065}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 142, t => 1587290686.442688}]
 vp, 10, 9.906497, 121065
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587152818.287404} {c => Events, d => {evaluations => 777844}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 143, t => 1587152818.291579}]
 vg, 2, 207.972804, 777844
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587120644.743132} {c => Events, d => {evaluations => 195207}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 187, t => 1587120644.743731} {c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587120645.895765} {c => Events, d => {evaluations => 204427}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 193, t => 1587120645.896102}]
 dis-v2, 8, 22.054296, 204427
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587154738.377565} {c => Events, d => {evaluations => 200364}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 133, t => 1587154738.378147} {c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587154738.931883} {c => Events, d => {evaluations => 204452}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 131, t => 1587154738.938172}]
 vg, 8, 19.782695, 204452
-[{c => Events, d => {}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 0, t => 1587282999.447367} {c => Events, d => {evaluations => 1049793}, k => 0, m => ConcurrentEA, n => SolutionFound, p => 248, t => 1587282999.447966}]
 vp, 2, 306.581971, 1049793
