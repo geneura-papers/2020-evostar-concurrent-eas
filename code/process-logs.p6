@@ -8,7 +8,8 @@ my $dir = @*ARGS[0] // "logs";
 
 say "Type, Threads, Time, Evaluations";
 for dir($dir, test => /'.' json $/) -> $f {
-    my $type = ~($f ~~ /"lo-"(\S+)"-p"/)[0];
+    my $match-type = $f ~~ /"lo-"(\S+)"-p"/;
+    my $type = $match-type??~$match-type[0]!!"nodis";
     my $threads = ~($f ~~ /t(\d+)/)[0];
     my @lines = $f.IO.lines.map: { from-json $_};
     my @events = @lines.grep: *<n> eq 'Events';
