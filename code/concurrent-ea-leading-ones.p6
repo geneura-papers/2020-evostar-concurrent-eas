@@ -27,7 +27,7 @@ sub MAIN(
     my $max-fitness = $length;
 
     Algorithm::Evolutionary::LogTimelineSchema::Events.log();
-    my $initial-populations = $threads + 1;
+    my $initial-populations = $threads + 2;
     Algorithm::Evolutionary::LogTimelineSchema::Events.log(  :$length,
                     :$population-size,
                     :$initial-populations,
