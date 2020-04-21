@@ -254,3 +254,5 @@ workspace.xml
 .precomp
 
 *.tex
+
+.Rhistory
