@@ -121,6 +121,16 @@ future lines of work that will close the paper.
 
 \section{State of the art}
 
+The intermediate disturbance hypothesis
+\cite{connell1978diversity,grime1973competitive} has not had a long
+run in the area of bioinspired algorithms. As a matter of fact, using
+{\em big} disturbance such as hypermutation has been more popular than
+that. Even so, it has been mentioned with a certain frequency in this
+area.
+
+We introduced explicitly this hypothesis in the evolutionary algorithm
+literature in the above mentioned paper, \cite{jj:2008:PPSN}. 
+
 
 \section{Acknowledgements}
 
