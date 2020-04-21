@@ -48,12 +48,85 @@ operate or disturbing it in some other ways.
 
 \section{Introduction}
 
+The intermediate disturbance hypothesis was introduced by several researchers in
+the seventies \cite{connell1978diversity} to explain the diversity
+found in different ecosystems, and it states \cite{reece2014campbell}
+that
+\begin{quote}
+  ... Moderate levels of disturbance foster greater species diver-
+sity than do low or high levels of disturbance
+\end{quote}
+
+These levels refer to amplitude as well as frequency; a disturbance
+happening too often will wipe out all diversity, if it happens rarely
+the system reaches equilibrium and there will be species that have
+some competitive advantage dominating the ecosystem; in the same way,
+a high level of disturbance like temperatures that change a lot will
+not allow species to thrive except those that can stand them, a
+moderate temperature range across day and night will allow a whole lot
+of adapted species to survive together, in the same way it happens in
+the rainforest.
+
+Diversity is essential in evolutionary algorithms, specially in
+distributed or concurrent evolutionary algorithms, where {\em
+  disturbances} will usually take the form of changes in the
+population, usually selection or insertion policies; as a matter of
+fact, we investigated this kind of hypothesis in \cite{jj:2008:PPSN},
+finding that, effectively, making populations evolve asynchronously so
+that they, by being in a different state of evolution, can result in
+an {\em intermediate} disturbance by interchanging members of the
+population, can result in a boost to the performance of an algorithm,
+offering better results than synchronously evolving populations or
+other setups with a lesser degree of disturbances.
+
+Concurrent evolutionary algorithms are placed at a different level of
+abstraction than distributed algorithms; they can be run in parallel
+or not, distributed over many computers or simply many processors, but
+they use high-level language constructs such as channels, tasks and
+messages that ensure that there are no deadlocks and every task runs
+smoothly until it's finished. Languages such as Raku (formerly known
+as Perl 6) \cite{lenzperl}, include channels as part of the
+fundamental data structures, and using them we can implement
+concurrent evolutionary algorithm following Hoare's Communicating
+Sequential Processes model \cite{Hoare:1978:CSP:359576.359585}.
+
+In these kind of evolutionary algorithms
+\cite{Merelo:2018:MEA:3205651.3208317,DBLP:conf/evoW/GuervosLCVG19,merelo2019scaling,10.1007/978-3-030-00350-0_2}
+there is no {\em migration} {\em per se}, although populations are not
+moved from one {\em island} to another, but {\em merged}, the
+intermediate disturbance principle should apply; we should {\em let
+  nature be our guide} \cite{Zen} and apply it to achieve a certain
+level or performance, scaling or both.
+
+However, there's no way to introduce those intermediate disturbances
+from first principles, and in such a way that it does not really
+change the nature of the algorithm in fundamental ways. For starters,
+in several occasions this intermediate disturbance effect just happens
+in asynchronous evolutionary algorithms
+\cite{DBLP:journals/corr/GuervosG15}, so we would be trying to add
+intermediate disturbances to something that is already intermediately
+disturbed, creating too much disturbance indeed. Second, the only way
+we have to actually find out that it works is by observing its effects
+and discarding other possible causes; in a word, we will be trying to
+heuristically measure the effects of different types of disturbances,
+and pick the one that has the more positive effect in algorithmic,
+performance terms, or both.
+
+The rest of the paper is organized as follows. Next we will present
+the state of the art in the use or observation of the intermediate
+disturbance hypothesis in bioinspired algorithms; next we will
+describe the experimental setup for this papers. Section \ref{sec:res}
+will present the results, followed by a section on discussions and
+future lines of work that will close the paper.
+
+\section{State of the art}
+
 
 \section{Acknowledgements}
 
 We are grateful to Jonathan Worthington and the rest of the Edument team for their disposition to help with implementation problems and provide suggestions to make this work correctly. This is extended to the rest of the Raku development team, which is an excellent and technically knowledgeable community committed to creating a great language. This paper has been supported in part by projects DeepBio (TIN2017-85727-C4-2-P).
 
 \bibliographystyle{splncs04}
-\bibliography{geneura,concurrent}
+\bibliography{geneura,concurrent,GA-general,perl6}
 
 \end{document}
