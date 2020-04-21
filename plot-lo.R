@@ -3,7 +3,7 @@ library(ggthemes)
 library(rstatix)
 library(tidyverse)
 
-data <- read.csv("lo-ppsn-dis-l60-p1024.csv")
+data <- read.csv("leading-ones-ppsn.csv")
 data$Threads <- as.factor(data$Threads)
 data$Evaluation.rate <- data$Evaluations/data$Time
 data$Type <- as.factor(data$Type)
@@ -45,3 +45,4 @@ for (threads in c(2,4,6,8)) {
                                   wilcoxon=this.w.t$p.value,
                                   significant= (this.w.t$p.value < 0.10)))
 }
+
