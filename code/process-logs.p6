@@ -16,7 +16,6 @@ for dir($dir, test => /'.' json $/) -> $f {
     my $start = DateTime.new(@events[1]<t>);
     my @solutions = @lines.grep: *<n> eq 'SolutionFound';
     next if ! @solutions;
-    say @solutions[1];
     my $end = DateTime.new(@solutions[1]<t>);
     say "$type, $threads, ", $end - $start, ", ", @solutions[1]<d><evaluations>;
 }
