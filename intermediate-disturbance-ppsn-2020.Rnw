@@ -1,0 +1,59 @@
+\documentclass[runningheads]{llncs} % -*- mode: LaTeX -*- 
+%
+\usepackage{graphicx}
+% Used for displaying a sample figure. If possible, figure files should
+% be included in EPS format.
+%
+% If you use the hyperref package, please uncomment the following line
+% to display URLs in blue roman font according to Springer's eBook style:
+% \renewcommand\UrlFont{\color{blue}\rmfamily}
+
+\begin{document}
+%
+\title{Testing the intermediate disturbance hypothesis in concurrent evolutionary algorithms.}
+%
+%\titlerunning{Abbreviated paper title}
+% If the paper title is too long for the running head, you can set
+% an abbreviated paper title here
+%
+\author{JJ Merelo\inst{1}\orcidID{0000-1111-2222-3333} \and
+  Mario García Valdez\inst{2}\orcidID{1111-2222-3333-4444}}
+%
+\authorrunning{JJ Merelo et al.}
+\institute{Universidad de Granada, Granada, Spain\\
+  \email{jmerelo@ugr.es}\\
+  \and
+Instituto Tecnológico de Tijuana, Tijuana, Baja California, México\\
+\email{mario@tectijuana.edu.mx}}
+%
+\maketitle              % typeset the header of the contribution
+%
+\begin{abstract}
+Concurrency is a powerful abstraction that can be used to model and
+implement evolutionary algorithms, but it breaks open many degrees of
+freedom, one of which is what the different populations in different
+threads can do and how they interact (via combination of populations)
+with each other. One of them is synchrony: although threads can run
+asynchronously, they often perform the same amount of work, which
+brings them to a (rough) synchrony. Our intention in this paper is to
+test if the intermediate disturbance hypothesis hold: this kind of
+synchrony is a small disturbance, which together with a big
+disturbance will not boost diversity; however, a intermediate
+disturbance hypothesis will. We will test different ways of creating
+this intermediate disturbance by changing how different threads
+operate or disturbing it in some other ways. 
+
+\keywords{Intermediate disturbance hypothesis  \and evolutionary algorithms \and Concurrency \and Distributed algorithms.}
+\end{abstract}
+
+\section{Introduction}
+
+
+\section{Acknowledgements}
+
+We are grateful to Jonathan Worthington and the rest of the Edument team for their disposition to help with implementation problems and provide suggestions to make this work correctly. This is extended to the rest of the Raku development team, which is an excellent and technically knowledgeable community committed to creating a great language. This paper has been supported in part by projects DeepBio (TIN2017-85727-C4-2-P).
+
+\bibliographystyle{splncs04}
+\bibliography{geneura,concurrent}
+
+\end{document}
