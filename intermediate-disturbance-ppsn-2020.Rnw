@@ -75,7 +75,8 @@ moderate temperature range across day and night will allow a whole lot
 of adapted species to survive together, in the same way as it happens in
 the rainforest. This disturbance may also refer to changes in the genetic pool brought by the introduction of new populations. % Add this to refer to new populations
 
-This optimal diversity is something that is sought in evolutionary algorithms, since diversity makes them avoid falling in local optima, especially in multi-deme
+This optimal diversity is something that is sought in evolutionary algorithms, 
+since diversity makes them toavoid falling in local optima, especially in multi-deme
 distributed or concurrent evolutionary algorithms, where {\em
   disturbances} will usually take the form of changes in the
 population, usually selection or insertion policies; as a matter of  
@@ -141,13 +142,13 @@ The intermediate disturbance hypothesis
 run in the area of bioinspired algorithms; using % One "as a matter of fact" is ok. But two? - Mario
 {\em big} disturbances such as hypermutation has been more popular than
 that. This technique was popularized by another bioinspired
-methodology, immune systems, \cite{jansen2011analyzing}, it has been
+methodology, immune systems, \cite{jansen2011analyzing}, which it has been
 used under many different names such as the {\em plague} methodology
 that was proposed for genetic programming
 \cite{fernandez2003effect}. Even as their names suggest a degree of
 perturbation of the system that is beyond moderation, it is very
 likely that their real effect is that of a moderate disturbance. The
-{\em plague}, for instance, just removes some individuals in he
+{\em plague}, for instance, just removes some individuals in the
 population; hypermutation does generate new (faulty) copies of some
 specific individuals, generating a moderate disturbance that explains
 its generation of diversity.
@@ -161,8 +162,8 @@ optimization algorithm. The results of every thread will be a {\em
 this is achieved explicitly by using fuzzy rules to update thread
 method parameter as well as the starting point of the algorithm;
 however, while this strategy avoids low disturbance, it does not
-really guarantee that catastrophic high disturbance happen, making a
-new solution much better than the existing ones {\em invade} the whole
+guarantee that catastrophic high disturbance happens, making a
+new solution much better than the existing ones {\em invades} the whole
 system.
 
 This is why a more explicit approach to the observation or
@@ -179,19 +180,19 @@ al. \cite{he2019particle}, which perturbs the position of particles
 using the value initially proposed by Gao et al.
 
 However, in the context of distributed evolutionary algorithms, it was
-introduced explicitly by us in the above mentioned paper,
-\cite{jj:2008:PPSN}, although we focused more in the algorithmic
+introduced explicitly by us in the above-mentioned paper,
+\cite{jj:2008:PPSN}, although we focused more on the algorithmic
 effects than in the real time-wise performance, since the
-implementation was not actually parallel. In that case we compared
+implementation was not actually parallel. In that case, we compared
 populations operating synchronously with others that operated
 asynchronously by starting at different points in time; this simple
 procedure had the effect of a decrease in the number of evaluations
 needed. A different implementation of the same concept was made in
-that we called a {\em multikulti} algorithm
+what we called a {\em multikulti} algorithm
 \cite{Araujo2010}, which used an explicitly parallel
   population. This created the intermediate disturbance by using
   genotypic differences to select migrants from one island (in an
-  island-bsed GA) to another; in this paper, the moderate perturbation
+  island-based GA) to another; in this paper, the moderate perturbation
   created by this inflow of population was explicitly proved to
   increase diversity, and then performance.
 
@@ -208,7 +209,7 @@ presented in \cite{DBLP:conf/evoW/GuervosLCVG19}. Essentially, it's a
 concurrent evolutionary algorithm written in Raku that uses channels
 for interchange of information among different tasks.
 
-There are two kind of tasks:\begin{itemize}
+There are two kinds of tasks:\begin{itemize}
   
 \item The evolutionary tasks run a classical evolutionary algorithm
   for a number of generations with a fixed population. This is the
@@ -249,20 +250,20 @@ The data flow is as follows.\begin{itemize}
 
 
 The timeline of this concurrent algorithm is shown in Figure
-\ref{fig:comma}; this monitor shows tasks as bars, and specific events
-as triangles. The mixer task can be barely appreciated, since it takes
-a very short time, but you can observe it 's always running in a
-single thread and it starts before the others. Since generation (and
+\ref{fig:comma}; this monitor shows tasks as bars and specific events
+as triangles. The mixer task can be barely appreciated since it takes
+a very short time, but you can observe it's always running in a
+single thread, and it starts before the others. Since generation (and
 mixer) start concurrently with evolution, new threads {\em wake up} as
 new information is available in the channel; they end at different
 points in the timeline, but their state of evolution should be
 approximately the same, since they have been submitted to the same
 number of evaluations and the population is the same. Please observe
 also that there are few gaps (except at the beginning) and that
-concurrency is use quite efficiently throughout all the run.
+concurrency is used quite efficiently throughout all the run.
 
-In the next section we will subject this baseline operation to
-different kind of perturbations, looking for that goldilocks zone
+In the next section, we will subject this baseline operation to
+different kinds of perturbations, looking for that goldilocks zone
 where perturbations are moderate and maximum diversity emerges.
 
 
