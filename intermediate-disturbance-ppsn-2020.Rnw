@@ -324,7 +324,37 @@ that longer stretches of running mean less comunication.
 
 From this baseline, let us introduce a small perturbation: a single
 thread will use nine or 25 generations; the rest of the threads will
-use 16.
+use 16. We will show results in Figure \ref{fig:pre}
+ %
+\begin{figure}[h!tb]
+  \centering
+  
+<<dis, cache=FALSE,echo=FALSE,message=FALSE,warning=FALSE>>=
+data <- data.raw[data.raw$Type == "dis" | data.raw$Type == "dis-v2" | data.raw$Type == "nodis",]
+data$Threads <- as.factor(data$Threads)
+data$Evaluation.rate <- data$Evaluations/data$Time
+data$Type <- as.factor(data$Type)
+ggplot(data,aes(x=Threads,y=Evaluations,color=Type))+geom_tufteboxplot()+theme_tufte()+scale_y_log10()
+@
+\caption{Boxplot of the number of evaluations for 16 (labeled
+  ``nodis'') and a ``disturber'' task that ends after 9 ({\tt dis-v2})
+  or 25 ({\tt dis}) generations.}
+  \label{fig:pre}
+ \end{figure} 
+ %
+ Essentially, this change does not seem to affect the average number
+ of evaluations, and when it does, it is for the worse. The ``late''
+ thread, labeled {\tt dis}, actually needs more evaluations to find
+ the solution, but only for 4 threads. The rest of the results are
+ essentially the same. This would qualify it as a small disturbance:
+ it does not cause a noticeable change; this implies that the
+ introduction of populations with differentiated phases in the
+ evolution, as was done in  \cite{jj:2008:PPSN}, does not have any
+ impact in this environment. It could be due to the fact that we are
+ scaling up to 8 threads, but as a matter of fact it does not make any
+ difference for 2 threads either. Please note that, as previously,
+ there's no improvement from 6 to 8 threads (which is why we have not
+ scaled up to 10 threads in this case).
  
 \section{Acknowledgements}
 
