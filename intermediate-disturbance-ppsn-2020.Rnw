@@ -76,7 +76,7 @@ of adapted species to survive together, in the same way as it happens in
 the rainforest. This disturbance may also refer to changes in the genetic pool brought by the introduction of new populations. % Add this to refer to new populations
 
 This optimal diversity is something that is sought in evolutionary algorithms, 
-since diversity makes them toavoid falling in local optima, especially in multi-deme
+since diversity makes them to avoid falling in local optima, especially in multi-deme
 distributed or concurrent evolutionary algorithms, where {\em
   disturbances} will usually take the form of changes in the
 population, usually selection or insertion policies; as a matter of  
@@ -236,7 +236,7 @@ The data flow is as follows.\begin{itemize}
   probabilities more than the number of (evolutionary) threads; for
   instance, 12 vectors for 10 evolutionary threads.
 \item These sets are sent to the mixer thread, that mixes and sends
-  them to the evoluitonary channel.
+  them to the evolutionary channel.
 \item The evolutionary tasks pick up one probability vector, rebuild
   the population using it, and run an evolutionary algorithm for a
   fixed number of generations or until solution is found. If that's
@@ -275,7 +275,7 @@ solved. Results are probably extensible to other binary benchmark
 problems such as royal road or max ones. In any case, since we are
 evaluating more the concurrent operation than the capacity in solving
 the algorithm itself, the specific problem is probably not as
-important. Population will be 1024, and this will be divided amongh
+important. Population will be 1024, and this will be divided among
 threads in the baseline configuration; for instance, there will be 512
 individuals per thread for the 2-threads configuration.
 
@@ -319,7 +319,7 @@ generations. Parallelism also evens out the differences between
 different parameters: while stopping for transmission at 16
 generations is significantly worse at 2 and 4 threads, the difference
 is not significant beyond that. Differences for 32 and 64 generations
-are never significant. We don't show figures for wallclock time taken,
+are never significant. We don't show figures for wall clock time taken,
 but it is significantly worse; this is simply explained by the fact
 that longer stretches of running mean less communication between tasks.
 
@@ -360,10 +360,10 @@ ggplot(data,aes(x=Threads,y=Evaluations,color=Type))+geom_tufteboxplot()+theme_t
  Let's then try another approach to creating disturbances. We will
  randomly vary the number of generations, generating a new number in a
  range from 8 to 24, or the population, which will be generated from
- the probablity distribution vector to a number that will be between
+ the probability distribution vector to a number that will be between
  half the baseline value (1024 / number of threads) to twice that
  value. A boxplot of the number of evaluations is shown in
- \ref{fig:vp} and the wallclock time is shown in \ref{fig:vp:t}.
+ \ref{fig:vp} and the wall clock time is shown in \ref{fig:vp:t}.
  %
 \begin{figure}[h!tb]
   \centering
@@ -402,7 +402,7 @@ significant difference in the number of evaluations obtained for up to
 didn't measure that) between the baseline and the variable population
 version; however, there is a significant difference in time (at the
 10\% level) for 4 and 8 threads; this can be appreciated also in the
-chart. On the other hand, the difference in the number of evaluatiosn
+chart. On the other hand, the difference in the number of evaluations
 is significant between variable population and variable number of
 generations for 10 threads, with time needed showing a significant
 difference for 8 and 10 threads. Both effects are compounded in the
@@ -439,7 +439,7 @@ only for some parts of the scale-up to 10 threads.
 
 However, using a strategy that generated a population of random size
 in a range that decreased with the number of threads proved to be
-computionally more efficient (finding the result in less evolutions
+computationally more efficient (finding the result in less evolutions
 across a whole range of scales) but also faster (by boosting the
 number of evaluations per second, achieving a result that is overall
 much faster by a order of magnitude; while the median time for the
