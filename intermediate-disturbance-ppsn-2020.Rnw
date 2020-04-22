@@ -63,6 +63,7 @@ sity than do low or high levels of disturbance
 % Those changes had more impact than the chromosome or DNA information 
 % that was passed to siblings - Mario
 % Gabi gave me the link: https://www.youtube.com/watch?v=V-hwPkphk-0
+% Good catch, but I would need a reference for that - JJ
 
 These levels refer to amplitude as well as frequency; a disturbance
 happening too often will wipe out all diversity, if it happens rarely
@@ -72,16 +73,17 @@ a high level of disturbance like temperatures that change a lot will
 not allow species to thrive except those that can stand them, a
 moderate temperature range across day and night will allow a whole lot
 of adapted species to survive together, in the same way as it happens in
-the rainforest.
+the rainforest. This disturbance may also refer to changes in the genetic pool brought by the introduction of new populations. % Add this to refer to new populations
 
-Diversity is essential in evolutionary algorithms, especially in
+This optimal diversity is something that is sought in evolutionary algorithms, since diversity makes them avoid falling in local optima, especially in multi-deme
 distributed or concurrent evolutionary algorithms, where {\em
   disturbances} will usually take the form of changes in the
 population, usually selection or insertion policies; as a matter of  
 % Distributed is not always mult-population, for instance
 % distributed fitness Evaluation. 
 % The focus of the work is clear, so I don't know if there is a
-% need to explain this.  - Mario 
+% need to explain this.  - Mario
+% I just added multi-deme - JJ
 fact, we investigated this kind of hypothesis in \cite{jj:2008:PPSN},
 finding that, effectively, making populations evolve asynchronously so
 that they, by being in a different state of evolution, can result in
@@ -119,10 +121,11 @@ intermediate disturbances to something that is already intermediately
 disturbed, creating too much disturbance indeed. Second, the only way
 we have to actually find out that it works is by observing its effects
 and discarding other possible causes; in a word, we will be trying to
-heuristically measure the effects of different types of disturbances, % can we enumerate a few? - Mario
-and pick the one that has the more positive effect in algorithmic,
+heuristically measure the effects of different types of disturbances on the population, % can we enumerate a few? - Mario
+which can only be made by changing the degree of evolution a population undergoes in every task; we will do that via alterations in the number of generations or in the population. This way, and heuristically, we will pick the one that has the more positive effect in algorithmic,
 performance terms, or both. % What is the relationship between disturbances and diversity? - Mario
 % is diversity justa a type of disturbance? - Mario
+What we expect via these changes in the degree of evolution of different populations is to create a disturbance, possibly of moderate size, when these populations mix. We will observe if this disturbance has the right size by observing its effects on the performance of the algorithm; higher diversity will mean better performance. We will check how this performance boost works when we scale from two to eight or ten simultaneous tasks.
 
 The rest of the paper is organized as follows. Next, we will present
 the state of the art in the use or observation of the intermediate
