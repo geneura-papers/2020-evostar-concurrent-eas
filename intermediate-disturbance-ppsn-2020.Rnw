@@ -321,7 +321,7 @@ generations is significantly worse at 2 and 4 threads, the difference
 is not significant beyond that. Differences for 32 and 64 generations
 are never significant. We don't show figures for wallclock time taken,
 but it is significantly worse; this is simply explained by the fact
-that longer stretches of running mean less comunication.
+that longer stretches of running mean less communication between tasks.
 
 From this baseline, let us introduce a small perturbation: a single
 thread will use nine or 25 generations; the rest of the threads will
