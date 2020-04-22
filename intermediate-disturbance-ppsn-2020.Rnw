@@ -167,8 +167,16 @@ system.
 
 This is why a more explicit approach to the observation or
 implementation of the intermediate disturbance hypothesis might help
-to better apply it to distributed evolutionary algorithms. As such, it has been mentioned with a certain frequency in this
-area. % References? - Mario
+to better apply it to distributed evolutionary algorithms. As such, it
+has been used with a certain frequency by evolutionary algorithms,
+although mainly in the area of particle swarm optimization. Gao et
+al. \cite{gao2013particle} mention a {\em moderate disturbance
+  strategy}, which adds exploration to the PSO algorithm; this {\em
+  moderate} disturbance has the effect of increasing exploration and
+thus diversity, at least in a local scale; that is also the intention
+of the {\em intermediate disturbance} PSO proposed by He et
+al. \cite{he2019particle}, which perturbs the position of particles
+using the value initially proposed by Gao et al.
 
 We introduced explicitly this hypothesis in the evolutionary algorithm
 literature in the above mentioned paper, \cite{jj:2008:PPSN}. 
