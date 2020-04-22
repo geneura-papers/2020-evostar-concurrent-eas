@@ -30,7 +30,7 @@ Instituto Tecnológico de Tijuana, Tijuana, Baja California, México\\
 %
 \begin{abstract}
 Concurrency is a powerful abstraction that can be used to model and
-implement multi-population evolutionary algorithms, but it breaks open many degrees of % or multi-deme? - Mario
+implement multi-deme evolutionary algorithms, but it breaks open many degrees of
 freedom, one of which is what the different populations in different
 threads can do and how they interact (via a combination of populations)
 with each other. One of them is synchrony: although threads can run
@@ -38,10 +38,10 @@ asynchronously, they often perform the same amount of work, which
 brings them to a (rough) synchrony. Our intention in this paper is to
 test if the intermediate disturbance hypothesis holds: this kind of
 synchrony is a small disturbance, which together with a big
-disturbance will not boost diversity; however, an intermediate
-disturbance hypothesis will. We will test different ways of creating % hypothesis? - Mario
+disturbance will not boost diversity; however, moderate
+disturbances will. We will test different ways of creating 
 this intermediate disturbance by changing how different threads
-operate or disturbing it in some other ways.  % or other ways to create it? - Mario I'm in dubt because this has a different meaning.
+operate or altering its working it in some other ways.
 
 \keywords{Intermediate disturbance hypothesis  \and evolutionary algorithms \and Concurrency \and Distributed algorithms.}
 \end{abstract}
