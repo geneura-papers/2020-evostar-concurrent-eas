@@ -203,6 +203,69 @@ describe the setup next.
 
 \section{Experimental setup}
 
+The overall architecture of the algorithm used in this paper was
+presented in \cite{DBLP:conf/evoW/GuervosLCVG19}. Essentially, it's a
+concurrent evolutionary algorithm written in Raku that uses channels
+for interchange of information among different tasks.
+
+There are two kind of tasks:\begin{itemize}
+  
+\item The evolutionary tasks run a classical evolutionary algorithm
+  for a number of generations with a fixed population. This is the
+  task that we will scale. 
+\item The mixer task will be used to interchange information among
+  tasks; it will pick up population probability vectors in pairs from
+  the ``mixer'' channel, create a new probability vector crossing over the
+  probabilities of them. This, together with a random member of the
+  initial pair, will be sent back to the ``evolutionary'' channel.
+\end{itemize}
+
+\begin{figure}[h!tb]
+\includegraphics[width=0.95\columnwidth]{imgs/comma-4-threads.png}
+\caption{Monitor showing the working of the baseline concurrent evolutionary
+  algorithm with 4 threads, as shown by the Comma IDE concurrency monitor.}
+\label{fig:comma}
+%
+\end{figure}
+%
+The data flow is as follows.\begin{itemize}
+\item A set of probability distribution vectors are initially
+  generated. These will be the per-gene probabilities used to generate
+  the initial populations. We will generate 1 or 2 sets of
+  probabilities more than the number of (evolutionary) threads; for
+  instance, 12 vectors for 10 evolutionary threads.
+\item These sets are sent to the mixer thread, that mixes and sends
+  them to the evoluitonary channel.
+\item The evolutionary tasks pick up one probability vector, rebuild
+  the population using it, and run an evolutionary algorithm for a
+  fixed number of generations or until solution is found. If that's
+  not the case, 1/4 of the population with best fitness will be used
+  to generate a probability vector, sent back to the mixer channel.
+\item Each task is event driven, and ``wakes up'' when there's a
+  vector available in the channel; it's implemented as a promise that
+  will be fulfilled when the solution is found in that specific
+  thread. 
+\end{itemize}
+
+
+The timeline of this concurrent algorithm is shown in Figure
+\ref{fig:comma}; this monitor shows tasks as bars, and specific events
+as triangles. The mixer task can be barely appreciated, since it takes
+a very short time, but you can observe it 's always running in a
+single thread and it starts before the others. Since generation (and
+mixer) start concurrently with evolution, new threads {\em wake up} as
+new information is available in the channel; they end at different
+points in the timeline, but their state of evolution should be
+approximately the same, since they have been submitted to the same
+number of evaluations and the population is the same. Please observe
+also that there are few gaps (except at the beginning) and that
+concurrency is use quite efficiently throughout all the run.
+
+In the next section we will subject this baseline operation to
+different kind of perturbations, looking for that goldilocks zone
+where perturbations are moderate and maximum diversity emerges.
+
+
 
 \section{Acknowledgements}
 
