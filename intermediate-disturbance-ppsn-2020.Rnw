@@ -137,10 +137,37 @@ future lines of work that will close the paper.
 \section{State of the art}
 
 The intermediate disturbance hypothesis
-\cite{connell1978diversity,grime1973competitive} has not had a long
-run in the area of bioinspired algorithms. As a matter of fact, using % One "as a matter of fact" is ok. But two? - Mario
-{\em big} disturbance such as hypermutation has been more popular than
-that. Even so, it has been mentioned with a certain frequency in this
+\cite{connell1978diversity,grime1973competitive} has not really had a long
+run in the area of bioinspired algorithms; using % One "as a matter of fact" is ok. But two? - Mario
+{\em big} disturbances such as hypermutation has been more popular than
+that. This technique was popularized by another bioinspired
+methodology, immune systems, \cite{jansen2011analyzing}, it has been
+used under many different names such as the {\em plague} methodology
+that was proposed for genetic programming
+\cite{fernandez2003effect}. Even as their names suggest a degree of
+perturbation of the system that is beyond moderation, it is very
+likely that their real effect is that of a moderate disturbance. The
+{\em plague}, for instance, just removes some individuals in he
+population; hypermutation does generate new (faulty) copies of some
+specific individuals, generating a moderate disturbance that explains
+its generation of diversity.
+
+The same happens in the area of distributed evolutionary algorithms;
+these moderate disturbances are introduced, although not really by
+name. Pelta et al. \cite{pelta2006using} propose a ``cooperative
+multi-thread strategy'', where every thread runs a different
+optimization algorithm. The results of every thread will be a {\em
+  moderate} disturbance to the solutions of the other threads, and
+this is achieved explicitly by using fuzzy rules to update thread
+method parameter as well as the starting point of the algorithm;
+however, while this strategy avoids low disturbance, it does not
+really guarantee that catastrophic high disturbance happen, making a
+new solution much better than the existing ones {\em invade} the whole
+system.
+
+This is why a more explicit approach to the observation or
+implementation of the intermediate disturbance hypothesis might help
+to better apply it to distributed evolutionary algorithms. As such, it has been mentioned with a certain frequency in this
 area. % References? - Mario
 
 We introduced explicitly this hypothesis in the evolutionary algorithm
