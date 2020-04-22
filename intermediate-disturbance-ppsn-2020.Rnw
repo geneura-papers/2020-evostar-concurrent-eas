@@ -352,7 +352,7 @@ ggplot(data,aes(x=Threads,y=Evaluations,color=Type))+geom_tufteboxplot()+theme_t
  introduction of populations with differentiated phases in the
  evolution, as was done in  \cite{jj:2008:PPSN}, does not have any
  impact in this environment. It could be due to the fact that we are
- scaling up to 8 threads, but as a matter of fact it does not make any
+ scaling up to 8 threads, but as a matter of fact, it does not make any
  difference for 2 threads either. Please note that, as previously,
  there's no improvement from 6 to 8 threads (which is why we have not
  scaled up to 10 threads in this case).
@@ -401,10 +401,10 @@ significant difference in the number of evaluations obtained for up to
 8 threads (there might be some improvement for 10 threads, but we
 didn't measure that) between the baseline and the variable population
 version; however, there is a significant difference in time (at the
-10\% level) for 4 and 8 threads; this can be appreciated also in the
+10\% level) for 4 and 8 threads; this can also be appreciated in the
 chart. On the other hand, the difference in the number of evaluations
 is significant between variable population and variable number of
-generations for 10 threads, with time needed showing a significant
+generations for 10 threads, with the time needed showing a significant
 difference for 8 and 10 threads. Both effects are compounded in the
 number of evaluations per second, which is shown in Figure \ref{fig:rate}
 \begin{figure}[h!tb]
@@ -427,9 +427,9 @@ ggplot(data,aes(x=Threads,y=Evaluation.rate,color=Type))+geom_tufteboxplot()+the
 
  \section{Discussion and conclusions}
 
-In this paper we set out to prove how creating a moderate amount of
+In this paper, we set out to prove how creating a moderate amount of
 disturbance in a concurrent and multi-threaded evolutionary algorithm
-contributed to diversity, and indirectly to the results of the
+contributed to the diversity, and indirectly to the results of the
 algorithm across a wide scale; we have made several experiments
 changing the degree of evolution that every individual population
 undergoes, with the intention of creating a disturbance by mixing
@@ -439,31 +439,31 @@ only for some parts of the scale-up to 10 threads.
 
 However, using a strategy that generated a population of random size
 in a range that decreased with the number of threads proved to be
-computationally more efficient (finding the result in less evolutions
+computationally more efficient (finding the result in fewer evolutions
 across a whole range of scales) but also faster (by boosting the
 number of evaluations per second, achieving a result that is overall
-much faster by a order of magnitude; while the median time for the
+much faster by an order of magnitude; while the median time for the
 baseline system and 2 threads was 372.94505s, the variable population
 with 10 threads managed to find the solution in a median time of
 11.27906, 33 times faster (instead of just 5 times faster, which would
-be expected by the scale up of the number of threads). This leads us
+be expected by the scale-up of the number of threads). This leads us
 to conclude that, at least, this strategy is efficient enough to be
 adopted as the new state of the art.
 
-But the interesting question is if it is really a moderate disturbance
+But the interesting question is if it is a moderate disturbance
 or some other factor that achieves the result. Since we are using a
 random value in a range that goes from half the baseline population to
 twice the baseline population, on average, the population will have a
-bigger size; the ratio evaluations to communications is then lower,
+bigger size; the ratio of evaluations to communications is then lower,
 and that might explain the small edge when the number of evaluations
 is not significantly better. However, there are cases when the number
 of evaluations is actually better, mainly at higher concurrency
 values. Arguably, this could constitute a moderate disturbance. As the
 population gets smaller, the range of variation with respect the total
-population gets smaller; while for two threads, for instance, we could
+population also gets smaller; while for two threads, for instance, we could
 have one thread with 300 and the other with 900, and the difference
 between them is going to be 60\% of the total population, for 8
-threads the differences of population between tasks is going to be a
+threads the differences of a population between tasks is going to be a
 moderate size with respect to the total population. This would explain
 the good results happening at the bigger scales, and also the fact
 that there is good scaling for that strategy across all scales, from 2
