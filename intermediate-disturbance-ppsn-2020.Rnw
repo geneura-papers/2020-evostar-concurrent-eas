@@ -260,14 +260,173 @@ points in the timeline, but their state of evolution should be
 approximately the same, since they have been submitted to the same
 number of evaluations and the population is the same. Please observe
 also that there are few gaps (except at the beginning) and that
-concurrency is used quite efficiently throughout all the run.
+concurrency is use quite efficiently throughout all the run. 
+
+We will run every program 15 times with the same parameters, and will
+check from 2 to 10 threads. For parametrizations where performance
+plateaus at 8, we will stop there. All experiments have been performed
+in a 8 CPU, 16 core system running Ubuntu 18.04 and Raku
+2020.02.1. Experiment logs and resulting data are available in GitHub
+under a free license, as well as the scripts used to perform it. The
+version of Algorithm::Evolutionary::Simple used is 0.0.7. The
+benchmark problem used is leading ones with 60 bits; this program is
+difficult enough to require a good-sized population to be
+solved. Results are probably extensible to other binary benchmark
+problems such as royal road or max ones. In any case, since we are
+evaluating more the concurrent operation than the capacity in solving
+the algorithm itself, the specific problem is probably not as
+important. Population will be 1024, and this will be divided amongh
+threads in the baseline configuration; for instance, there will be 512
+individuals per thread for the 2-threads configuration.
 
 In the next section, we will subject this baseline operation to
 different kinds of perturbations, looking for that goldilocks zone
 where perturbations are moderate and maximum diversity emerges.
 
+\section{Results}
+\label{sec:res}
 
+The number of generations was established in the initial papers as one
+that gave the best communications/computation balance. However, that
+might have changed now and in any case we need to establish a baseline
+of non-perturbed values for comparison.
+%
+\begin{figure}[h!tb]
+  \centering
+  
+<<gens, cache=FALSE,echo=FALSE,message=FALSE,warning=FALSE>>=
+library(ggplot2)
+library(ggthemes)
+library(rstatix)
+library(tidyverse)
 
+data.raw <- read.csv("code/leading-ones-ppsn.csv")
+data <- data.raw[data.raw$Type == "gen32-costart-i2" | data.raw$Type == "gen64-costart-i2" | data.raw$Type == "nodis",]
+data$Threads <- as.factor(data$Threads)
+data$Evaluation.rate <- data$Evaluations/data$Time
+data$Type <- as.factor(data$Type)
+ggplot(data,aes(x=Threads,y=Evaluations,color=Type))+geom_tufteboxplot()+theme_tufte()+scale_y_log10()
+@
+\caption{Boxplot of the number of evaluations for 16 (labeled
+  ``nodis''), 32 and 64 generations. }
+  \label{fig:gens}
+ \end{figure} 
+ %
+A boxplot of the number of evaluations vs. threads is shown in Figure
+\ref{fig:gens}. First, we can check that the number of evaluations
+scales down with the number of threads, although it plateaus at 6
+generations. Parallelism also evens out the differences between
+different parameters: while stopping for transmission at 16
+generations is significantly worse at 2 and 4 threads, the difference
+is not significant beyond that. Differences for 32 and 64 generations
+are never significant. We don't show figures for wallclock time taken,
+but it is significantly worse; this is simply explained by the fact
+that longer stretches of running mean less comunication.
+
+From this baseline, let us introduce a small perturbation: a single
+thread will use nine or 25 generations; the rest of the threads will
+use 16. We will show results in Figure \ref{fig:pre}
+ %
+\begin{figure}[h!tb]
+  \centering
+  
+<<dis, cache=FALSE,echo=FALSE,message=FALSE,warning=FALSE>>=
+data <- data.raw[data.raw$Type == "dis" | data.raw$Type == "dis-v2" | data.raw$Type == "nodis",]
+data$Threads <- as.factor(data$Threads)
+data$Evaluation.rate <- data$Evaluations/data$Time
+data$Type <- as.factor(data$Type)
+ggplot(data,aes(x=Threads,y=Evaluations,color=Type))+geom_tufteboxplot()+theme_tufte()+scale_y_log10()
+@
+\caption{Boxplot of the number of evaluations for 16 (labeled
+  ``nodis'') and a ``disturber'' task that ends after 9 ({\tt dis-v2})
+  or 25 ({\tt dis}) generations.}
+  \label{fig:pre}
+ \end{figure} 
+ %
+ Essentially, this change does not seem to affect the average number
+ of evaluations, and when it does, it is for the worse. The ``late''
+ thread, labeled {\tt dis}, actually needs more evaluations to find
+ the solution, but only for 4 threads. The rest of the results are
+ essentially the same. This would qualify it as a small disturbance:
+ it does not cause a noticeable change; this implies that the
+ introduction of populations with differentiated phases in the
+ evolution, as was done in  \cite{jj:2008:PPSN}, does not have any
+ impact in this environment. It could be due to the fact that we are
+ scaling up to 8 threads, but as a matter of fact it does not make any
+ difference for 2 threads either. Please note that, as previously,
+ there's no improvement from 6 to 8 threads (which is why we have not
+ scaled up to 10 threads in this case).
+
+ Let's then try another approach to creating disturbances. We will
+ randomly vary the number of generations, generating a new number in a
+ range from 8 to 24, or the population, which will be generated from
+ the probablity distribution vector to a number that will be between
+ half the baseline value (1024 / number of threads) to twice that
+ value. A boxplot of the number of evaluations is shown in
+ \ref{fig:vp} and the wallclock time is shown in \ref{fig:vp:t}.
+ %
+\begin{figure}[h!tb]
+  \centering
+  
+<<vpvg, cache=FALSE,echo=FALSE,message=FALSE,warning=FALSE>>=
+data <- data.raw[data.raw$Type == "vp" | data.raw$Type == "vg" | data.raw$Type == "nodis",]
+data$Threads <- as.factor(data$Threads)
+data$Evaluation.rate <- data$Evaluations/data$Time
+data$Type <- as.factor(data$Type)
+ggplot(data,aes(x=Threads,y=Evaluations,color=Type))+geom_tufteboxplot()+theme_tufte()+scale_y_log10()
+@
+\caption{Boxplot of the number of evaluations for 16 (labeled
+  ``nodis'') and tasks with a variable population {\tt vp} and
+  variable number of generations {\tt vg}}
+  \label{fig:pre}
+ \end{figure} 
+ % 
+ %
+\begin{figure}[h!tb]
+  \centering
+  
+<<vpvgt, cache=FALSE,echo=FALSE,message=FALSE,warning=FALSE>>=
+ggplot(data,aes(x=Threads,y=Time,color=Type))+geom_tufteboxplot()+theme_tufte()+scale_y_log10()
+@
+\caption{Boxplot of the clocked time for experiments for 16 (labeled
+  ``nodis'') and tasks with a variable population {\tt vp} and
+  variable number of generations {\tt vg}. Please notice that the $y$
+  axis is logarithmic.}
+  \label{fig:pre}
+ \end{figure} 
+ %
+Despite the median being slightly better when we use a variable
+population, the statistical variability of the results show no
+significant difference in the number of evaluations obtained for up to
+8 threads (there might be some improvement for 10 threads, but we
+didn't measure that) between the baseline and the variable population
+version; however, there is a significant difference in time (at the
+10\% level) for 4 and 8 threads; this can be appreciated also in the
+chart. On the other hand, the difference in the number of evaluatiosn
+is significant between variable population and variable number of
+generations for 10 threads, with time needed showing a significant
+difference for 8 and 10 threads. Both effects are compounded in the
+number of evaluations per second, which is shown in Figure \ref{fig:rate}
+\begin{figure}[h!tb]
+  \centering
+  
+<<vpvge, cache=FALSE,echo=FALSE,message=FALSE,warning=FALSE>>=
+ggplot(data,aes(x=Threads,y=Evaluation.rate,color=Type))+geom_tufteboxplot()+theme_tufte()+scale_y_log10()
+@
+\caption{Boxplot of the evaluation rate (evaluations per second) for experiments for 16 (labeled
+  ``nodis'') and tasks with a variable population {\tt vp} and
+  variable number of generations {\tt vg}, with a logarithmic $y$ axis.}
+  \label{fig:pre}
+ \end{figure} 
+ %
+
+ In this case, the difference is significant for 2 to 8 threads; the
+ median number of evaluations per second for variable population tops
+ up at 12254.234, while it's 9408.067 for the baseline without any
+ kind of disturbance.
+
+ \section{Discussion and conclusions}
+ 
 \section{Acknowledgements}
 
 We are grateful to Jonathan Worthington and the rest of the Edument team for their disposition to help with implementation problems and provide suggestions to make this work correctly. This is extended to the rest of the Raku development team, which is an excellent and technically knowledgeable community committed to creating a great language. This paper has been supported in part by projects DeepBio (TIN2017-85727-C4-2-P).
