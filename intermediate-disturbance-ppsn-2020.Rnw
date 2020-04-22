@@ -178,8 +178,30 @@ of the {\em intermediate disturbance} PSO proposed by He et
 al. \cite{he2019particle}, which perturbs the position of particles
 using the value initially proposed by Gao et al.
 
-We introduced explicitly this hypothesis in the evolutionary algorithm
-literature in the above mentioned paper, \cite{jj:2008:PPSN}. 
+However, in the context of distributed evolutionary algorithms, it was
+introduced explicitly by us in the above mentioned paper,
+\cite{jj:2008:PPSN}, although we focused more in the algorithmic
+effects than in the real time-wise performance, since the
+implementation was not actually parallel. In that case we compared
+populations operating synchronously with others that operated
+asynchronously by starting at different points in time; this simple
+procedure had the effect of a decrease in the number of evaluations
+needed. A different implementation of the same concept was made in
+that we called a {\em multikulti} algorithm
+\cite{Araujo2010}, which used an explicitly parallel
+  population. This created the intermediate disturbance by using
+  genotypic differences to select migrants from one island (in an
+  island-bsed GA) to another; in this paper, the moderate perturbation
+  created by this inflow of population was explicitly proved to
+  increase diversity, and then performance.
+
+In this paper we will try to take the state of the art a bit further
+by first, testing the hypothesis in a concurrent environment, trying
+to create different conditions that produce a moderate disturbance,
+and measuring its algorithmic as well as performance effects. We'll
+describe the setup next.
+
+\section{Experimental setup}
 
 
 \section{Acknowledgements}
