@@ -30,18 +30,18 @@ Instituto Tecnológico de Tijuana, Tijuana, Baja California, México\\
 %
 \begin{abstract}
 Concurrency is a powerful abstraction that can be used to model and
-implement evolutionary algorithms, but it breaks open many degrees of
+implement multi-population evolutionary algorithms, but it breaks open many degrees of % or multi-deme? - Mario
 freedom, one of which is what the different populations in different
-threads can do and how they interact (via combination of populations)
+threads can do and how they interact (via a combination of populations)
 with each other. One of them is synchrony: although threads can run
 asynchronously, they often perform the same amount of work, which
 brings them to a (rough) synchrony. Our intention in this paper is to
-test if the intermediate disturbance hypothesis hold: this kind of
+test if the intermediate disturbance hypothesis holds: this kind of
 synchrony is a small disturbance, which together with a big
-disturbance will not boost diversity; however, a intermediate
-disturbance hypothesis will. We will test different ways of creating
+disturbance will not boost diversity; however, an intermediate
+disturbance hypothesis will. We will test different ways of creating % hypothesis? - Mario
 this intermediate disturbance by changing how different threads
-operate or disturbing it in some other ways. 
+operate or disturbing it in some other ways.  % or other ways to create it? - Mario I'm in dubt because this has a different meaning.
 
 \keywords{Intermediate disturbance hypothesis  \and evolutionary algorithms \and Concurrency \and Distributed algorithms.}
 \end{abstract}
@@ -57,20 +57,31 @@ that
 sity than do low or high levels of disturbance
 \end{quote}
 
+% Side Idea: I was watching a video on Evolutionary Biology  where the hypothesis for
+% really different species (diversity) was more tied to a minority of individuals 
+% that broke the mold and move to other terretories for instance.
+% Those changes had more impact than the chromosome or DNA information 
+% that was passed to siblings - Mario
+% Gabi gave me the link: https://www.youtube.com/watch?v=V-hwPkphk-0
+
 These levels refer to amplitude as well as frequency; a disturbance
 happening too often will wipe out all diversity, if it happens rarely
-the system reaches equilibrium and there will be species that have
-some competitive advantage dominating the ecosystem; in the same way,
+the system reaches equilibrium bringing species that have
+some competitive advantage, therefore, dominating the ecosystem; in the same way,
 a high level of disturbance like temperatures that change a lot will
 not allow species to thrive except those that can stand them, a
 moderate temperature range across day and night will allow a whole lot
-of adapted species to survive together, in the same way it happens in
+of adapted species to survive together, in the same way as it happens in
 the rainforest.
 
-Diversity is essential in evolutionary algorithms, specially in
+Diversity is essential in evolutionary algorithms, especially in
 distributed or concurrent evolutionary algorithms, where {\em
   disturbances} will usually take the form of changes in the
-population, usually selection or insertion policies; as a matter of
+population, usually selection or insertion policies; as a matter of  
+% Distributed is not always mult-population, for instance
+% distributed fitness Evaluation. 
+% The focus of the work is clear, so I don't know if there is a
+% need to explain this.  - Mario 
 fact, we investigated this kind of hypothesis in \cite{jj:2008:PPSN},
 finding that, effectively, making populations evolve asynchronously so
 that they, by being in a different state of evolution, can result in
@@ -86,47 +97,48 @@ they use high-level language constructs such as channels, tasks and
 messages that ensure that there are no deadlocks and every task runs
 smoothly until it's finished. Languages such as Raku (formerly known
 as Perl 6) \cite{lenzperl}, include channels as part of the
-fundamental data structures, and using them we can implement
+fundamental data structures, and using them, we can implement
 concurrent evolutionary algorithm following Hoare's Communicating
 Sequential Processes model \cite{Hoare:1978:CSP:359576.359585}.
 
-In these kind of evolutionary algorithms
+In this kind of evolutionary algorithms
 \cite{Merelo:2018:MEA:3205651.3208317,DBLP:conf/evoW/GuervosLCVG19,merelo2019scaling,10.1007/978-3-030-00350-0_2}
 there is no {\em migration} {\em per se}, although populations are not
 moved from one {\em island} to another, but {\em merged}, the
 intermediate disturbance principle should apply; we should {\em let
-  nature be our guide} \cite{Zen} and apply it to achieve a certain
-level or performance, scaling or both.
+  nature be our guide} \cite{Zen} and apply it to achieve a certain 
+level of performance, scaling or both.
 
 However, there's no way to introduce those intermediate disturbances
-from first principles, and in such a way that it does not really
+from first principles, and in such a way that it does not really % what "first principles" are? - Mario
 change the nature of the algorithm in fundamental ways. For starters,
-in several occasions this intermediate disturbance effect just happens
+in several occasions this intermediate disturbance effect just happens % quotes ? 
 in asynchronous evolutionary algorithms
 \cite{DBLP:journals/corr/GuervosG15}, so we would be trying to add
 intermediate disturbances to something that is already intermediately
 disturbed, creating too much disturbance indeed. Second, the only way
 we have to actually find out that it works is by observing its effects
 and discarding other possible causes; in a word, we will be trying to
-heuristically measure the effects of different types of disturbances,
+heuristically measure the effects of different types of disturbances, % can we enumerate a few? - Mario
 and pick the one that has the more positive effect in algorithmic,
-performance terms, or both.
+performance terms, or both. % What is the relationship between disturbances and diversity? - Mario
+% is diversity justa a type of disturbance? - Mario
 
-The rest of the paper is organized as follows. Next we will present
+The rest of the paper is organized as follows. Next, we will present
 the state of the art in the use or observation of the intermediate
 disturbance hypothesis in bioinspired algorithms; next we will
-describe the experimental setup for this papers. Section \ref{sec:res}
-will present the results, followed by a section on discussions and
+describe the experimental setup for this paper. Section \ref{sec:res}
+will present the results, followed by a section with discussions and
 future lines of work that will close the paper.
 
 \section{State of the art}
 
 The intermediate disturbance hypothesis
 \cite{connell1978diversity,grime1973competitive} has not had a long
-run in the area of bioinspired algorithms. As a matter of fact, using
+run in the area of bioinspired algorithms. As a matter of fact, using % One "as a matter of fact" is ok. But two? - Mario
 {\em big} disturbance such as hypermutation has been more popular than
 that. Even so, it has been mentioned with a certain frequency in this
-area.
+area. % References? - Mario
 
 We introduced explicitly this hypothesis in the evolutionary algorithm
 literature in the above mentioned paper, \cite{jj:2008:PPSN}. 
