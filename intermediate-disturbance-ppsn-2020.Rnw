@@ -355,6 +355,76 @@ ggplot(data,aes(x=Threads,y=Evaluations,color=Type))+geom_tufteboxplot()+theme_t
  difference for 2 threads either. Please note that, as previously,
  there's no improvement from 6 to 8 threads (which is why we have not
  scaled up to 10 threads in this case).
+
+ Let's then try another approach to creating disturbances. We will
+ randomly vary the number of generations, generating a new number in a
+ range from 8 to 24, or the population, which will be generated from
+ the probablity distribution vector to a number that will be between
+ half the baseline value (1024 / number of threads) to twice that
+ value. A boxplot of the number of evaluations is shown in
+ \ref{fig:vp} and the wallclock time is shown in \ref{fig:vp:t}.
+ %
+\begin{figure}[h!tb]
+  \centering
+  
+<<vpvg, cache=FALSE,echo=FALSE,message=FALSE,warning=FALSE>>=
+data <- data.raw[data.raw$Type == "vp" | data.raw$Type == "vg" | data.raw$Type == "nodis",]
+data$Threads <- as.factor(data$Threads)
+data$Evaluation.rate <- data$Evaluations/data$Time
+data$Type <- as.factor(data$Type)
+ggplot(data,aes(x=Threads,y=Evaluations,color=Type))+geom_tufteboxplot()+theme_tufte()+scale_y_log10()
+@
+\caption{Boxplot of the number of evaluations for 16 (labeled
+  ``nodis'') and tasks with a variable population {\tt vp} and
+  variable number of generations {\tt vg}}
+  \label{fig:pre}
+ \end{figure} 
+ % 
+ %
+\begin{figure}[h!tb]
+  \centering
+  
+<<vpvgt, cache=FALSE,echo=FALSE,message=FALSE,warning=FALSE>>=
+ggplot(data,aes(x=Threads,y=Time,color=Type))+geom_tufteboxplot()+theme_tufte()+scale_y_log10()
+@
+\caption{Boxplot of the clocked time for experiments for 16 (labeled
+  ``nodis'') and tasks with a variable population {\tt vp} and
+  variable number of generations {\tt vg}. Please notice that the $y$
+  axis is logarithmic.}
+  \label{fig:pre}
+ \end{figure} 
+ %
+Despite the median being slightly better when we use a variable
+population, the statistical variability of the results show no
+significant difference in the number of evaluations obtained for up to
+8 threads (there might be some improvement for 10 threads, but we
+didn't measure that) between the baseline and the variable population
+version; however, there is a significant difference in time (at the
+10\% level) for 4 and 8 threads; this can be appreciated also in the
+chart. On the other hand, the difference in the number of evaluatiosn
+is significant between variable population and variable number of
+generations for 10 threads, with time needed showing a significant
+difference for 8 and 10 threads. Both effects are compounded in the
+number of evaluations per second, which is shown in Figure \ref{fig:rate}
+\begin{figure}[h!tb]
+  \centering
+  
+<<vpvge, cache=FALSE,echo=FALSE,message=FALSE,warning=FALSE>>=
+ggplot(data,aes(x=Threads,y=Evaluation.rate,color=Type))+geom_tufteboxplot()+theme_tufte()+scale_y_log10()
+@
+\caption{Boxplot of the evaluation rate (evaluations per second) for experiments for 16 (labeled
+  ``nodis'') and tasks with a variable population {\tt vp} and
+  variable number of generations {\tt vg}, with a logarithmic $y$ axis.}
+  \label{fig:pre}
+ \end{figure} 
+ %
+
+ In this case, the difference is significant for 2 to 8 threads; the
+ median number of evaluations per second for variable population tops
+ up at 12254.234, while it's 9408.067 for the baseline without any
+ kind of disturbance.
+
+ \section{Discussion and conclusions}
  
 \section{Acknowledgements}
 
