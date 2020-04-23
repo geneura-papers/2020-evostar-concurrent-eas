@@ -3,7 +3,7 @@ library(ggthemes)
 library(rstatix)
 library(tidyverse)
 
-data.raw <- read.csv("leading-ones-ppsn.csv")
+data.raw <- read.csv("code/leading-ones-ppsn.csv")
 data <- data.raw[data.raw$Type == "vp" | data.raw$Type == "vg" | data.raw$Type == "nodis",]
 data$Threads <- as.factor(data$Threads)
 data$Evaluation.rate <- data$Evaluations/data$Time
