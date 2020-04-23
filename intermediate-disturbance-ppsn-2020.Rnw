@@ -53,8 +53,7 @@ the seventies \cite{connell1978diversity} to explain the diversity
 found in different ecosystems, and it states \cite{reece2014campbell}
 that
 \begin{quote}
-  ... Moderate levels of disturbance foster greater species diver-
-sity than do low or high levels of disturbance
+  ... Moderate levels of disturbance foster greater species diversity than do low or high levels of disturbance
 \end{quote}
 
 % Side Idea: I was watching a video on Evolutionary Biology  where the hypothesis for
@@ -280,7 +279,7 @@ threads in the baseline configuration; for instance, there will be 512
 individuals per thread for the 2-threads configuration.
 
 In the next section, we will subject this baseline operation to
-different kinds of perturbations, looking for that goldilocks zone
+different kinds of perturbations, looking for that Goldilocks zone
 where perturbations are moderate and maximum diversity emerges.
 
 \section{Results}
@@ -378,7 +377,7 @@ ggplot(data,aes(x=Threads,y=Evaluations,color=Type))+geom_tufteboxplot()+theme_t
 \caption{Boxplot of the number of evaluations for 16 (labeled
   ``nodis'') and tasks with a variable population {\tt vp} and
   variable number of generations {\tt vg}}
-  \label{fig:pre}
+  \label{fig:vp}
  \end{figure} 
  % 
  %
@@ -392,7 +391,7 @@ ggplot(data,aes(x=Threads,y=Time,color=Type))+geom_tufteboxplot()+theme_tufte()+
   ``nodis'') and tasks with a variable population {\tt vp} and
   variable number of generations {\tt vg}. Please notice that the $y$
   axis is logarithmic.}
-  \label{fig:pre}
+  \label{fig:vp:t}
  \end{figure} 
  %
 Despite the median being slightly better when we use a variable
@@ -416,7 +415,7 @@ ggplot(data,aes(x=Threads,y=Evaluation.rate,color=Type))+geom_tufteboxplot()+the
 \caption{Boxplot of the evaluation rate (evaluations per second) for experiments for 16 (labeled
   ``nodis'') and tasks with a variable population {\tt vp} and
   variable number of generations {\tt vg}, with a logarithmic $y$ axis.}
-  \label{fig:pre}
+  \label{fig:rate}
  \end{figure} 
  %
 
@@ -439,7 +438,7 @@ only for some parts of the scale-up to 10 threads.
 
 However, using a strategy that generated a population of random size
 in a range that decreased with the number of threads proved to be
-computationally more efficient (finding the result in fewer evolutions
+computationally more efficient (finding the result in fewer evaluations
 across a whole range of scales) but also faster (by boosting the
 number of evaluations per second, achieving a result that is overall
 much faster by an order of magnitude; while the median time for the
