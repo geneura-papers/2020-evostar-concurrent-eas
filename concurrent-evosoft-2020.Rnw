@@ -382,7 +382,7 @@ In this case, the improvement consisted in changing the {\tt while} loop to a {\
 %
 \begin{figure*}[h!tb]
   \centering
-  \includegraphics[width=1.9\columnwidth]{imgs/comma}
+  \includegraphics[width=1.9\columnwidth]{imgs/comma-4-threads}
   \caption{Comma monitor for parallel execution after changing to a {\tt for} loop. It shows in the vertical axis the two threads running, as well as the third one, the mixer thread. The arrows represent events, with {\em Weird} indicating when the loop has exited before it should.}
     \label{fig:comma2}
   \end{figure*}
@@ -443,7 +443,6 @@ This first result was promising, so we tried again using more powerful hardware,
 \begin{figure}[h!tb]
 <<laptop4, cache=FALSE,echo=FALSE>>=
 data <- read.csv("code/lo-evosoft-results-l60.csv")
-data$Population <- as.factor(data$Population)
 data$Threads <- as.factor(data$Threads)
 data$Evaluation.rate <- data$Evaluations/data$Time
 ggplot(data,aes(x=Threads,y=Evaluations))+geom_tufteboxplot()+theme_tufte()
