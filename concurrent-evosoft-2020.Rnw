@@ -7,32 +7,14 @@
 \usepackage[underline=false]{pgf-umlsd} % for sequencediagram
 \usepackage{balance}
 
-
-% Copyright
-%\setcopyright{none}
-%\setcopyright{acmcopyright}
-%\setcopyright{acmlicensed}
-\setcopyright{rightsretained}
-%\setcopyright{usgov}
-%\setcopyright{usgovmixed}
-%\setcopyright{cagov}
-%\setcopyright{cagovmixed}
-
-
-% DOI
-\acmDOI{10.1145/nnnnnnn.nnnnnnn}
-
-% ISBN
-\acmISBN{978-x-xxxx-xxxx-x/YY/MM}
-
-% Conference
-\acmConference[GECCO '20]{the Genetic and Evolutionary Computation Conference 2020}{July 8--12, 2020}{Cancun, Mexico}
-\acmYear{2020}
 \copyrightyear{2020}
-
-%\acmArticle{4}
+\acmYear{2020}
+\setcopyright{acmlicensed}\acmConference[GECCO '20 Companion]{Genetic and Evolutionary Computation Conference Companion}{July 8--12, 2020}{Cancún, Mexico}
+\acmBooktitle{Genetic and Evolutionary Computation Conference Companion (GECCO '20 Companion), July 8--12, 2020, Cancún, Mexico}
 \acmPrice{15.00}
-% \usepackage{cite}
+\acmDOI{10.1145/3377929.3398120}
+\acmISBN{978-1-4503-7127-8/20/07}
+
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{algorithmic}
 \usepackage{graphicx}
