@@ -5,7 +5,7 @@
 \usepackage{tikz}
 \usepackage{pgfbaselayers}
 \usepackage[underline=false]{pgf-umlsd} % for sequencediagram
-
+\usepackage{balance}
 
 
 % Copyright
@@ -51,42 +51,31 @@ suppressPackageStartupMessages({
 
 \title{Implementation matters, also in concurrent evolutionary algorithms}
 
-%%% The submitted version for review should be ANONYMOUS
-\author{Ben Trovato}
-\authornote{Dr.~Trovato insisted his name be first.}
-\orcid{1234-5678-9012}
+\author{Juan-Juli\'an Merelo Guerv\'os}
 \affiliation{%
-  \institution{Institute for Clarity in Documentation}
-  \streetaddress{P.O. Box 1212}
-  \city{Dublin}
-  \state{Ohio}
-  \postcode{43017-6221}
-}
-\email{trovato@corporation.com}
+  \institution{University of Granada}
+  \city{Granada}
+  \country{Spain}}
+\email{jmerelo@ugr.es}
 
-\author{G.K.M. Tobin}
-\authornote{The secretary disavows any knowledge of this author's actions.}
+\author{Mario García-Valdez}
 \affiliation{%
-  \institution{Institute for Clarity in Documentation}
-  \streetaddress{P.O. Box 1212}
-  \city{Dublin}
-  \state{Ohio}
-  \postcode{43017-6221}
+  \institution{Instituto Tecnológico de Tijuana}
+  \city{Tijuana, Baja California}
+  \country{Mexico}
 }
-\email{webmaster@marysville-ohio.com}
+\email{mario@tectijuana.edu.mx}
 
-\author{Lars Th{\o}rv{\"a}ld}
-\authornote{This author is the
-  one who did all the really hard work.}
+\author{Sergio Rojas-Galeano}
 \affiliation{%
-  \institution{The Th{\o}rv{\"a}ld Group}
-  \streetaddress{1 Th{\o}rv{\"a}ld Circle}
-  \city{Hekla}
-  \country{Iceland}}
-\email{larst@affiliation.org}
+  \institution{Universidad Distrital}
+  \city{Bogotá}
+  \country{Colombia}
+}
+\email{srojas@udistrital.edu.co}
 
 % The default list of authors is too long for headers.
-\renewcommand{\shortauthors}{B. Trovato et al.}
+\renewcommand{\shortauthors}{J. J. Merelo et al.}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -158,7 +147,7 @@ A third and probably more important reason, however, is the lack of tools to pro
 % Is not clear what the antecedent is in "This makes measurments..."
 % I meant scaling and things like that - JJ
 
-So far, this was the path we had been following \cite{merelo:WEA:anon,Merelo:2018:MEA:3205651.3208317:anon}, with diverse results. Those papers proposed a concurrent evolutionary algorithm in Raku that distributed short-burst evolutionary processes in threads, with an additional mixer thread used for combining populations emanating from the different threads, and a communication system that sent a statistical representation of the population instead of the whole population. In particular, when scaling was apparently not happening, it was difficult to know if it was due to gaps in the use of processors, or to inherent problems with the algorithm itself.
+So far, this was the path we had been following \cite{merelo:WEA,Merelo:2018:MEA:3205651.3208317}, with diverse results. Those papers proposed a concurrent evolutionary algorithm in Raku that distributed short-burst evolutionary processes in threads, with an additional mixer thread used for combining populations emanating from the different threads, and a communication system that sent a statistical representation of the population instead of the whole population. In particular, when scaling was apparently not happening, it was difficult to know if it was due to gaps in the use of processors, or to inherent problems with the algorithm itself.
 
 In this paper, after the release of a process logging and monitoring tool for Raku concurrent programs within the Comma integrated development environment, we examine the correct working of the concurrent evolutionary algorithm; this had not been possible so far, due to the lack of appropriate tools. This will lead to a refactoring of the implementation, if needed, and a re-examination of the scaling capabilities of the system.
 
@@ -201,7 +190,7 @@ used generally as benchmarks.
 % evolutionary algorithm using it.
 
 The baseline we are building upon, is similar to the one used in previous experiments
-\cite{Merelo:2018:MEA:3205651.3208317:anon}. We intended to
+\cite{Merelo:2018:MEA:3205651.3208317}. We intended to
 create a system that was not functionally equivalent to sequential
 evolutionary algorithms, that also follows the principle of
 CSP. We decided to allow the algorithm to implement several threads communicating state through
@@ -209,7 +198,7 @@ channels. Every process itself will be stateless, reacting to messages arriving
 in the channels it is listening to and sending 
 results back to them without changing state.
 
-As in the previous papers \cite{merelo:WEA:anon}, 
+As in the previous papers \cite{merelo:WEA}, 
 we will use two groups of threads and two channels. 
 The two groups of threads perform the following functions:
 \begin{itemize}
@@ -394,13 +383,30 @@ In this case, the improvement consisted in changing the {\tt while} loop to a {\
   were shown in the default window, and now it always takes less time 
   for the EA to find the solution to the Leading Ones problem
 
-  Before, the two threads were initiated at the same time and ended the 16 generation at the same time, which did not really make sense, since there's a small overhead involved in starting them. Now it's clear that the second thread starts a bit after the first, and that they drift away after that. The solution is found by one of them after 9 seconds, and communication to channels, shown by arrows, takes place asynchronously, as well as the (very short) execution of the mixer (barely seen in the lowest stripe). There are no gaps in the evolutionary stripes, so those threads are used to its full extent, all the time.
+  In our prior work, the two threads were initiated at the same time
+  and ended the 16 generation at the same time, which did not really
+  make sense, since there's a small overhead involved in starting
+  them. Now it's clear that the second thread starts a bit after the
+  first, and that they drift away after that. The solution is found by
+  one of them after 9 seconds, and communication to channels, shown by
+  arrows, takes place asynchronously, as well as the (very short)
+  execution of the mixer (barely seen in the lowest stripe). There are
+  no gaps in the evolutionary stripes, so those threads are used to
+  its full extent, all the time. 
 
   This improvement in the execution drove us to try, now, measuring the scaling capabilities once we increase the number of threads. We'll see the results next.
 
   \section{Results}
 
-  We will first apply the new version of the concurrent evolutionary algorithm to the leading ones problem, which previously had not reached a good solution. We will do so in laptop with 4 cores, a Lenovo X1, using Raku v2020.02 on Ubuntu 16.04. Code is available in GitHub under a free license. We tested two different (total) populations, 512 and 256; as indicated in the methodology, population will be divided evenly among the existing processors.
+  We will first apply the new version of the concurrent evolutionary
+  algorithm to the leading ones problem, which previously had not
+  reached a good solution. We will do so in laptop with 4 cores, a
+  Lenovo X1, using Raku v2020.02 on Ubuntu 16.04. Code is available in
+  GitHub under a free license in the same repository as this paper,
+  the data used to generate charts here and code (embedded in the
+  paper) for it:
+  \url{https://github.com/geneura-papers/2020-evostar-concurrent-eas} 
+  We tested two different (total) populations, 512 and 256; as indicated in the methodology, population will be divided evenly among the existing processors.
   
 \begin{figure}[h!tb]
 <<laptop, cache=FALSE,echo=FALSE>>=
@@ -498,8 +504,7 @@ But there are many other possible extensions to this work: the migration algorit
 
 We are grateful to Jonathan Worthington and the rest of the Edument team for their disposition to help with implementation problems and provide suggestions to make this work correctly. This is extended to the rest of the Raku development team, which is an excellent and technically knowledgeable community committed to creating a great language.
 
-Hidden for double-blind review
-% This paper has been supported in part by projects DeepBio (TIN2017-85727-C4-2-P).
+This paper has been supported in part by projects DeepBio (TIN2017-85727-C4-2-P).
 
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{geneura,concurrent}
