@@ -256,3 +256,5 @@ workspace.xml
 *.tex
 
 .Rhistory
+
+*.zip

@@ -17,14 +17,14 @@
 % an abbreviated paper title here
 %
 \author{JJ Merelo\inst{1} \and
-  Mario García Valdez\inst{2}\and
+  Mario Garc\'ia Valdez\inst{2}\and
 Sergio Rojas-Galeano\inst{3}}
 %
 \authorrunning{JJ Merelo et al.}
 \institute{Universidad de Granada, Granada, Spain\\
   \email{jmerelo@ugr.es}\\
   \and
-Instituto Tecnológico de Tijuana, Tijuana, Baja California, México\\
+Instituto Tecnol\'ogico de Tijuana, Tijuana, Baja California, México\\
 \email{mario@tectijuana.edu.mx}
  \and
  Universidad Distrital Francisco Jos\'e de Caldas\\
@@ -231,7 +231,7 @@ There are two kinds of tasks:\begin{itemize}
 %
 The data flow is as follows.\begin{itemize}
 \item A set of probability vectors are initially
-  generated. These will be the genewise Bernoulli probability distributions used to generate
+  generated. These will be the gene-wise Bernoulli probability distributions used to generate
   an initial binary population. We will generate 1 or 2 sets of
   probabilities more than the number of (evolutionary) threads; for
   instance, 12 vectors for 10 evolutionary threads.
