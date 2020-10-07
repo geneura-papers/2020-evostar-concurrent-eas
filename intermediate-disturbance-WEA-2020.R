@@ -1,8 +1,8 @@
 ## ----gens, cache=FALSE,echo=FALSE,message=FALSE,warning=FALSE-----------------
 library(ggplot2)
 library(ggthemes)
-library(rstatix)
-library(tidyverse)
+#library(rstatix)
+#library(tidyverse)
 
 data.raw <- read.csv("code/leading-ones-ppsn.csv")
 data <- data.raw[data.raw$Type == "gen32-costart-i2" | data.raw$Type == "gen64-costart-i2" | data.raw$Type == "nodis",]
